@@ -8,11 +8,11 @@ export const AcademicEndorsementSeal: React.FC<{ compact?: boolean }> = ({ compa
         
         {/* Academic Leadership Details */}
         <div className="flex items-start sm:items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-emerald-600 p-0.5 flex items-center justify-center shrink-0 shadow-sm">
-            <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center">
-              <Award className="w-6 h-6 text-blue-700" />
-            </div>
-          </div>
+          <img
+            src="/brightpath-logo.png"
+            alt="Bright Path Quiz Genie Logo"
+            className="w-12 h-12 rounded-2xl object-contain border border-slate-200/90 shadow-xs bg-white shrink-0 p-1"
+          />
 
           <div>
             <div className="flex items-center gap-2 text-xs font-bold text-blue-700 uppercase tracking-wider">

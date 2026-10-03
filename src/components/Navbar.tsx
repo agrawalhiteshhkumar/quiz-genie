@@ -76,7 +76,11 @@ export const Navbar: React.FC = () => {
             onClick={() => setMode('landing')}
             className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
           >
-            <BrightPathLogoMark size={42} className="group-hover:scale-105 transition-transform duration-200" />
+            <img
+              src="/brightpath-logo.png"
+              alt="Bright Path Quiz Genie Logo"
+              className="h-[40px] w-[40px] object-contain rounded-xl shadow-xs group-hover:scale-105 transition-transform duration-200 border border-slate-200/80 bg-white"
+            />
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-black text-base sm:text-lg tracking-tight text-slate-900 font-sans">

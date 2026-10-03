@@ -64,9 +64,15 @@ export const BrightPathLogoMark: React.FC<{ size?: number; className?: string }>
 };
 
 export const BrandHeader: React.FC<BrandLogoProps> = ({ size = 'md', showText = true }) => {
+  const imgSize = size === 'lg' ? 'h-[46px] w-[46px]' : size === 'sm' ? 'h-[32px] w-[32px]' : 'h-[40px] w-[40px]';
+
   return (
     <div className="flex items-center gap-3 select-none">
-      <BrightPathLogoMark size={size === 'lg' ? 46 : size === 'sm' ? 32 : 40} />
+      <img
+        src="/brightpath-logo.png"
+        alt="Bright Path Quiz Genie Logo"
+        className={`${imgSize} object-contain rounded-xl border border-slate-200 shadow-xs bg-white`}
+      />
       {showText && (
         <div>
           <div className="flex items-center gap-2">
