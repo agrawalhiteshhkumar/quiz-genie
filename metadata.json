@@ -1,0 +1,6 @@
+{
+  "name": "Bright Path D.Pharm Exit Exam Prep",
+  "description": "Bright Path D.Pharm Exit Exam Prep: Learn. Skill. Succeed. Module 13 Competitive Quiz, Exit Exam Practice, Auditorium Projector & Quizmaster Console.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
