@@ -1,185 +1,248 @@
-import React, { useState } from 'react';
-import { DPHARM_QUESTIONS } from '../data/questions';
-import { Subject, OptionKey } from '../types/quiz';
+import React, { useState, useEffect } from 'react';
 import { useLiveQuiz } from '../context/LiveQuizContext';
+import { OptionKey } from '../types/quiz';
 import { AcademicEndorsementSeal } from './AcademicEndorsementSeal';
 import {
+  Zap,
   CheckCircle2,
   XCircle,
+  Award,
+  Flame,
   ArrowRight,
-  RotateCcw,
   BookOpen,
-  User,
-  Hash,
-  Sparkles
+  Info,
+  Clock,
+  Lock,
+  ChevronRight,
+  UserCheck,
+  Bookmark,
+  Loader2,
+  RefreshCw,
+  Home
 } from 'lucide-react';
-import { soundEffects } from '../utils/audio';
 
-export const PracticeView: React.FC = () => {
+export const ParticipantView: React.FC = () => {
   const {
+    session,
+    currentQuestion,
+    participantTeamId,
+    setParticipantTeamId,
+    buzzIn,
+    awardPoints,
+    penalizeTeam,
+    nextQuestion,
+    prevQuestion,
+    setMode,
     studentProfile,
-    openAuthModal
+    openAuthModal,
+    toggleBookmark,
+    isBookmarked
   } = useLiveQuiz();
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<OptionKey | null>(null);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [score, setScore] = useState(0);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [submittedOption, setSubmittedOption] = useState<OptionKey | null>(null);
+  const [buzzerFeedback, setBuzzerFeedback] = useState<string | null>(null);
 
-  const questions = DPHARM_QUESTIONS;
-  const currentQ = questions[currentIndex] || questions[0];
-
-  const handleSelectOption = (optKey: OptionKey) => {
-    if (isAnswered) return;
-    setSelectedOption(optKey);
-    setIsAnswered(true);
-
-    if (optKey === currentQ.correctKey) {
-      setScore((prev) => prev + 1);
-      soundEffects.playCorrect();
-    } else {
-      soundEffects.playWrong();
-    }
+  // Safe team resolution
+  const teamsList = session?.teams || [];
+  const currentTeam = teamsList.find((t) => t.id === participantTeamId) || teamsList[0] || {
+    id: 'default-player',
+    name: studentProfile?.fullName || 'Active Student',
+    college: studentProfile?.college || 'D. P. Kharde Navjeevan College of Pharmacy',
+    points: 0,
+    streak: 0
   };
 
-  const handleNext = () => {
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-      setSelectedOption(null);
-      setIsAnswered(false);
-    } else {
-      setIsCompleted(true);
-    }
-  };
+  const isQuestionBookmarked = currentQuestion ? isBookmarked(currentQuestion.id) : false;
 
-  const handleReset = () => {
-    setCurrentIndex(0);
+  useEffect(() => {
     setSelectedOption(null);
-    setIsAnswered(false);
-    setScore(0);
-    setIsCompleted(false);
+    setSubmittedOption(null);
+    setBuzzerFeedback(null);
+  }, [session?.currentQuestionIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) {
+        return;
+      }
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        handleBuzz();
+        return;
+      }
+
+      if (!submittedOption) {
+        if (e.key === 'a' || e.key === 'A' || e.key === '1') setSelectedOption('A');
+        if (e.key === 'b' || e.key === 'B' || e.key === '2') setSelectedOption('B');
+        if (e.key === 'c' || e.key === 'C' || e.key === '3') setSelectedOption('C');
+        if (e.key === 'd' || e.key === 'D' || e.key === '4') setSelectedOption('D');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [submittedOption, session?.buzzerLocked, session?.buzzedTeamId]);
+
+  const handleBuzz = () => {
+    if (!session || session.buzzerLocked || session.buzzedTeamId) return;
+    const res = buzzIn(currentTeam?.id);
+    if (res?.success) {
+      setBuzzerFeedback(`Buzzed in! Reaction time: ${res.reactionMs}ms`);
+    }
   };
 
-  const isCorrect = selectedOption === currentQ.correctKey;
+  const handleSubmitAnswer = () => {
+    if (!selectedOption || submittedOption || !currentQuestion) return;
+    setSubmittedOption(selectedOption);
 
-  // Completed Test Screen
-  if (isCompleted) {
-    const percent = Math.round((score / questions.length) * 100);
-    const passed = percent >= 50;
+    const isCorrect = selectedOption === currentQuestion.correctKey;
+    if (isCorrect) {
+      awardPoints(currentTeam.id, 1, `Answered Q#${(session?.currentQuestionIndex || 0) + 1} (${currentQuestion.topic})`);
+    } else {
+      penalizeTeam(currentTeam.id, 0);
+    }
+  };
 
+  if (!currentQuestion) {
     return (
-      <div className="w-full max-w-xl mx-auto px-4 py-8">
-        <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 text-center shadow-xs space-y-5">
-          <div className={`w-20 h-20 rounded-2xl mx-auto flex items-center justify-center font-mono font-black text-3xl text-white ${
-            passed ? 'bg-emerald-600' : 'bg-rose-600'
-          }`}>
-            {percent}%
-          </div>
-
-          <div>
-            <h2 className="text-xl font-black text-slate-900">
-              {passed ? 'Exit Exam Passed! 🎉' : 'Needs More Revision'}
-            </h2>
-            <p className="text-xs text-slate-500 mt-1">
-              Candidate: <strong className="text-slate-800">{studentProfile?.fullName || 'Active Student'}</strong>
-            </p>
-            <p className="text-sm font-semibold text-slate-700 mt-2">
-              Score: {score} out of {questions.length} Marks (+1 / 0 Marking)
-            </p>
-          </div>
-
+      <div className="max-w-md mx-auto px-4 py-16 text-center space-y-5">
+        <div className="w-16 h-16 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-center mx-auto text-blue-600 shadow-sm animate-pulse">
+          <Loader2 className="w-8 h-8 animate-spin" />
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-slate-900">Connecting to Arena...</h3>
+          <p className="text-xs text-slate-500 mt-1 max-w-xs mx-auto">
+            Synchronizing question set with Room PIN <span className="font-mono font-bold text-blue-600">{session?.pin || '829140'}</span>.
+          </p>
+        </div>
+        <div className="flex items-center justify-center gap-3 pt-2">
           <button
-            onClick={handleReset}
-            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition-all cursor-pointer"
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer"
           >
-            Restart Practice Drill
+            <RefreshCw className="w-3.5 h-3.5" />
+            <span>Reload</span>
           </button>
-
-          <AcademicEndorsementSeal compact />
+          <button
+            onClick={() => setMode('landing')}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
+          >
+            <Home className="w-3.5 h-3.5" />
+            <span>Return Home</span>
+          </button>
         </div>
       </div>
     );
   }
 
+  const isBuzzedByMe = session?.buzzedTeamId === currentTeam?.id;
+  const isBuzzedByOther = session?.buzzedTeamId && session?.buzzedTeamId !== currentTeam?.id;
+  const buzzedOtherTeam = isBuzzedByOther
+    ? teamsList.find((t) => t.id === session?.buzzedTeamId)
+    : null;
+
+  const isCorrect = submittedOption === currentQuestion.correctKey;
+  const isAnswered = submittedOption !== null;
+
   return (
-    <div className="w-full max-w-2xl mx-auto px-3 py-3 space-y-3 pb-16">
-      {/* Clean Candidate Info Bar */}
-      <div className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 flex items-center justify-between text-xs shadow-2xs">
-        <div className="flex items-center gap-2 truncate">
-          <div className="w-6 h-6 rounded-md bg-blue-50 text-blue-700 flex items-center justify-center font-bold shrink-0">
-            <User className="w-3.5 h-3.5" />
+    <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-6 space-y-4 pb-20 overflow-x-hidden">
+      {/* Top Header Card */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-extrabold text-base shrink-0">
+            {currentTeam?.name ? currentTeam.name.charAt(0).toUpperCase() : 'P'}
           </div>
-          <div className="truncate">
-            <span className="font-bold text-slate-900 truncate">
-              {studentProfile?.fullName || 'Guest Student'}
-            </span>
-            <span className="text-slate-400 mx-1">·</span>
-            <span className="text-slate-500 font-mono text-[11px]">
-              D.Pharm ER-2020
-            </span>
+          <div className="min-w-0 flex-1">
+            <div className="font-extrabold text-sm text-slate-900 truncate">
+              {currentTeam?.name || 'Active Student'}
+            </div>
+            <div className="text-xs text-slate-500 truncate">
+              PIN: {session?.pin || '829140'} · {currentTeam?.college || 'D. P. Kharde Navjeevan College of Pharmacy'}
+            </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="font-mono font-black text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded text-xs">
-            Q {currentIndex + 1}/{questions.length}
-          </span>
-          <span className="font-mono text-xs font-bold text-slate-700">
-            Score: {score}
-          </span>
+        <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+          <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-center min-w-[65px]">
+            <div className="text-[10px] text-slate-500 font-bold uppercase">Score</div>
+            <div className="text-base font-mono font-black text-slate-900">{currentTeam?.points || 0}</div>
+          </div>
+          <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-center min-w-[65px]">
+            <div className="text-[10px] text-slate-500 font-bold uppercase">Streak</div>
+            <div className="text-base font-mono font-black text-orange-600">{currentTeam?.streak || 0}</div>
+          </div>
         </div>
       </div>
 
-      {/* Main Question Card - Strict wrap and padding */}
-      <div className="w-full bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4 overflow-hidden">
-        {/* Subject & Topic Tag */}
-        <div className="flex items-center gap-1.5 text-[11px] font-bold text-blue-700">
-          <span className="bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
-            {currentQ.subject}
+      {/* Buzzer Button */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+        <button
+          onClick={handleBuzz}
+          disabled={session?.buzzerLocked || !!session?.buzzedTeamId}
+          className={`w-full py-3.5 min-h-[48px] rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer ${
+            isBuzzedByMe
+              ? 'bg-amber-500 text-slate-950 ring-4 ring-amber-300'
+              : !session?.buzzerLocked && !session?.buzzedTeamId
+              ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-md'
+              : 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200'
+          }`}
+        >
+          <Zap className="w-4 h-4 fill-current" />
+          <span>{isBuzzedByMe ? 'YOU BUZZED FIRST!' : session?.buzzerLocked ? 'BUZZER LOCKED' : 'TAP TO BUZZ IN'}</span>
+        </button>
+
+        {buzzerFeedback && (
+          <div className="mt-2 text-xs font-mono font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded text-center">
+            {buzzerFeedback}
+          </div>
+        )}
+      </div>
+
+      {/* Main Question Card */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 shadow-xs space-y-4">
+        <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-100">
+          <span className="font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
+            {currentQuestion.subject}
           </span>
-          <span className="text-slate-300">·</span>
-          <span className="text-slate-600 font-medium truncate">
-            {currentQ.topic}
+          <span className="font-mono text-slate-500">
+            Q {(session?.currentQuestionIndex || 0) + 1} of 10
           </span>
         </div>
 
-        {/* Full Question Text (Guaranteed to wrap cleanly) */}
         <h2 className="text-sm sm:text-base font-bold text-slate-900 leading-snug break-words">
-          {currentQ.question}
+          {currentQuestion.question}
         </h2>
 
-        {/* 4 Clickable Options */}
-        <div className="space-y-2 w-full">
-          {currentQ.options.map((opt) => {
+        {/* Options */}
+        <div className="space-y-2">
+          {currentQuestion.options?.map((opt) => {
             const isSelected = selectedOption === opt.key;
-            const isCorrectKey = opt.key === currentQ.correctKey;
+            const isCorrectOption = opt.key === currentQuestion.correctKey;
 
-            let cardStyle = 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50 active:scale-[0.99]';
-            let badgeStyle = 'bg-slate-100 border-slate-300 text-slate-700';
-
+            let cardClasses = 'bg-white border-slate-200 text-slate-800';
             if (isAnswered) {
-              if (isCorrectKey) {
-                cardStyle = 'bg-emerald-50 border-2 border-emerald-500 text-emerald-950 font-semibold';
-                badgeStyle = 'bg-emerald-600 text-white border-emerald-600 font-bold';
-              } else if (isSelected && !isCorrectKey) {
-                cardStyle = 'bg-rose-50 border-2 border-rose-500 text-rose-950';
-                badgeStyle = 'bg-rose-600 text-white border-rose-600 font-bold';
+              if (isCorrectOption) {
+                cardClasses = 'bg-emerald-50 border-emerald-500 text-emerald-950 font-semibold';
+              } else if (isSelected && !isCorrectOption) {
+                cardClasses = 'bg-rose-50 border-rose-500 text-rose-950';
               } else {
-                cardStyle = 'bg-slate-50/60 border-slate-200 text-slate-400 opacity-50';
-                badgeStyle = 'bg-slate-100 text-slate-400 border-slate-200';
+                cardClasses = 'bg-slate-50/50 border-slate-200 text-slate-400 opacity-50';
               }
+            } else if (isSelected) {
+              cardClasses = 'bg-blue-50 border-blue-600 text-blue-950';
             }
 
             return (
               <button
                 key={opt.key}
                 type="button"
-                onClick={() => handleSelectOption(opt.key)}
+                onClick={() => !isAnswered && setSelectedOption(opt.key)}
                 disabled={isAnswered}
-                className={`w-full text-left p-3 rounded-xl border flex items-start gap-2.5 transition-all cursor-pointer ${cardStyle}`}
+                className={`w-full text-left p-3 rounded-xl border flex items-start gap-2.5 transition-all cursor-pointer ${cardClasses}`}
               >
-                <span className={`w-6 h-6 rounded-md flex items-center justify-center text-xs shrink-0 border mt-0.5 ${badgeStyle}`}>
+                <span className="w-6 h-6 rounded-md bg-slate-100 border border-slate-300 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                   {opt.key}
                 </span>
                 <span className="text-xs sm:text-sm leading-relaxed break-words flex-1 pt-0.5">
@@ -190,53 +253,47 @@ export const PracticeView: React.FC = () => {
           })}
         </div>
 
-        {/* Answer Rationale & Next Button (Appears immediately after picking) */}
-        {isAnswered && (
-          <div className="space-y-3 pt-2 animate-in fade-in duration-150">
-            {/* Right / Wrong Result Banner */}
+        {/* Controls */}
+        {!isAnswered ? (
+          <div className="flex items-center justify-between pt-2">
+            <span className="text-xs text-slate-400">Select an option</span>
+            <button
+              onClick={handleSubmitAnswer}
+              disabled={!selectedOption}
+              className={`px-4 py-2 rounded-xl font-bold text-xs cursor-pointer ${
+                selectedOption
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+              }`}
+            >
+              Submit Answer
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-3 pt-2">
             <div className={`p-3 rounded-xl border flex items-center justify-between ${
               isCorrect ? 'bg-emerald-50 border-emerald-400 text-emerald-900' : 'bg-rose-50 border-rose-400 text-rose-900'
             }`}>
-              <div className="flex items-center gap-2">
-                {isCorrect ? (
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                ) : (
-                  <XCircle className="w-5 h-5 text-rose-600 shrink-0" />
-                )}
-                <span className="text-xs sm:text-sm font-bold">
-                  {isCorrect ? 'Correct! (+1 Mark)' : `Incorrect (Correct is ${currentQ.correctKey})`}
-                </span>
-              </div>
-
+              <span className="text-xs font-bold">
+                {isCorrect ? '✓ Correct Answer (+1 Mark)' : `✕ Wrong (Key: ${currentQuestion.correctKey})`}
+              </span>
               <button
-                onClick={handleNext}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-lg flex items-center gap-1.5 transition-all shadow-xs cursor-pointer shrink-0"
+                onClick={nextQuestion}
+                className="px-3 py-1.5 bg-blue-600 text-white text-xs font-bold rounded-lg flex items-center gap-1 cursor-pointer"
               >
-                <span>{currentIndex < questions.length - 1 ? 'Next' : 'Finish'}</span>
+                <span>Next</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            {/* Explanation box */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-700 space-y-1.5">
-              <div className="flex items-center gap-1 font-bold text-blue-700 uppercase text-[10px]">
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>PCI Monograph Rationale</span>
-              </div>
-              <p className="leading-relaxed break-words">
-                {currentQ.explanation}
-              </p>
-              {currentQ.clinicalKeyPoint && (
-                <p className="text-[11px] text-amber-800 font-medium pt-1 border-t border-slate-200">
-                  <strong>Key Point:</strong> {currentQ.clinicalKeyPoint}
-                </p>
-              )}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-700 space-y-1">
+              <div className="font-bold text-blue-700 uppercase text-[10px]">Rationale</div>
+              <p className="leading-relaxed break-words">{currentQuestion.explanation}</p>
             </div>
           </div>
         )}
       </div>
 
-      {/* Official Academic Seal */}
       <div className="pt-2">
         <AcademicEndorsementSeal compact />
       </div>
