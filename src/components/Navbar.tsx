@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLiveQuiz } from '../context/LiveQuizContext';
 import { AppMode } from '../types/quiz';
-import { BrightPathLogoMark } from './BrandLogo';
 import {
   Tv,
   Gamepad2,
@@ -34,71 +33,69 @@ export const Navbar: React.FC = () => {
   const [copiedPin, setCopiedPin] = React.useState(false);
 
   const handleCopyPin = () => {
-    navigator.clipboard?.writeText(session.pin);
-    setCopiedPin(true);
-    setTimeout(() => setCopiedPin(false), 2000);
+    if (session?.pin) {
+      navigator.clipboard?.writeText(session.pin);
+      setCopiedPin(true);
+      setTimeout(() => setCopiedPin(false), 2000);
+    }
   };
 
   const navItems: { mode: AppMode; label: string; icon: React.ReactNode }[] = [
-    { mode: 'landing', label: 'Overview', icon: <Sparkles className="w-4 h-4" /> },
-    { mode: 'participant', label: 'Participant Player', icon: <Gamepad2 className="w-4 h-4" /> },
-    { mode: 'projector', label: 'Auditorium View', icon: <Tv className="w-4 h-4" /> },
-    { mode: 'quizmaster', label: 'Quizmaster Console', icon: <SlidersHorizontal className="w-4 h-4" /> },
-    { mode: 'practice', label: 'Practice Drill', icon: <BookOpenCheck className="w-4 h-4" /> },
+    { mode: 'landing', label: 'Overview', icon: <Sparkles className="w-3.5 h-3.5" /> },
+    { mode: 'practice', label: 'Practice Drill', icon: <BookOpenCheck className="w-3.5 h-3.5" /> },
+    { mode: 'participant', label: 'Student Arena', icon: <Gamepad2 className="w-3.5 h-3.5" /> },
+    { mode: 'projector', label: 'Auditorium View', icon: <Tv className="w-3.5 h-3.5" /> },
+    { mode: 'quizmaster', label: 'Quizmaster', icon: <SlidersHorizontal className="w-3.5 h-3.5" /> },
   ];
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
-      {/* Institutional Governance Announcement Header Strip */}
-      <div className="bg-slate-900 text-slate-100 text-[11px] py-1 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1 sm:gap-4 font-sans">
-          <div className="flex items-center gap-2 font-bold tracking-wide">
-            <Building2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-            <span className="text-white">D. P. Kharde Navjeevan College of Pharmacy</span>
-            <span className="text-slate-500 hidden md:inline">·</span>
-            <span className="text-slate-400 hidden md:inline font-normal">Department of Pharmaceutical Sciences</span>
+      {/* Top Institutional Bar */}
+      <div className="bg-slate-900 text-slate-100 text-[10px] sm:text-[11px] py-1 px-3 sm:px-6 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-1">
+          <div className="flex items-center gap-1.5 font-bold tracking-wide truncate max-w-[240px] sm:max-w-none">
+            <Building2 className="w-3 h-3 text-blue-400 shrink-0" />
+            <span className="text-white truncate">D. P. Kharde Navjeevan College of Pharmacy</span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-700/60 px-2 py-0.2 rounded-sm text-[10px]">
-              <ShieldCheck className="w-3 h-3 text-emerald-400" />
-              <span>PCI ER-2020 Exit Exam Standard</span>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="inline-flex items-center gap-1 font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-700/60 px-1.5 py-0.5 rounded text-[9px] sm:text-[10px]">
+              <ShieldCheck className="w-2.5 h-2.5 text-emerald-400" />
+              <span>PCI ER-2020 Standard</span>
             </span>
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-17">
-          {/* Custom SVG Brand Identity & Taglines */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-2 sm:py-3 gap-2">
+          {/* Logo & Brand Identity */}
           <div
             onClick={() => setMode('landing')}
-            className="flex items-center gap-3 cursor-pointer group select-none shrink-0"
+            className="flex items-center gap-2.5 cursor-pointer group select-none min-w-0"
           >
             <img
               src="/brightpath-logo.png"
-              alt="Bright Path Quiz Genie Logo"
-              className="h-[40px] w-[40px] object-contain rounded-xl shadow-xs group-hover:scale-105 transition-transform duration-200 border border-slate-200/80 bg-white"
+              alt="Bright Path Logo"
+              className="h-9 w-9 sm:h-10 sm:w-10 object-contain rounded-xl shadow-xs border border-slate-200/80 bg-white shrink-0 group-hover:scale-105 transition-transform"
             />
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-black text-base sm:text-lg tracking-tight text-slate-900 font-sans">
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="font-black text-sm sm:text-base md:text-lg tracking-tight text-slate-900 font-sans truncate">
                   Bright Path Quiz Genie
                 </span>
-                <span className="text-[10px] font-bold tracking-wider uppercase text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">
-                  Exit Exam Prep
+                <span className="text-[9px] font-bold uppercase text-blue-700 bg-blue-50 border border-blue-200 px-1 py-0.5 rounded shrink-0">
+                  Exit Exam
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
-                <span className="font-bold text-slate-700">Learn. Skill. Succeed.</span>
-                <span className="text-slate-300">·</span>
-                <span className="text-emerald-700 font-semibold text-[11px]">Part of Faculty AI Genie &amp; Office AI Ecosystem</span>
+              <div className="text-[10px] sm:text-xs text-slate-500 truncate flex items-center gap-1.5">
+                <span className="font-semibold text-slate-700">Learn. Skill. Succeed.</span>
               </div>
             </div>
           </div>
 
-          {/* Mode Switcher Segmented Control */}
+          {/* Desktop Mode Navigation */}
           <nav className="hidden xl:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
             {navItems.map((item) => {
               const isActive = currentMode === item.mode;
@@ -119,67 +116,64 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right utilities: Verified Student Profile OR Sign In / Register, PIN, Audio, Actions */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Student Auth status or Sign in button */}
+          {/* Action Utilities (Right) */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* Student Auth status or Quick Sign-in */}
             {studentProfile ? (
-              <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 pl-2.5 pr-2 py-1 rounded-xl shadow-xs">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <div className="text-left max-w-[140px] sm:max-w-[220px] truncate">
-                  <div className="text-[11px] font-bold text-slate-900 truncate">
+              <div className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 pl-2 pr-1.5 py-1 rounded-xl shadow-xs max-w-[130px] sm:max-w-[190px]">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <div className="text-left truncate">
+                  <div className="text-[10px] font-bold text-slate-900 truncate">
                     {studentProfile.fullName}
-                  </div>
-                  <div className="text-[10px] text-emerald-800 font-medium truncate">
-                    {studentProfile.college}
                   </div>
                 </div>
 
                 <button
                   onClick={logoutStudent}
                   title="Logout / Switch Account"
-                  className="p-1 text-slate-400 hover:text-rose-600 hover:bg-emerald-100/60 rounded transition-colors cursor-pointer ml-1"
+                  className="p-1 text-slate-400 hover:text-rose-600 hover:bg-emerald-100 rounded transition-colors cursor-pointer"
                 >
-                  <LogOut className="w-3.5 h-3.5" />
+                  <LogOut className="w-3 h-3" />
                 </button>
               </div>
             ) : (
               <button
                 onClick={openAuthModal}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm shadow-blue-600/25 transition-all hover:scale-[1.02] cursor-pointer"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
               >
-                <UserPlus className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Student Sign In / Register</span>
-                <span className="sm:hidden">Sign In</span>
+                <UserPlus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="hidden sm:inline">Student Entry</span>
+                <span className="sm:hidden text-[11px]">Login</span>
               </button>
             )}
 
-            {/* Live PIN badge */}
+            {/* Room PIN pill */}
             <button
               onClick={handleCopyPin}
               title="Click to copy auditorium PIN"
-              className="flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-400 px-2.5 py-1.5 rounded-lg text-xs transition-colors group cursor-pointer shadow-xs"
+              className="flex items-center gap-1 bg-slate-50 border border-slate-200 hover:border-blue-400 px-2 py-1.5 rounded-lg text-xs transition-colors cursor-pointer shadow-2xs"
             >
-              <span className="text-slate-500 font-mono text-[11px] font-semibold">PIN:</span>
-              <span className="font-mono font-bold text-blue-700 tracking-wider">
-                {session.pin}
+              <span className="text-slate-400 font-mono text-[10px] font-semibold hidden xs:inline">PIN:</span>
+              <span className="font-mono font-bold text-blue-700 text-[11px]">
+                {session?.pin || '829140'}
               </span>
-              <Share2 className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600" />
+              <Share2 className="w-3 h-3 text-slate-400" />
               {copiedPin && (
-                <span className="text-[10px] text-emerald-600 font-bold">Copied!</span>
+                <span className="text-[9px] text-emerald-600 font-bold">Copied</span>
               )}
             </button>
 
             {/* Audio Toggle */}
             <button
               onClick={toggleAudio}
-              title={audioEnabled ? 'Mute Sound Effects' : 'Enable Sound Effects'}
-              className={`p-2 rounded-lg border transition-colors cursor-pointer shadow-xs ${
+              title={audioEnabled ? 'Mute Audio' : 'Enable Audio'}
+              className={`p-1.5 rounded-lg border transition-colors cursor-pointer shadow-2xs ${
                 audioEnabled
                   ? 'bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100'
                   : 'bg-white border-slate-200 text-slate-400 hover:text-slate-600'
               }`}
             >
-              {audioEnabled ? <Volume2 className="w-4 h-4 text-blue-700" /> : <VolumeX className="w-4 h-4" />}
+              {audioEnabled ? <Volume2 className="w-3.5 h-3.5 text-blue-700" /> : <VolumeX className="w-3.5 h-3.5" />}
             </button>
 
             {/* Reset Session */}
@@ -190,24 +184,24 @@ export const Navbar: React.FC = () => {
                 }
               }}
               title="Reset tournament data"
-              className="p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-rose-600 hover:border-rose-300 hover:bg-rose-50 transition-colors cursor-pointer shadow-xs"
+              className="p-1.5 rounded-lg border border-slate-200 bg-white text-slate-400 hover:text-rose-600 hover:border-rose-300 hover:bg-rose-50 transition-colors cursor-pointer shadow-2xs"
             >
-              <RotateCcw className="w-4 h-4" />
+              <RotateCcw className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
-        {/* Mobile & Tablet Navigation bar */}
-        <div className="flex xl:hidden overflow-x-auto py-2 gap-1 border-t border-slate-200 no-scrollbar">
+        {/* Mobile Horizontal Scrollable Segment Controls */}
+        <div className="flex xl:hidden overflow-x-auto py-1.5 gap-1 border-t border-slate-200 no-scrollbar touch-pan-x">
           {navItems.map((item) => {
             const isActive = currentMode === item.mode;
             return (
               <button
                 key={item.mode}
                 onClick={() => setMode(item.mode)}
-                className={`whitespace-nowrap flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-md transition-all shrink-0 cursor-pointer ${
+                className={`whitespace-nowrap flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold rounded-lg transition-all shrink-0 cursor-pointer ${
                   isActive
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-blue-600 text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 bg-slate-100'
                 }`}
               >
