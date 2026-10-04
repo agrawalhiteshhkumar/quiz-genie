@@ -8,10 +8,11 @@ import {
   ShieldCheck,
   ArrowRight,
   RotateCcw,
-  Sparkles,
+  Zap,
   KeyRound,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Hash
 } from 'lucide-react';
 import { soundEffects } from '../utils/audio';
 
@@ -23,8 +24,12 @@ export const StudentAuthModal: React.FC = () => {
     setMode,
   } = useLiveQuiz();
 
+  const [activeTab, setActiveTab] = useState<'guest' | 'verified'>('guest');
   const [step, setStep] = useState<1 | 2>(1);
+  
+  // Student Details
   const [fullName, setFullName] = useState('');
+  const [rollNumber, setRollNumber] = useState('');
   const [college, setCollege] = useState('D. P. Kharde Navjeevan College of Pharmacy');
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -32,29 +37,40 @@ export const StudentAuthModal: React.FC = () => {
   // OTP state
   const [otpDigits, setOtpDigits] = useState<string[]>(['', '', '', '', '', '']);
   const [otpError, setOtpError] = useState('');
-  const [generatedMockOtp, setGeneratedMockOtp] = useState<string>('749215');
+  const [generatedMockOtp, setGeneratedMockOtp] = useState<string>('123456');
   const [resendSeconds, setResendSeconds] = useState(60);
   const [isVerifying, setIsVerifying] = useState(false);
 
   const digitInputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  // Generate random 6-digit OTP when entering step 2
+  // Frictionless One-Click Guest Start
+  const handleQuickStart = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fullName.trim()) return;
+
+    loginStudent({
+      fullName: fullName.trim() + (rollNumber ? ` (${rollNumber.trim()})` : ''),
+      college: college.trim(),
+      email: email.trim() || 'guest@brightpath.org.in'
+    });
+    soundEffects.playBuzzer();
+    closeAuthModal();
+    setMode('practice');
+  };
+
+  // Verified Email OTP Flow
   const handleSendCode = (e: React.FormEvent) => {
     e.preventDefault();
     setEmailError('');
 
-    // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
-      setEmailError('Please enter a valid academic or personal email address.');
+      setEmailError('Please enter a valid email address.');
       return;
     }
 
-    if (!fullName.trim() || !college.trim()) {
-      return;
-    }
+    if (!fullName.trim()) return;
 
-    // Generate fresh 6-digit code
     const mockCode = Math.floor(100000 + Math.random() * 900000).toString();
     setGeneratedMockOtp(mockCode);
     setOtpDigits(['', '', '', '', '', '']);
@@ -64,7 +80,6 @@ export const StudentAuthModal: React.FC = () => {
     soundEffects.playBuzzer();
   };
 
-  // Timer countdown for OTP resend
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (step === 2 && resendSeconds > 0) {
@@ -75,7 +90,6 @@ export const StudentAuthModal: React.FC = () => {
     return () => clearInterval(interval);
   }, [step, resendSeconds]);
 
-  // Auto-focus first OTP input on step 2
   useEffect(() => {
     if (step === 2) {
       setTimeout(() => {
@@ -84,7 +98,6 @@ export const StudentAuthModal: React.FC = () => {
     }
   }, [step]);
 
-  // Handle escape key to close modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isAuthModalOpen) {
@@ -105,7 +118,6 @@ export const StudentAuthModal: React.FC = () => {
     nextDigits[index] = char;
     setOtpDigits(nextDigits);
 
-    // Auto-advance focus
     if (char && index < 5) {
       digitInputRefs.current[index + 1]?.focus();
     }
@@ -132,13 +144,12 @@ export const StudentAuthModal: React.FC = () => {
     const enteredCode = otpDigits.join('');
 
     if (enteredCode.length < 6) {
-      setOtpError('Please enter all 6 digits of your verification code.');
+      setOtpError('Please enter all 6 digits.');
       return;
     }
 
-    // In prototype mode, accept either generatedMockOtp or "123456" for convenience
     if (enteredCode !== generatedMockOtp && enteredCode !== '123456') {
-      setOtpError(`Invalid code. Expected ${generatedMockOtp} (or test code 123456).`);
+      setOtpError(`Invalid code. Enter: ${generatedMockOtp}`);
       soundEffects.playWrong();
       return;
     }
@@ -151,17 +162,9 @@ export const StudentAuthModal: React.FC = () => {
         email: email.trim()
       });
       setIsVerifying(false);
-      setMode('participant');
+      closeAuthModal();
+      setMode('practice');
     }, 400);
-  };
-
-  const handleResendCode = () => {
-    const mockCode = Math.floor(100000 + Math.random() * 900000).toString();
-    setGeneratedMockOtp(mockCode);
-    setOtpDigits(['', '', '', '', '', '']);
-    setOtpError('');
-    setResendSeconds(60);
-    soundEffects.playTick();
   };
 
   const handleAutoFillMockCode = () => {
@@ -171,217 +174,244 @@ export const StudentAuthModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
-      {/* Modal Surface */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200">
       <div
-        className="w-full max-w-md bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl relative"
+        className="w-full max-w-md bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 shadow-2xl relative max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={closeAuthModal}
-          className="absolute right-5 top-5 p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+          className="absolute right-4 top-4 p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700 shrink-0">
-            {step === 1 ? (
-              <GraduationCap className="w-6 h-6 text-blue-700" />
-            ) : (
-              <ShieldCheck className="w-6 h-6 text-emerald-600" />
-            )}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700 shrink-0">
+            <GraduationCap className="w-6 h-6 text-blue-700" />
           </div>
           <div>
-            <h2 className="text-xl font-extrabold text-slate-900">
-              {step === 1 ? 'Student Registration' : 'Email OTP Verification'}
+            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900">
+              Student Entrance
             </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
-              {step === 1
-                ? 'Sign in to record your PCI Exit Exam mock scores.'
-                : 'Confirm your institutional pharmacy profile.'}
+            <p className="text-xs text-slate-500">
+              Bright Path D.Pharm Exit Exam Portal
             </p>
           </div>
         </div>
 
-        {/* STEP 1: Student Information Form */}
-        {step === 1 && (
-          <form onSubmit={handleSendCode} className="space-y-4">
+        {/* Mode Selector Tabs */}
+        <div className="flex items-center p-1 bg-slate-100 rounded-xl mb-4 text-xs font-bold">
+          <button
+            type="button"
+            onClick={() => { setActiveTab('guest'); setStep(1); }}
+            className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+              activeTab === 'guest'
+                ? 'bg-white text-blue-700 shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5 text-amber-500" />
+            <span>Quick Start (No OTP)</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('verified')}
+            className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+              activeTab === 'verified'
+                ? 'bg-white text-blue-700 shadow-xs'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Verified (Email)</span>
+          </button>
+        </div>
+
+        {/* TAB 1: Frictionless Quick Start */}
+        {activeTab === 'guest' && (
+          <form onSubmit={handleQuickStart} className="space-y-3.5">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                Full Name (As on PCI Registration / College ID)
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Student Name *
               </label>
               <div className="relative">
                 <input
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="e.g. Rahul Sharma"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all"
+                  placeholder="e.g. Amit Patil"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
                   required
                 />
-                <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <User className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                Pharmacy College / Institution Name
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Roll No. / Enrollment ID (Optional)
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={rollNumber}
+                  onChange={(e) => setRollNumber(e.target.value)}
+                  placeholder="e.g. 24DP012"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                />
+                <Hash className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                College Name
               </label>
               <div className="relative">
                 <input
                   type="text"
                   value={college}
                   onChange={(e) => setCollege(e.target.value)}
-                  placeholder="e.g. Government College of Pharmacy, Bengaluru"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
                   required
                 />
-                <GraduationCap className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <GraduationCap className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
               </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                Student Email Address
-              </label>
-              <div className="relative">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    setEmailError('');
-                  }}
-                  placeholder="e.g. rahul.sharma@pharmacy.edu.in"
-                  className={`w-full bg-slate-50 border rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-all ${
-                    emailError
-                      ? 'border-rose-400 focus:ring-2 focus:ring-rose-100'
-                      : 'border-slate-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-100'
-                  }`}
-                  required
-                />
-                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              </div>
-              {emailError && (
-                <p className="text-xs text-rose-600 font-medium mt-1.5 flex items-center gap-1">
-                  <AlertCircle className="w-3.5 h-3.5" />
-                  <span>{emailError}</span>
-                </p>
-              )}
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-600/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-md shadow-blue-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
               >
-                <span>Send 6-Digit Verification Code</span>
+                <Zap className="w-4 h-4 fill-white" />
+                <span>Start Practice Drill Now</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-
-            <div className="text-[11px] text-slate-500 text-center pt-2">
-              By proceeding, your profile is registered for Module 13 live exit exam quizzes and performance analytics.
-            </div>
+            <p className="text-[11px] text-center text-slate-400">
+              One-click entry • Instant access to PCI ER-2020 question sets
+            </p>
           </form>
         )}
 
-        {/* STEP 2: OTP Verification Screen */}
-        {step === 2 && (
-          <form onSubmit={handleVerifyOtp} className="space-y-5">
-            <div className="text-xs text-slate-600 leading-relaxed">
-              Enter the 6-digit verification code sent to{' '}
-              <strong className="text-slate-900 font-semibold">{email}</strong>.
-            </div>
+        {/* TAB 2: Verified Email Flow */}
+        {activeTab === 'verified' && (
+          <>
+            {step === 1 ? (
+              <form onSubmit={handleSendCode} className="space-y-3.5">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    Student Full Name *
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="e.g. Amit Patil"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white transition-all"
+                      required
+                    />
+                    <User className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  </div>
+                </div>
 
-            {/* Prototype Mock OTP Helper Badge */}
-            <div className="p-3 rounded-xl bg-blue-50/80 border border-blue-200 flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <KeyRound className="w-4 h-4 text-blue-700" />
-                <span className="text-slate-700">
-                  Mock OTP Code: <strong className="font-mono text-sm font-black text-blue-800 tracking-wider">{generatedMockOtp}</strong>
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={handleAutoFillMockCode}
-                className="text-[11px] font-bold text-blue-700 hover:text-blue-800 bg-white border border-blue-200 px-2 py-0.5 rounded shadow-2xs hover:bg-blue-50 transition-colors cursor-pointer"
-              >
-                Auto-Fill
-              </button>
-            </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    Email Address *
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
+                      placeholder="e.g. amit@gmail.com"
+                      className={`w-full bg-slate-50 border rounded-xl pl-9 pr-3 py-2 text-sm text-slate-900 focus:outline-none transition-all ${
+                        emailError ? 'border-rose-400' : 'border-slate-300 focus:border-blue-600'
+                      }`}
+                      required
+                    />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  </div>
+                  {emailError && (
+                    <p className="text-xs text-rose-600 mt-1 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      <span>{emailError}</span>
+                    </p>
+                  )}
+                </div>
 
-            {/* 6 Individual Digit Inputs */}
-            <div>
-              <div className="flex items-center justify-between gap-2 sm:gap-2.5">
-                {otpDigits.map((digit, index) => (
-                  <input
-                    key={index}
-                    ref={(el) => {
-                      digitInputRefs.current[index] = el;
-                    }}
-                    type="text"
-                    inputMode="numeric"
-                    maxLength={1}
-                    value={digit}
-                    onChange={(e) => handleDigitChange(index, e.target.value)}
-                    onKeyDown={(e) => handleDigitKeyDown(index, e)}
-                    onPaste={handlePasteOtp}
-                    className="w-11 sm:w-12 h-13 text-center font-mono text-xl font-black bg-slate-50 border border-slate-300 rounded-xl text-slate-900 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
-                  />
-                ))}
-              </div>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Proceed to Verification</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form onSubmit={handleVerifyOtp} className="space-y-4">
+                <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-center justify-between">
+                  <span>Enter Code: <strong className="font-mono text-sm">{generatedMockOtp}</strong></span>
+                  <button
+                    type="button"
+                    onClick={handleAutoFillMockCode}
+                    className="bg-amber-600 text-white font-bold text-[11px] px-2.5 py-1 rounded-md"
+                  >
+                    Auto-Fill
+                  </button>
+                </div>
 
-              {otpError && (
-                <p className="text-xs text-rose-600 font-medium mt-2 flex items-center gap-1">
-                  <AlertCircle className="w-3.5 h-3.5" />
-                  <span>{otpError}</span>
-                </p>
-              )}
-            </div>
+                <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+                  {otpDigits.map((digit, index) => (
+                    <input
+                      key={index}
+                      ref={(el) => { digitInputRefs.current[index] = el; }}
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={1}
+                      value={digit}
+                      onChange={(e) => handleDigitChange(index, e.target.value)}
+                      onKeyDown={(e) => handleDigitKeyDown(index, e)}
+                      onPaste={handlePasteOtp}
+                      className="w-10 sm:w-12 h-12 text-center font-mono text-lg font-black bg-slate-50 border border-slate-300 rounded-xl focus:border-blue-600 focus:bg-white outline-none"
+                    />
+                  ))}
+                </div>
 
-            {/* Resend Timer */}
-            <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
-              <span>Didn&apos;t receive code?</span>
-              {resendSeconds > 0 ? (
-                <span className="font-mono text-slate-400 font-medium">
-                  Resend in {resendSeconds}s
-                </span>
-              ) : (
+                {otpError && (
+                  <p className="text-xs text-rose-600 font-medium flex items-center gap-1">
+                    <AlertCircle className="w-3.5 h-3.5" />
+                    <span>{otpError}</span>
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isVerifying}
+                  className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>{isVerifying ? 'Verifying...' : 'Verify & Enter'}</span>
+                </button>
+
                 <button
                   type="button"
-                  onClick={handleResendCode}
-                  className="font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 cursor-pointer"
+                  onClick={() => setStep(1)}
+                  className="w-full text-center text-xs text-slate-500 hover:text-slate-800"
                 >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Resend OTP</span>
+                  ← Edit Information
                 </button>
-              )}
-            </div>
-
-            {/* Action Button: Emerald Green */}
-            <div className="space-y-2 pt-1">
-              <button
-                type="submit"
-                disabled={isVerifying}
-                className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md shadow-emerald-600/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-              >
-                <CheckCircle2 className="w-4 h-4" />
-                <span>{isVerifying ? 'Verifying Student Identity...' : 'Verify & Start Practice'}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="w-full py-2 text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors"
-              >
-                ← Back to Edit Details
-              </button>
-            </div>
-          </form>
+              </form>
+            )}
+          </>
         )}
       </div>
     </div>
