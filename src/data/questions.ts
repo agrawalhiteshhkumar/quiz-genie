@@ -1,8 +1,300 @@
 import { Question, Team } from '../types/quiz';
 
 export const DPHARM_QUESTIONS: Question[] = [
+  // =========================================================================
+  // BATCH A: PHARMACOLOGY & TOXICOLOGY (DRUG INSPECTOR & PCI EXIT EXAM CORE)
+  // =========================================================================
+  {
+    id: 'DP-PCOL-001',
+    subject: 'Pharmacology',
+    topic: 'Antidotes & Toxicology',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Easy',
+    question: 'A 24-year-old patient presents after ingesting 20 tablets of 650 mg Paracetamol 4 hours ago. What specific pharmacological antidote must be administered promptly, and what is its mechanism?',
+    options: [
+      { key: 'A', text: 'Naloxone; displaces toxic metabolites from mu-opioid receptors' },
+      { key: 'B', text: 'N-Acetylcysteine (NAC); replenishes hepatic glutathione reserves and conjugates NAPQI' },
+      { key: 'C', text: 'Atropine sulfate; blocks parasympathetic muscarinic hyperstimulation' },
+      { key: 'D', text: 'Deferoxamine; chelates toxic free iron ions in the portal vein' }
+    ],
+    correctKey: 'B',
+    explanation: 'Toxic paracetamol doses saturate glucuronidation/sulfation, shunting metabolism to CYP2E1 which yields excess NAPQI. N-Acetylcysteine (NAC) supplies sulfhydryl groups to replenish glutathione and neutralize NAPQI.',
+    clinicalKeyPoint: 'NAC is most effective when initiated within 8–10 hours post-ingestion (Rumack-Matthew nomogram).',
+    pciReference: 'PCI ER-2020 Pharmacology: General Pharmacology & Antidotes.'
+  },
+  {
+    id: 'DP-PCOL-002',
+    subject: 'Pharmacology',
+    topic: 'Emergency Pharmacology & Anaphylaxis',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Easy',
+    question: 'A patient develops bronchospasm, urticaria, angioedema, and hypotension immediately following an intravenous penicillin injection. What is the first-line drug of choice, route, and concentration?',
+    options: [
+      { key: 'A', text: 'Adrenaline (Epinephrine) 1:1,000 via Intramuscular (IM) injection in the anterolateral thigh' },
+      { key: 'B', text: 'Hydrocortisone hemisuccinate 100 mg slow oral suspension' },
+      { key: 'C', text: 'Salbutamol inhalation nebules 5 mg as sole rescue agent' },
+      { key: 'D', text: 'Chlorpheniramine maleate 25 mg subcutaneous injection' }
+    ],
+    correctKey: 'A',
+    explanation: 'Adrenaline 1:1,000 (0.5 mg IM) is the first-line treatment for anaphylactic shock. Alpha-1 activation reverses hypotension, while beta-2 activation relieves bronchospasm.',
+    clinicalKeyPoint: 'Antihistamines and steroids have delayed onsets and do not reverse immediate airway collapse.',
+    pciReference: 'PCI ER-2020 Pharmacology: Autonomic Nervous System & Emergency Drugs.'
+  },
+  {
+    id: 'DP-PCOL-003',
+    subject: 'Pharmacology',
+    topic: 'Organophosphate Poisoning',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Medium',
+    question: 'In severe organophosphate insecticide poisoning presenting with miosis (pin-point pupils), salivation, and bradycardia, which drug is administered to reactivate phosphorylated acetylcholinesterase?',
+    options: [
+      { key: 'A', text: 'Pralidoxime (2-PAM)' },
+      { key: 'B', text: 'Neostigmine' },
+      { key: 'C', text: 'Physostigmine' },
+      { key: 'D', text: 'Pilocarpine' }
+    ],
+    correctKey: 'A',
+    explanation: 'Pralidoxime (2-PAM) binds to organophosphate-inhibited acetylcholinesterase and hydrolyzes the phosphoryl-enzyme bond before aging occurs, restoring enzyme activity.',
+    clinicalKeyPoint: 'Atropine treats muscarinic symptoms; pralidoxime treats nicotinic muscle paralysis.',
+    pciReference: 'MSBTE D.Pharm Pharmacology: Toxicology & Antidotes.'
+  },
+  {
+    id: 'DP-PCOL-004',
+    subject: 'Pharmacology',
+    topic: 'Cardiovascular & Anti-anginals',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Which route of administration is preferred for Glyceryl Trinitrate (Nitroglycerin) to terminate an acute anginal attack within 2 minutes?',
+    options: [
+      { key: 'A', text: 'Sublingual route' },
+      { key: 'B', text: 'Oral swallowed tablet' },
+      { key: 'C', text: 'Intramuscular injection' },
+      { key: 'D', text: 'Subcutaneous depot' }
+    ],
+    correctKey: 'A',
+    explanation: 'Nitroglycerin undergoes >90% first-pass hepatic metabolism when swallowed. The sublingual route bypasses the portal system, providing rapid systemic absorption.',
+    clinicalKeyPoint: 'Store nitroglycerin sublingual tablets in airtight amber glass containers.',
+    pciReference: 'PCI ER-2020 Pharmacology: Cardiovascular Drugs.'
+  },
+  {
+    id: 'DP-PCOL-005',
+    subject: 'Pharmacology',
+    topic: 'Antihypertensives & Adverse Effects',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'A 55-year-old hypertensive patient started on Enalapril develops a persistent dry, hacking cough without fever. What endogenous substance accumulation causes this adverse effect?',
+    options: [
+      { key: 'A', text: 'Angiotensin II' },
+      { key: 'B', text: 'Bradykinin' },
+      { key: 'C', text: 'Aldosterone' },
+      { key: 'D', text: 'Renin' }
+    ],
+    correctKey: 'B',
+    explanation: 'ACE is identical to kininase II, which degrades bradykinin. Inhibiting ACE leads to bradykinin and substance P accumulation in bronchial mucosa, triggering dry cough.',
+    clinicalKeyPoint: 'Switching the patient to an Angiotensin Receptor Blocker (ARB) such as Losartan resolves the cough.',
+    pciReference: 'PCI ER-2020 Pharmacology: Antihypertensive Agents.'
+  },
+  {
+    id: 'DP-PCOL-006',
+    subject: 'Pharmacology',
+    topic: 'Chemotherapy & Tetracyclines',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Easy',
+    question: 'Why are tetracycline antibiotics strictly contraindicated in pregnant women and children under 8 years of age?',
+    options: [
+      { key: 'A', text: 'They cause severe aplastic anemia' },
+      { key: 'B', text: 'They chelate calcium and deposit in developing teeth and bones, causing enamel hypoplasia and brown discoloration' },
+      { key: 'C', text: 'They induce acute rupture of the Achilles tendon' },
+      { key: 'D', text: 'They cause fatal gray baby syndrome' }
+    ],
+    correctKey: 'B',
+    explanation: 'Tetracyclines chelate calcium orthophosphate and deposit in growing bones and deciduous/permanent teeth, causing permanent yellow-brown discoloration and enamel hypoplasia.',
+    clinicalKeyPoint: 'Gray baby syndrome is caused by chloramphenicol; tendon rupture is associated with fluoroquinolones.',
+    pciReference: 'MSBTE Pharmacology: Antibacterial Chemotherapy.'
+  },
+  {
+    id: 'DP-PCOL-007',
+    subject: 'Pharmacology',
+    topic: 'Anticoagulants & Heparin Antidote',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Easy',
+    question: 'A postoperative patient on unfractionated intravenous heparin infusion develops hematuria and bleeding from puncture sites. Which specific antidote reverses unfractionated heparin toxicity?',
+    options: [
+      { key: 'A', text: 'Protamine sulfate' },
+      { key: 'B', text: 'Phytomenadione (Vitamin K1)' },
+      { key: 'C', text: 'Aminocaproic acid' },
+      { key: 'D', text: 'Tranexamic acid' }
+    ],
+    correctKey: 'A',
+    explanation: 'Protamine sulfate is a strongly basic polycationic protein that forms an inactive stable salt complex with strongly acidic polyanionic heparin through ionic neutralization.',
+    clinicalKeyPoint: '1 mg of protamine sulfate neutralizes approximately 100 USP units of unfractionated heparin.',
+    pciReference: 'UPSC Drug Inspector / PCI ER-2020: Drugs Acting on Blood & Hematinics.'
+  },
+  {
+    id: 'DP-PCOL-008',
+    subject: 'Pharmacology',
+    topic: 'Diabetic Pharmacology & Metformin',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Metformin belongs to the biguanide class. What is its primary cellular mechanism of action for lowering blood glucose, and what rare but fatal complication requires its withholding in severe renal impairment?',
+    options: [
+      { key: 'A', text: 'Stimulates pancreatic beta-cell insulin secretion; Hypoglycemia' },
+      { key: 'B', text: 'Activates AMP-activated protein kinase (AMPK) suppressing hepatic gluconeogenesis; Lactic acidosis' },
+      { key: 'C', text: 'Inhibits intestinal alpha-glucosidase; Severe paralytic ileus' },
+      { key: 'D', text: 'Inhibits renal SGLT2 transporters; Diabetic ketoacidosis' }
+    ],
+    correctKey: 'B',
+    explanation: 'Metformin activates hepatic AMPK, reducing gluconeogenesis and glycogenolysis while improving peripheral insulin sensitivity. Because it inhibits mitochondrial complex I, lactate accumulation can trigger fatal lactic acidosis in severe renal impairment.',
+    clinicalKeyPoint: 'Withhold metformin when estimated glomerular filtration rate (eGFR) falls below 30 mL/min/1.73m².',
+    pciReference: 'PCI ER-2020 Pharmacology: Hormones & Oral Hypoglycemic Agents.'
+  },
+  {
+    id: 'DP-PCOL-009',
+    subject: 'Pharmacology',
+    topic: 'Opioid Toxicology & Overdose',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Easy',
+    question: 'A comatose patient arrives with pinpoint pupils (miosis), respiratory depression (4 breaths/min), and cyanosis following morphine injection. What is the pure opioid receptor antagonist of choice?',
+    options: [
+      { key: 'A', text: 'Naloxone' },
+      { key: 'B', text: 'Methadone' },
+      { key: 'C', text: 'Buprenorphine' },
+      { key: 'D', text: 'Pentazocine' }
+    ],
+    correctKey: 'A',
+    explanation: 'Naloxone is a pure competitive opioid receptor antagonist acting on mu, kappa, and delta receptors, rapidly reversing opioid-induced respiratory depression and coma within 1–2 minutes.',
+    clinicalKeyPoint: 'Naloxone has a shorter half-life (60–90 min) than morphine; repeated doses may be required to prevent renarcotization.',
+    pciReference: 'MSBTE D.Pharm Pharmacology: CNS Depressants & Opioid Analgesics.'
+  },
+  {
+    id: 'DP-PCOL-010',
+    subject: 'Pharmacology',
+    topic: 'Cardioactive Glycosides & Digoxin',
+    bloomTaxonomy: 'Analyze',
+    difficulty: 'Hard',
+    question: 'Digoxin enhances myocardial contractility by inhibiting the sarcolemmal Na+/K+-ATPase pump. Which electrolyte disturbance significantly potentiates digoxin toxicity and triggers fatal cardiac arrhythmias?',
+    options: [
+      { key: 'A', text: 'Hyperkalemia' },
+      { key: 'B', text: 'Hypokalemia' },
+      { key: 'C', text: 'Hyponatremia' },
+      { key: 'D', text: 'Hypercalcemia reduction' }
+    ],
+    correctKey: 'B',
+    explanation: 'Potassium and digoxin compete for the same binding site on extracellular Na+/K+-ATPase. Hypokalemia increases digoxin binding to the enzyme, markedly exacerbating myocardial toxicity and predisposing to ventricular arrhythmias.',
+    clinicalKeyPoint: 'Co-administration of loop or thiazide diuretics without potassium sparing or supplementation frequently precipitates digoxin toxicity.',
+    pciReference: 'PCI ER-2020 Pharmacology: Congestive Heart Failure Drugs.'
+  },
+  {
+    id: 'DP-PCOL-011',
+    subject: 'Pharmacology',
+    topic: 'Antiplatelet Agents & Aspirin',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Low-dose Aspirin (75–150 mg/day) exerts its irreversible cardioprotective antiplatelet effect by covalently acetylating which specific enzyme in platelets?',
+    options: [
+      { key: 'A', text: 'Cyclooxygenase-1 (COX-1), blocking Thromboxane A2 synthesis' },
+      { key: 'B', text: 'Cyclooxygenase-2 (COX-2), blocking Prostacyclin synthesis' },
+      { key: 'C', text: 'Phosphodiesterase-3 (PDE3)' },
+      { key: 'D', text: 'Glycoprotein IIb/IIIa receptor complex' }
+    ],
+    correctKey: 'A',
+    explanation: 'Aspirin irreversibly acetylates Ser-529 of platelet COX-1, preventing Arachidonic Acid conversion into Thromboxane A2 (a potent platelet aggregator and vasoconstrictor) for the entire 7–10 day lifespan of the anucleate platelet.',
+    clinicalKeyPoint: 'Endothelial cells synthesize new COX-1/COX-2 to produce protective Prostacyclin (PGI2), explaining low-dose selectivity.',
+    pciReference: 'UPSC Drug Inspector / PCI ER-2020: Antiplatelet & Antithrombotic Agents.'
+  },
+  {
+    id: 'DP-PCOL-012',
+    subject: 'Pharmacology',
+    topic: 'Antimalarial Pharmacology & G6PD Deficiency',
+    bloomTaxonomy: 'Analyze',
+    difficulty: 'Hard',
+    question: 'Primaquine is administered for the radical cure of relapsing vivax malaria by destroying hypnozoites. In patients with glucose-6-phosphate dehydrogenase (G6PD) deficiency, what severe adverse reaction can occur?',
+    options: [
+      { key: 'A', text: 'Acute intravascular hemolytic anemia' },
+      { key: 'B', text: 'Agranulocytosis' },
+      { key: 'C', text: 'Irreversible pulmonary fibrosis' },
+      { key: 'D', text: 'Nephrotic syndrome' }
+    ],
+    correctKey: 'A',
+    explanation: 'G6PD generates NADPH, required to maintain reduced glutathione (GSH) in red blood cells. Primaquine metabolite oxidation overwhelms deficient RBC defenses, causing oxidative stress, Heinz body formation, and severe acute intravascular hemolysis.',
+    clinicalKeyPoint: 'G6PD testing is mandatory before starting primaquine therapy in endemic populations.',
+    pciReference: 'PCI ER-2020 Pharmacology: Antimalarial Chemotherapy.'
+  },
+  {
+    id: 'DP-PCOL-013',
+    subject: 'Pharmacology',
+    topic: 'Diuretics & Ototoxicity',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Medium',
+    question: 'Which high-ceiling loop diuretic inhibits the Na+/K+/2Cl- cotransporter in the thick ascending limb of Henle and carries a notable risk of ototoxicity when combined with aminoglycosides?',
+    options: [
+      { key: 'A', text: 'Furosemide' },
+      { key: 'B', text: 'Hydrochlorothiazide' },
+      { key: 'C', text: 'Spironolactone' },
+      { key: 'D', text: 'Amiloride' }
+    ],
+    correctKey: 'A',
+    explanation: 'Furosemide inhibits the Na+/K+/2Cl- symporter. It can alter endolymph electrolyte composition in the stria vascularis of the inner ear, leading to tinnitus, hearing loss, and ototoxicity—synergistically compounded by aminoglycosides (e.g., Gentamicin).',
+    clinicalKeyPoint: 'Administer slow IV injections (not exceeding 4 mg/min) to prevent sudden peak-concentration ototoxicity.',
+    pciReference: 'MSBTE D.Pharm Pharmacology: Diuretics.'
+  },
+  {
+    id: 'DP-PCOL-014',
+    subject: 'Pharmacology',
+    topic: 'Antiparkinsonian Drugs & Levodopa',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Why is Levodopa formulated in combination with Carbidopa in the treatment of Parkinson\'s disease?',
+    options: [
+      { key: 'A', text: 'Carbidopa inhibits peripheral DOPA decarboxylase, increasing levodopa brain delivery and reducing nausea' },
+      { key: 'B', text: 'Carbidopa crosses the blood-brain barrier to directly stimulate D2 dopamine receptors' },
+      { key: 'C', text: 'Carbidopa prevents central metabolism of dopamine by MAO-B' },
+      { key: 'D', text: 'Carbidopa blocks central cholinergic muscarinic hyperactivity' }
+    ],
+    correctKey: 'A',
+    explanation: 'Dopamine cannot cross the blood-brain barrier, while Levodopa can. Carbidopa is a peripheral DOPA decarboxylase inhibitor that does not penetrate the blood-brain barrier, preventing peripheral conversion of levodopa to dopamine and reducing nausea, vomiting, and tachycardia.',
+    clinicalKeyPoint: 'Co-administration reduces the required therapeutic dose of Levodopa by approximately 75%.',
+    pciReference: 'PCI ER-2020 Pharmacology: Drugs for Neurodegenerative Disorders.'
+  },
+  {
+    id: 'DP-PCOL-015',
+    subject: 'Pharmacology',
+    topic: 'Heavy Metal Poisoning & Chelation',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Medium',
+    question: 'Which heavy metal chelating agent is the specific drug of choice for acute lead (Pb) poisoning, administered as a calcium disodium salt to prevent hypocalcemia?',
+    options: [
+      { key: 'A', text: 'Calcium Disodium Edetate (CaNa2-EDTA)' },
+      { key: 'B', text: 'Deferoxamine' },
+      { key: 'C', text: 'Penicillamine' },
+      { key: 'D', text: 'Dimercaprol (BAL)' }
+    ],
+    correctKey: 'A',
+    explanation: 'CaNa2-EDTA exchanges its calcium ion for lead because lead has a higher binding affinity for EDTA, forming a non-toxic water-soluble chelate excreted in urine.',
+    clinicalKeyPoint: 'Free Na2-EDTA must never be used because it chelates serum calcium, causing severe tetany and death.',
+    pciReference: 'UPSC Drug Inspector / MSBTE: Toxicology & Heavy Metal Antidotes.'
+  },
+  {
+    id: 'DP-PCOL-016',
+    subject: 'Pharmacology',
+    topic: 'Benzodiazepine Toxicity & Antidote',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'A patient presents with stupor and hypoventilation following an intentional overdose of Alprazolam and Diazepam. What specific competitive benzodiazepine antagonist is administered intravenously?',
+    options: [
+      { key: 'A', text: 'Flumazenil' },
+      { key: 'B', text: 'Naloxone' },
+      { key: 'C', text: 'Physostigmine' },
+      { key: 'D', text: 'Doxapram' }
+    ],
+    correctKey: 'A',
+    explanation: 'Flumazenil is an imidazobenzodiazepine derivative that competitively blocks the benzodiazepine binding site on the GABA-A receptor, reversing benzodiazepine-induced sedation and respiratory depression.',
+    clinicalKeyPoint: 'Caution: In chronic benzodiazepine users, rapid administration can precipitate acute withdrawal seizures.',
+    pciReference: 'PCI ER-2020 Pharmacology: Sedatives, Hypnotics & Toxicology.'
+  },
+
   // ==========================================
-  // 1. PHARMACEUTICS (MSBTE & PCI ER-2020)
+  // PHARMACEUTICS (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-PHARM-001',
@@ -18,8 +310,8 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Picking, caused by scratched or pitted punch faces' }
     ],
     correctKey: 'B',
-    explanation: 'Capping refers to the partial or complete detachment of the upper or lower crown of a tablet from the main body. Primary causes include air entrapment during rapid compression, excessive fine powders (<100 mesh), and inadequate moisture.',
-    clinicalKeyPoint: 'Corrective actions include installing tapered dies, slowing compression speed, or removing excess fines.',
+    explanation: 'Capping refers to detachment of the crown from the main tablet body, typically caused by air entrapment during rapid compression, excessive fine powders (<100 mesh), or worn dies.',
+    clinicalKeyPoint: 'Corrective actions include installing tapered dies, reducing compression speed, or eliminating fines.',
     pciReference: 'PCI ER-2020 Pharmaceutics: Solid Dosage Forms (Tablets).'
   },
   {
@@ -36,7 +328,7 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: '134°C at 30 psi for 3 minutes without moisture' }
     ],
     correctKey: 'B',
-    explanation: 'Moist heat sterilization in an autoclave requires saturated steam at 121°C under 15 psi gauge pressure held for 15–20 minutes. Biological indicator: Geobacillus stearothermophilus spores.',
+    explanation: 'Moist heat sterilization in an autoclave requires saturated steam at 121°C under 15 psi gauge pressure for 15–20 minutes. Biological indicator: Geobacillus stearothermophilus.',
     clinicalKeyPoint: 'Dry heat sterilization requires 160°C for 2 hours (biological indicator: Bacillus atrophaeus).',
     pciReference: 'PCI ER-2020 Pharmaceutics: Sterilization Technologies & Parenterals.'
   },
@@ -54,7 +346,7 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Polyethylene glycol (PEG)' }
     ],
     correctKey: 'B',
-    explanation: 'Titanium dioxide (0.2%–1.2%) is added as an opacifying agent to protect photosensitive active ingredients.',
+    explanation: 'Titanium dioxide (0.2%–1.2%) acts as an opacifying agent to protect photosensitive active ingredients.',
     clinicalKeyPoint: 'Sorbitol and glycerin are plasticizers added to soft gelatin capsules to impart flexibility.',
     pciReference: 'MSBTE D.Pharm Pharmaceutics: Capsules & Shell Excipients.'
   },
@@ -91,7 +383,7 @@ export const DPHARM_QUESTIONS: Question[] = [
     ],
     correctKey: 'C',
     explanation: 'Cocoa butter exhibits polymorphism. Gentle melting yields the stable beta form (m.p. 34–35°C). Overheating produces unstable gamma (18°C) or alpha (24°C) forms that fail to solidify at room temperature.',
-    clinicalKeyPoint: 'Never melt cocoa butter directly over an open flame; always use a lukewarm water bath.',
+    clinicalKeyPoint: 'Always melt cocoa butter over a warm water bath rather than direct flame.',
     pciReference: 'PCI ER-2020 Pharmaceutics: Semisolid Dosage Forms & Suppositories.'
   },
   {
@@ -109,124 +401,12 @@ export const DPHARM_QUESTIONS: Question[] = [
     ],
     correctKey: 'B',
     explanation: 'HEPA filters trap particles ≥0.3 µm with an efficiency of 99.97%, removing airborne bacteria, mold spores, and particulate debris.',
-    clinicalKeyPoint: 'Validated periodically using the Emery 3004 / DOP (Dioctyl phthalate) aerosol smoke test.',
+    clinicalKeyPoint: 'Validated periodically using the DOP aerosol smoke test.',
     pciReference: 'MSBTE Pharmaceutics: Sterile Manufacturing Facilities.'
   },
 
   // ==========================================
-  // 2. PHARMACOLOGY (MSBTE & PCI ER-2020)
-  // ==========================================
-  {
-    id: 'DP-PCOL-001',
-    subject: 'Pharmacology',
-    topic: 'Antidotes & Toxicology',
-    bloomTaxonomy: 'Apply',
-    difficulty: 'Easy',
-    question: 'A 24-year-old patient presents after ingesting 20 tablets of 650 mg Paracetamol 4 hours ago. What specific pharmacological antidote must be administered promptly, and what is its mechanism?',
-    options: [
-      { key: 'A', text: 'Naloxone; displaces toxic metabolites from mu-opioid receptors' },
-      { key: 'B', text: 'N-Acetylcysteine (NAC); replenishes hepatic glutathione reserves and conjugates NAPQI' },
-      { key: 'C', text: 'Atropine sulfate; blocks parasympathetic muscarinic hyperstimulation' },
-      { key: 'D', text: 'Deferoxamine; chelates toxic free iron ions in the portal vein' }
-    ],
-    correctKey: 'B',
-    explanation: 'Toxic paracetamol doses saturate glucuronidation/sulfation, shunting metabolism to CYP2E1 which yields excess NAPQI. N-Acetylcysteine (NAC) supplies sulfhydryl groups to replenish glutathione and neutralize NAPQI.',
-    clinicalKeyPoint: 'NAC is most effective when initiated within 8–10 hours post-ingestion.',
-    pciReference: 'PCI ER-2020 Pharmacology: General Pharmacology & Antidotes.'
-  },
-  {
-    id: 'DP-PCOL-002',
-    subject: 'Pharmacology',
-    topic: 'Emergency Pharmacology & Anaphylaxis',
-    bloomTaxonomy: 'Apply',
-    difficulty: 'Easy',
-    question: 'A patient develops bronchospasm, urticaria, angioedema, and hypotension immediately following an intravenous penicillin injection. What is the first-line drug of choice, route, and concentration?',
-    options: [
-      { key: 'A', text: 'Adrenaline (Epinephrine) 1:1,000 via Intramuscular (IM) injection in the anterolateral thigh' },
-      { key: 'B', text: 'Hydrocortisone hemisuccinate 100 mg slow oral suspension' },
-      { key: 'C', text: 'Salbutamol inhalation nebules 5 mg as sole rescue agent' },
-      { key: 'D', text: 'Chlorpheniramine maleate 25 mg subcutaneous injection' }
-    ],
-    correctKey: 'A',
-    explanation: 'Adrenaline 1:1,000 (0.5 mg IM) is the first-line treatment for anaphylactic shock. Alpha-1 activation reverses hypotension, while beta-2 activation relieves bronchospasm.',
-    clinicalKeyPoint: 'Antihistamines and steroids have delayed onsets and do not reverse immediate airway collapse.',
-    pciReference: 'PCI ER-2020 Pharmacology: Drugs Acting on Autonomic Nervous System.'
-  },
-  {
-    id: 'DP-PCOL-003',
-    subject: 'Pharmacology',
-    topic: 'Organophosphate Poisoning',
-    bloomTaxonomy: 'Apply',
-    difficulty: 'Medium',
-    question: 'In severe organophosphate insecticide poisoning presenting with miosis (pin-point pupils), salivation, and bradycardia, which drug is administered to reactivate phosphorylated acetylcholinesterase?',
-    options: [
-      { key: 'A', text: 'Pralidoxime (2-PAM)' },
-      { key: 'B', text: 'Neostigmine' },
-      { key: 'C', text: 'Physostigmine' },
-      { key: 'D', text: 'Pilocarpine' }
-    ],
-    correctKey: 'A',
-    explanation: 'Pralidoxime (2-PAM) binds to organophosphate-inhibited acetylcholinesterase and hydrolyzes the phosphoryl-enzyme bond before "aging" occurs, restoring enzyme activity.',
-    clinicalKeyPoint: 'Atropine treats muscarinic symptoms; pralidoxime treats nicotinic muscle paralysis.',
-    pciReference: 'MSBTE D.Pharm Pharmacology: Toxicology & Antidotes.'
-  },
-  {
-    id: 'DP-PCOL-004',
-    subject: 'Pharmacology',
-    topic: 'Cardiovascular & Anti-anginals',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Which route of administration is preferred for Glyceryl Trinitrate (Nitroglycerin) to terminate an acute anginal attack within 2 minutes?',
-    options: [
-      { key: 'A', text: 'Sublingual route' },
-      { key: 'B', text: 'Oral swallowed tablet' },
-      { key: 'C', text: 'Intramuscular injection' },
-      { key: 'D', text: 'Subcutaneous depot' }
-    ],
-    correctKey: 'A',
-    explanation: 'Nitroglycerin undergoes >90% first-pass hepatic metabolism when swallowed. The sublingual route bypasses the portal system, providing rapid systemic absorption.',
-    clinicalKeyPoint: 'Store nitroglycerin sublingual tablets in airtight amber glass containers.',
-    pciReference: 'PCI ER-2020 Pharmacology: Cardiovascular Drugs.'
-  },
-  {
-    id: 'DP-PCOL-005',
-    subject: 'Pharmacology',
-    topic: 'Antihypertensives & Adverse Effects',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'A 55-year-old hypertensive patient started on Enalapril develops a persistent dry, hacking cough without fever. What endogenous substance accumulation causes this adverse effect?',
-    options: [
-      { key: 'A', text: 'Angiotensin II' },
-      { key: 'B', text: 'Bradykinin' },
-      { key: 'C', text: 'Aldosterone' },
-      { key: 'D', text: 'Renin' }
-    ],
-    correctKey: 'B',
-    explanation: 'ACE (angiotensin-converting enzyme) is identical to kininase II, which degrades bradykinin. Inhibiting ACE leads to bradykinin and substance P accumulation in bronchial mucosa, triggering dry cough.',
-    clinicalKeyPoint: 'Switching the patient to an Angiotensin Receptor Blocker (ARB) such as Losartan resolves the cough.',
-    pciReference: 'PCI ER-2020 Pharmacology: Antihypertensive Agents.'
-  },
-  {
-    id: 'DP-PCOL-006',
-    subject: 'Pharmacology',
-    topic: 'Chemotherapy & Tetracyclines',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Easy',
-    question: 'Why are tetracycline antibiotics strictly contraindicated in pregnant women and children under 8 years of age?',
-    options: [
-      { key: 'A', text: 'They cause severe aplastic anemia' },
-      { key: 'B', text: 'They chelate calcium and deposit in developing teeth and bones, causing enamel hypoplasia and brown discoloration' },
-      { key: 'C', text: 'They induce acute rupture of the Achilles tendon' },
-      { key: 'D', text: 'They cause fatal gray baby syndrome' }
-    ],
-    correctKey: 'B',
-    explanation: 'Tetracyclines readily chelate calcium orthophosphate and deposit in growing bones and unerupted deciduous/permanent teeth, causing permanent yellow-brown discoloration and enamel hypoplasia.',
-    clinicalKeyPoint: 'Gray baby syndrome is caused by chloramphenicol; tendon rupture is associated with fluoroquinolones.',
-    pciReference: 'MSBTE Pharmacology: Antibacterial Chemotherapy.'
-  },
-
-  // ==========================================
-  // 3. PHARMACOGNOSY (MSBTE & PCI ER-2020)
+  // PHARMACOGNOSY (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-COG-001',
@@ -261,7 +441,7 @@ export const DPHARM_QUESTIONS: Question[] = [
     ],
     correctKey: 'A',
     explanation: 'Dragendorff\'s reagent is potassium bismuth iodide, producing an orange or reddish-brown precipitate with alkaloids.',
-    clinicalKeyPoint: 'Mayer\'s reagent produces a cream precipitate; Wagner\'s reagent gives reddish-brown; Hager\'s reagent gives yellow crystals.',
+    clinicalKeyPoint: 'Mayer\'s reagent gives cream precipitate; Wagner\'s gives reddish-brown; Hager\'s gives yellow crystals.',
     pciReference: 'MSBTE Pharmacognosy: General Chemical Tests of Alkaloids.'
   },
   {
@@ -320,7 +500,7 @@ export const DPHARM_QUESTIONS: Question[] = [
   },
 
   // ==========================================
-  // 4. PHARMACEUTICAL CHEMISTRY (MSBTE & PCI ER-2020)
+  // PHARMACEUTICAL CHEMISTRY (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-CHEM-001',
@@ -336,7 +516,7 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Inhibition of DNA gyrase (topoisomerase II) preventing bacterial DNA replication' }
     ],
     correctKey: 'B',
-    explanation: 'Sulfonamides are structural analogues of PABA (para-aminobenzoic acid) and competitively inhibit dihydropteroate synthase (DHPS), blocking bacterial folate synthesis.',
+    explanation: 'Sulfonamides are structural analogues of PABA and competitively inhibit dihydropteroate synthase (DHPS), blocking bacterial folate synthesis.',
     clinicalKeyPoint: 'Co-trimoxazole pairs Sulfamethoxazole with Trimethoprim for sequential enzyme block synergism.',
     pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Anti-infective Agents.'
   },
@@ -414,7 +594,7 @@ export const DPHARM_QUESTIONS: Question[] = [
   },
 
   // ==========================================
-  // 5. PHARMACY LAW & ETHICS (MSBTE & PCI ER-2020)
+  // PHARMACY LAW & ETHICS (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-LAW-001',
@@ -508,7 +688,7 @@ export const DPHARM_QUESTIONS: Question[] = [
   },
 
   // ==========================================
-  // 6. COMMUNITY & CLINICAL PHARMACY (MSBTE & PCI ER-2020)
+  // COMMUNITY & CLINICAL PHARMACY (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-COMM-001',
@@ -584,7 +764,7 @@ export const DPHARM_QUESTIONS: Question[] = [
   },
 
   // ==========================================
-  // 7. HUMAN ANATOMY & PHYSIOLOGY (MSBTE & PCI ER-2020)
+  // HUMAN ANATOMY & PHYSIOLOGY (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-HAP-001',
@@ -660,7 +840,7 @@ export const DPHARM_QUESTIONS: Question[] = [
   },
 
   // ==========================================
-  // 8. BIOCHEMISTRY & CLINICAL PATHOLOGY (MSBTE & PCI ER-2020)
+  // BIOCHEMISTRY & CLINICAL PATHOLOGY (MSBTE & PCI ER-2020)
   // ==========================================
   {
     id: 'DP-BIO-001',
@@ -738,20 +918,20 @@ export const DPHARM_QUESTIONS: Question[] = [
 
 export const PCI_SUBJECT_SUMMARY = [
   {
-    name: 'Pharmaceutics',
-    code: 'ER20-11T',
-    icon: 'Pill',
-    description: 'Formulation science, solid/liquid dosage forms, tablet defects, sterile products & IP packaging standards.',
-    questionCount: 45,
-    passRate: '86% Pass Rate'
-  },
-  {
     name: 'Pharmacology',
     code: 'ER20-21T',
     icon: 'Activity',
     description: 'Mechanism of action, drug classifications, adverse reactions, contraindications & emergency antidotes.',
     questionCount: 50,
     passRate: '82% Pass Rate'
+  },
+  {
+    name: 'Pharmaceutics',
+    code: 'ER20-11T',
+    icon: 'Pill',
+    description: 'Formulation science, solid/liquid dosage forms, tablet defects, sterile products & IP packaging standards.',
+    questionCount: 45,
+    passRate: '86% Pass Rate'
   },
   {
     name: 'Pharmacognosy',
