@@ -13,7 +13,6 @@ import { ProjectorView } from './components/ProjectorView';
 import { QuizmasterView } from './components/QuizmasterView';
 import { PracticeView } from './components/PracticeView';
 import { StudentAuthModal } from './components/StudentAuthModal';
-import { MobileBottomNav } from './components/MobileBottomNav';
 
 const MainContent: React.FC = () => {
   const { currentMode } = useLiveQuiz();
@@ -36,13 +35,12 @@ const MainContent: React.FC = () => {
 export default function App() {
   return (
     <LiveQuizProvider>
-      <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+      <div className="min-h-screen max-w-full overflow-x-hidden bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
         <Navbar />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 w-full max-w-full overflow-x-hidden flex flex-col">
           <MainContent />
         </main>
         <StudentAuthModal />
-        <MobileBottomNav />
       </div>
     </LiveQuizProvider>
   );
