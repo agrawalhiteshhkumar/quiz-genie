@@ -2,7 +2,7 @@ import { Question, Team } from '../types/quiz';
 
 export const DPHARM_QUESTIONS: Question[] = [
   // =========================================================================
-  // BATCH A: PHARMACOLOGY & TOXICOLOGY (DRUG INSPECTOR & PCI EXIT EXAM CORE)
+  // 1. PHARMACOLOGY & TOXICOLOGY (ER20-21T)
   // =========================================================================
   {
     id: 'DP-PCOL-001',
@@ -97,24 +97,6 @@ export const DPHARM_QUESTIONS: Question[] = [
   {
     id: 'DP-PCOL-006',
     subject: 'Pharmacology',
-    topic: 'Chemotherapy & Tetracyclines',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Easy',
-    question: 'Why are tetracycline antibiotics strictly contraindicated in pregnant women and children under 8 years of age?',
-    options: [
-      { key: 'A', text: 'They cause severe aplastic anemia' },
-      { key: 'B', text: 'They chelate calcium and deposit in developing teeth and bones, causing enamel hypoplasia and brown discoloration' },
-      { key: 'C', text: 'They induce acute rupture of the Achilles tendon' },
-      { key: 'D', text: 'They cause fatal gray baby syndrome' }
-    ],
-    correctKey: 'B',
-    explanation: 'Tetracyclines chelate calcium orthophosphate and deposit in growing bones and deciduous/permanent teeth, causing permanent yellow-brown discoloration and enamel hypoplasia.',
-    clinicalKeyPoint: 'Gray baby syndrome is caused by chloramphenicol; tendon rupture is associated with fluoroquinolones.',
-    pciReference: 'MSBTE Pharmacology: Antibacterial Chemotherapy.'
-  },
-  {
-    id: 'DP-PCOL-007',
-    subject: 'Pharmacology',
     topic: 'Anticoagulants & Heparin Antidote',
     bloomTaxonomy: 'Apply',
     difficulty: 'Easy',
@@ -126,12 +108,12 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Tranexamic acid' }
     ],
     correctKey: 'A',
-    explanation: 'Protamine sulfate is a strongly basic polycationic protein that forms an inactive stable salt complex with strongly acidic polyanionic heparin through ionic neutralization.',
+    explanation: 'Protamine sulfate is a strongly basic protein that forms an inactive stable salt complex with strongly acidic polyanionic heparin through ionic neutralization.',
     clinicalKeyPoint: '1 mg of protamine sulfate neutralizes approximately 100 USP units of unfractionated heparin.',
-    pciReference: 'UPSC Drug Inspector / PCI ER-2020: Drugs Acting on Blood & Hematinics.'
+    pciReference: 'UPSC Drug Inspector / PCI ER-2020: Drugs Acting on Blood.'
   },
   {
-    id: 'DP-PCOL-008',
+    id: 'DP-PCOL-007',
     subject: 'Pharmacology',
     topic: 'Diabetic Pharmacology & Metformin',
     bloomTaxonomy: 'Understand',
@@ -144,158 +126,32 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Inhibits renal SGLT2 transporters; Diabetic ketoacidosis' }
     ],
     correctKey: 'B',
-    explanation: 'Metformin activates hepatic AMPK, reducing gluconeogenesis and glycogenolysis while improving peripheral insulin sensitivity. Because it inhibits mitochondrial complex I, lactate accumulation can trigger fatal lactic acidosis in severe renal impairment.',
+    explanation: 'Metformin activates hepatic AMPK, reducing gluconeogenesis and glycogenolysis while improving insulin sensitivity. In severe renal impairment, mitochondrial complex I inhibition risks fatal lactic acidosis.',
     clinicalKeyPoint: 'Withhold metformin when estimated glomerular filtration rate (eGFR) falls below 30 mL/min/1.73m².',
-    pciReference: 'PCI ER-2020 Pharmacology: Hormones & Oral Hypoglycemic Agents.'
+    pciReference: 'PCI ER-2020 Pharmacology: Oral Hypoglycemic Agents.'
   },
   {
-    id: 'DP-PCOL-009',
+    id: 'DP-PCOL-008',
     subject: 'Pharmacology',
-    topic: 'Opioid Toxicology & Overdose',
-    bloomTaxonomy: 'Apply',
-    difficulty: 'Easy',
-    question: 'A comatose patient arrives with pinpoint pupils (miosis), respiratory depression (4 breaths/min), and cyanosis following morphine injection. What is the pure opioid receptor antagonist of choice?',
-    options: [
-      { key: 'A', text: 'Naloxone' },
-      { key: 'B', text: 'Methadone' },
-      { key: 'C', text: 'Buprenorphine' },
-      { key: 'D', text: 'Pentazocine' }
-    ],
-    correctKey: 'A',
-    explanation: 'Naloxone is a pure competitive opioid receptor antagonist acting on mu, kappa, and delta receptors, rapidly reversing opioid-induced respiratory depression and coma within 1–2 minutes.',
-    clinicalKeyPoint: 'Naloxone has a shorter half-life (60–90 min) than morphine; repeated doses may be required to prevent renarcotization.',
-    pciReference: 'MSBTE D.Pharm Pharmacology: CNS Depressants & Opioid Analgesics.'
-  },
-  {
-    id: 'DP-PCOL-010',
-    subject: 'Pharmacology',
-    topic: 'Cardioactive Glycosides & Digoxin',
-    bloomTaxonomy: 'Analyze',
-    difficulty: 'Hard',
-    question: 'Digoxin enhances myocardial contractility by inhibiting the sarcolemmal Na+/K+-ATPase pump. Which electrolyte disturbance significantly potentiates digoxin toxicity and triggers fatal cardiac arrhythmias?',
-    options: [
-      { key: 'A', text: 'Hyperkalemia' },
-      { key: 'B', text: 'Hypokalemia' },
-      { key: 'C', text: 'Hyponatremia' },
-      { key: 'D', text: 'Hypercalcemia reduction' }
-    ],
-    correctKey: 'B',
-    explanation: 'Potassium and digoxin compete for the same binding site on extracellular Na+/K+-ATPase. Hypokalemia increases digoxin binding to the enzyme, markedly exacerbating myocardial toxicity and predisposing to ventricular arrhythmias.',
-    clinicalKeyPoint: 'Co-administration of loop or thiazide diuretics without potassium sparing or supplementation frequently precipitates digoxin toxicity.',
-    pciReference: 'PCI ER-2020 Pharmacology: Congestive Heart Failure Drugs.'
-  },
-  {
-    id: 'DP-PCOL-011',
-    subject: 'Pharmacology',
-    topic: 'Antiplatelet Agents & Aspirin',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Low-dose Aspirin (75–150 mg/day) exerts its irreversible cardioprotective antiplatelet effect by covalently acetylating which specific enzyme in platelets?',
-    options: [
-      { key: 'A', text: 'Cyclooxygenase-1 (COX-1), blocking Thromboxane A2 synthesis' },
-      { key: 'B', text: 'Cyclooxygenase-2 (COX-2), blocking Prostacyclin synthesis' },
-      { key: 'C', text: 'Phosphodiesterase-3 (PDE3)' },
-      { key: 'D', text: 'Glycoprotein IIb/IIIa receptor complex' }
-    ],
-    correctKey: 'A',
-    explanation: 'Aspirin irreversibly acetylates Ser-529 of platelet COX-1, preventing Arachidonic Acid conversion into Thromboxane A2 (a potent platelet aggregator and vasoconstrictor) for the entire 7–10 day lifespan of the anucleate platelet.',
-    clinicalKeyPoint: 'Endothelial cells synthesize new COX-1/COX-2 to produce protective Prostacyclin (PGI2), explaining low-dose selectivity.',
-    pciReference: 'UPSC Drug Inspector / PCI ER-2020: Antiplatelet & Antithrombotic Agents.'
-  },
-  {
-    id: 'DP-PCOL-012',
-    subject: 'Pharmacology',
-    topic: 'Antimalarial Pharmacology & G6PD Deficiency',
-    bloomTaxonomy: 'Analyze',
-    difficulty: 'Hard',
-    question: 'Primaquine is administered for the radical cure of relapsing vivax malaria by destroying hypnozoites. In patients with glucose-6-phosphate dehydrogenase (G6PD) deficiency, what severe adverse reaction can occur?',
-    options: [
-      { key: 'A', text: 'Acute intravascular hemolytic anemia' },
-      { key: 'B', text: 'Agranulocytosis' },
-      { key: 'C', text: 'Irreversible pulmonary fibrosis' },
-      { key: 'D', text: 'Nephrotic syndrome' }
-    ],
-    correctKey: 'A',
-    explanation: 'G6PD generates NADPH, required to maintain reduced glutathione (GSH) in red blood cells. Primaquine metabolite oxidation overwhelms deficient RBC defenses, causing oxidative stress, Heinz body formation, and severe acute intravascular hemolysis.',
-    clinicalKeyPoint: 'G6PD testing is mandatory before starting primaquine therapy in endemic populations.',
-    pciReference: 'PCI ER-2020 Pharmacology: Antimalarial Chemotherapy.'
-  },
-  {
-    id: 'DP-PCOL-013',
-    subject: 'Pharmacology',
-    topic: 'Diuretics & Ototoxicity',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Medium',
-    question: 'Which high-ceiling loop diuretic inhibits the Na+/K+/2Cl- cotransporter in the thick ascending limb of Henle and carries a notable risk of ototoxicity when combined with aminoglycosides?',
-    options: [
-      { key: 'A', text: 'Furosemide' },
-      { key: 'B', text: 'Hydrochlorothiazide' },
-      { key: 'C', text: 'Spironolactone' },
-      { key: 'D', text: 'Amiloride' }
-    ],
-    correctKey: 'A',
-    explanation: 'Furosemide inhibits the Na+/K+/2Cl- symporter. It can alter endolymph electrolyte composition in the stria vascularis of the inner ear, leading to tinnitus, hearing loss, and ototoxicity—synergistically compounded by aminoglycosides (e.g., Gentamicin).',
-    clinicalKeyPoint: 'Administer slow IV injections (not exceeding 4 mg/min) to prevent sudden peak-concentration ototoxicity.',
-    pciReference: 'MSBTE D.Pharm Pharmacology: Diuretics.'
-  },
-  {
-    id: 'DP-PCOL-014',
-    subject: 'Pharmacology',
-    topic: 'Antiparkinsonian Drugs & Levodopa',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Why is Levodopa formulated in combination with Carbidopa in the treatment of Parkinson\'s disease?',
-    options: [
-      { key: 'A', text: 'Carbidopa inhibits peripheral DOPA decarboxylase, increasing levodopa brain delivery and reducing nausea' },
-      { key: 'B', text: 'Carbidopa crosses the blood-brain barrier to directly stimulate D2 dopamine receptors' },
-      { key: 'C', text: 'Carbidopa prevents central metabolism of dopamine by MAO-B' },
-      { key: 'D', text: 'Carbidopa blocks central cholinergic muscarinic hyperactivity' }
-    ],
-    correctKey: 'A',
-    explanation: 'Dopamine cannot cross the blood-brain barrier, while Levodopa can. Carbidopa is a peripheral DOPA decarboxylase inhibitor that does not penetrate the blood-brain barrier, preventing peripheral conversion of levodopa to dopamine and reducing nausea, vomiting, and tachycardia.',
-    clinicalKeyPoint: 'Co-administration reduces the required therapeutic dose of Levodopa by approximately 75%.',
-    pciReference: 'PCI ER-2020 Pharmacology: Drugs for Neurodegenerative Disorders.'
-  },
-  {
-    id: 'DP-PCOL-015',
-    subject: 'Pharmacology',
-    topic: 'Heavy Metal Poisoning & Chelation',
-    bloomTaxonomy: 'Apply',
-    difficulty: 'Medium',
-    question: 'Which heavy metal chelating agent is the specific drug of choice for acute lead (Pb) poisoning, administered as a calcium disodium salt to prevent hypocalcemia?',
-    options: [
-      { key: 'A', text: 'Calcium Disodium Edetate (CaNa2-EDTA)' },
-      { key: 'B', text: 'Deferoxamine' },
-      { key: 'C', text: 'Penicillamine' },
-      { key: 'D', text: 'Dimercaprol (BAL)' }
-    ],
-    correctKey: 'A',
-    explanation: 'CaNa2-EDTA exchanges its calcium ion for lead because lead has a higher binding affinity for EDTA, forming a non-toxic water-soluble chelate excreted in urine.',
-    clinicalKeyPoint: 'Free Na2-EDTA must never be used because it chelates serum calcium, causing severe tetany and death.',
-    pciReference: 'UPSC Drug Inspector / MSBTE: Toxicology & Heavy Metal Antidotes.'
-  },
-  {
-    id: 'DP-PCOL-016',
-    subject: 'Pharmacology',
-    topic: 'Benzodiazepine Toxicity & Antidote',
+    topic: 'Lipid-Lowering Agents & Statins',
     bloomTaxonomy: 'Remember',
     difficulty: 'Easy',
-    question: 'A patient presents with stupor and hypoventilation following an intentional overdose of Alprazolam and Diazepam. What specific competitive benzodiazepine antagonist is administered intravenously?',
+    question: 'According to ER-2020 revision notes, through what enzymatic mechanism do statins (e.g., Atorvastatin, Rosuvastatin) reduce endogenous cholesterol synthesis?',
     options: [
-      { key: 'A', text: 'Flumazenil' },
-      { key: 'B', text: 'Naloxone' },
-      { key: 'C', text: 'Physostigmine' },
-      { key: 'D', text: 'Doxapram' }
+      { key: 'A', text: 'Competitive inhibition of HMG-CoA reductase' },
+      { key: 'B', text: 'Binding to bile acids in the intestinal lumen' },
+      { key: 'C', text: 'Direct activation of lipoprotein lipase via PPAR-alpha' },
+      { key: 'D', text: 'Inhibition of intestinal Niemann-Pick C1-Like 1 (NPC1L1) transporter' }
     ],
     correctKey: 'A',
-    explanation: 'Flumazenil is an imidazobenzodiazepine derivative that competitively blocks the benzodiazepine binding site on the GABA-A receptor, reversing benzodiazepine-induced sedation and respiratory depression.',
-    clinicalKeyPoint: 'Caution: In chronic benzodiazepine users, rapid administration can precipitate acute withdrawal seizures.',
-    pciReference: 'PCI ER-2020 Pharmacology: Sedatives, Hypnotics & Toxicology.'
+    explanation: 'Statins inhibit 3-hydroxy-3-methylglutaryl-coenzyme A (HMG-CoA) reductase, the rate-limiting enzyme in cholesterol biosynthesis, leading to upregulation of hepatic LDL receptors.',
+    clinicalKeyPoint: 'Monitor patients for myalgia and elevated serum creatine kinase (CK) due to potential rhabdomyolysis.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 8) / PCI ER-2020: Hypolipidemic Drugs.'
   },
 
-  // ==========================================
-  // PHARMACEUTICS (MSBTE & PCI ER-2020)
-  // ==========================================
+  // =========================================================================
+  // 2. PHARMACEUTICS (ER20-12T)
+  // =========================================================================
   {
     id: 'DP-PHARM-001',
     subject: 'Pharmaceutics',
@@ -353,155 +209,43 @@ export const DPHARM_QUESTIONS: Question[] = [
   {
     id: 'DP-PHARM-004',
     subject: 'Pharmaceutics',
-    topic: 'Emulsions & Physical Stability',
-    bloomTaxonomy: 'Understand',
+    topic: 'Pharmaceutical Calculations (Stock Dosing)',
+    bloomTaxonomy: 'Apply',
     difficulty: 'Medium',
-    question: 'When an emulsion exhibits an upward or downward movement of dispersed globules forming a concentrated layer that is readily redispersed upon gentle shaking, this instability is termed:',
+    question: 'A prescription orders 250 mg of Amoxicillin oral suspension. The available stock bottle has a concentration of 125 mg / 5 mL. According to the standard formula: Liquid volume = (Desired dose / Available dose) × Quantity, how many milliliters (mL) must be dispensed?',
     options: [
-      { key: 'A', text: 'Cracking (Breaking)' },
-      { key: 'B', text: 'Creaming' },
-      { key: 'C', text: 'Phase Inversion' },
-      { key: 'D', text: 'Coalescence' }
+      { key: 'A', text: '5 mL' },
+      { key: 'B', text: '10 mL' },
+      { key: 'C', text: '15 mL' },
+      { key: 'D', text: '20 mL' }
     ],
     correctKey: 'B',
-    explanation: 'Creaming is a reversible process governed by Stokes\' Law where droplets concentrate at the top or bottom due to density differences.',
-    clinicalKeyPoint: 'Cracking is irreversible destruction of the surfactant interfacial film.',
-    pciReference: 'MSBTE Pharmaceutics: Biphasic Liquid Dosage Forms.'
+    explanation: 'Using the formula: Volume = (Desired dose / Available dose) × Volume = (250 mg / 125 mg) × 5 mL = 2 × 5 mL = 10 mL.',
+    clinicalKeyPoint: 'Always verify units and strength before calculating volume for pediatric patients.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 4, 14): Rapid Formulas.'
   },
   {
     id: 'DP-PHARM-005',
     subject: 'Pharmaceutics',
-    topic: 'Ointments & Suppository Bases',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Medium',
-    question: 'Theobroma oil (Cocoa Butter) is an ideal suppository base, but overheating above 36°C causes polymorphic transformation to which unstable low-melting form?',
-    options: [
-      { key: 'A', text: 'Alpha (α) form, melting at 24°C' },
-      { key: 'B', text: 'Beta (β) stable form, melting at 34–35°C' },
-      { key: 'C', text: 'Gamma (γ) form, melting at 18°C' },
-      { key: 'D', text: 'Delta (δ) form, melting at 42°C' }
-    ],
-    correctKey: 'C',
-    explanation: 'Cocoa butter exhibits polymorphism. Gentle melting yields the stable beta form (m.p. 34–35°C). Overheating produces unstable gamma (18°C) or alpha (24°C) forms that fail to solidify at room temperature.',
-    clinicalKeyPoint: 'Always melt cocoa butter over a warm water bath rather than direct flame.',
-    pciReference: 'PCI ER-2020 Pharmaceutics: Semisolid Dosage Forms & Suppositories.'
-  },
-  {
-    id: 'DP-PHARM-006',
-    subject: 'Pharmaceutics',
-    topic: 'Filtration & HEPA Specifications',
-    bloomTaxonomy: 'Remember',
+    topic: 'Percentage Concentration Calculation',
+    bloomTaxonomy: 'Apply',
     difficulty: 'Easy',
-    question: 'In aseptic laminar airflow workbenches, High-Efficiency Particulate Air (HEPA) filters are certified to remove at least 99.97% of airborne particles down to what pore size?',
+    question: 'In pharmaceutical dispensing calculations, what is the exact equivalent concentration of a 1% w/v solution in terms of milligrams per milliliter (mg/mL)?',
     options: [
-      { key: 'A', text: '5.0 microns' },
-      { key: 'B', text: '0.3 microns' },
-      { key: 'C', text: '0.01 microns' },
-      { key: 'D', text: '10 microns' }
+      { key: 'A', text: '1 mg/mL' },
+      { key: 'B', text: '10 mg/mL' },
+      { key: 'C', text: '100 mg/mL' },
+      { key: 'D', text: '0.1 mg/mL' }
     ],
     correctKey: 'B',
-    explanation: 'HEPA filters trap particles ≥0.3 µm with an efficiency of 99.97%, removing airborne bacteria, mold spores, and particulate debris.',
-    clinicalKeyPoint: 'Validated periodically using the DOP aerosol smoke test.',
-    pciReference: 'MSBTE Pharmaceutics: Sterile Manufacturing Facilities.'
+    explanation: '1% w/v represents 1 gram in 100 mL. Since 1 g = 1,000 mg, 1,000 mg / 100 mL = 10 mg/mL.',
+    clinicalKeyPoint: 'Essential for preparing antiseptic solutions and ophthalmic dilutions.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 14): Rapid Formulas.'
   },
 
-  // ==========================================
-  // PHARMACOGNOSY (MSBTE & PCI ER-2020)
-  // ==========================================
-  {
-    id: 'DP-COG-001',
-    subject: 'Pharmacognosy',
-    topic: 'Cardioactive Glycosides',
-    bloomTaxonomy: 'Analyze',
-    difficulty: 'Medium',
-    question: 'Digitalis purpurea leaves contain cardiac glycosides that improve cardiac contractility. Which specific chemical test identifies the presence of deoxysugars (digitoxose) in Digitalis?',
-    options: [
-      { key: 'A', text: 'Borntrager\'s Test' },
-      { key: 'B', text: 'Keller-Kiliani Test' },
-      { key: 'C', text: 'Shinoda Test' },
-      { key: 'D', text: 'Van Urk\'s Test' }
-    ],
-    correctKey: 'B',
-    explanation: 'The Keller-Kiliani test is specific for 2-deoxysugars (digitoxose). Glacial acetic acid with trace FeCl3 and concentrated H2SO4 produces a reddish-brown junction ring and a bluish-green upper layer.',
-    clinicalKeyPoint: 'Borntrager test identifies anthraquinones; Shinoda test detects flavonoids; Van Urk test detects Ergot alkaloids.',
-    pciReference: 'PCI ER-2020 Pharmacognosy: Cardiac Glycosides.'
-  },
-  {
-    id: 'DP-COG-002',
-    subject: 'Pharmacognosy',
-    topic: 'Alkaloid Identification Reagents',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'Dragendorff\'s reagent, widely used for general qualitative detection of alkaloids in crude plant extracts, chemically consists of:',
-    options: [
-      { key: 'A', text: 'Potassium bismuth iodide solution' },
-      { key: 'B', text: 'Potassium mercuric iodide solution (Mayer\'s reagent)' },
-      { key: 'C', text: 'Iodine in potassium iodide solution (Wagner\'s reagent)' },
-      { key: 'D', text: 'Saturated picric acid solution (Hager\'s reagent)' }
-    ],
-    correctKey: 'A',
-    explanation: 'Dragendorff\'s reagent is potassium bismuth iodide, producing an orange or reddish-brown precipitate with alkaloids.',
-    clinicalKeyPoint: 'Mayer\'s reagent gives cream precipitate; Wagner\'s gives reddish-brown; Hager\'s gives yellow crystals.',
-    pciReference: 'MSBTE Pharmacognosy: General Chemical Tests of Alkaloids.'
-  },
-  {
-    id: 'DP-COG-003',
-    subject: 'Pharmacognosy',
-    topic: 'Anthraquinone Glycosides & Senna',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Senna leaves (Cassia angustifolia) contain sennosides A and B. Which chemical test confirms anthraquinone glycosides via a characteristic rose-pink color in the ammoniacal layer?',
-    options: [
-      { key: 'A', text: 'Borntrager\'s test' },
-      { key: 'B', text: 'Vitali-Morin test' },
-      { key: 'C', text: 'Legal test' },
-      { key: 'D', text: 'Murexide test' }
-    ],
-    correctKey: 'A',
-    explanation: 'In Borntrager\'s test, hydrolyzing anthraquinones with dilute acid followed by extraction into benzene/ether and shaking with ammonia yields a rose-pink color in the upper ammoniacal phase.',
-    clinicalKeyPoint: 'Modified Borntrager\'s test (with FeCl3) is required for C-glycosides like Aloin.',
-    pciReference: 'PCI ER-2020 Pharmacognosy: Laxative Crude Drugs.'
-  },
-  {
-    id: 'DP-COG-004',
-    subject: 'Pharmacognosy',
-    topic: 'Tropane Alkaloids & Belladonna',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Medium',
-    question: 'Which chemical test gives a bright violet color when tropane alkaloids (such as Atropine and Hyoscyamine from Datura or Belladonna) are treated with fuming nitric acid followed by methanolic KOH?',
-    options: [
-      { key: 'A', text: 'Vitali-Morin test' },
-      { key: 'B', text: 'Thalleioquin test' },
-      { key: 'C', text: 'Froehde\'s test' },
-      { key: 'D', text: 'Biuret test' }
-    ],
-    correctKey: 'A',
-    explanation: 'The Vitali-Morin reaction is specific for tropane alkaloids: fuming nitric acid evaporation followed by acetone and alcoholic KOH produces a bright violet coloration that fades to red.',
-    clinicalKeyPoint: 'Thalleioquin test is specific for Cinchona alkaloids (Quinine), yielding an emerald green color.',
-    pciReference: 'MSBTE Pharmacognosy: Tropane Alkaloids.'
-  },
-  {
-    id: 'DP-COG-005',
-    subject: 'Pharmacognosy',
-    topic: 'Volatile Oils & Clove',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Easy',
-    question: 'Clove buds (Syzygium aromaticum) contain eugenol as their primary active constituent. What microscopic structure is characteristic of clove powder under a compound microscope?',
-    options: [
-      { key: 'A', text: 'Schizolysigenous oil glands and pollen grains in tetrahedral tetrads' },
-      { key: 'B', text: 'Wavy walled epidermal cells with paracytic stomata' },
-      { key: 'C', text: 'Cluster crystals of calcium oxalate in phloem parenchyma only' },
-      { key: 'D', text: 'Lignified non-glandular warty trichomes' }
-    ],
-    correctKey: 'A',
-    explanation: 'Clove is characterized microscopically by large schizolysigenous oil cavities, biconvex triangular pollen grains (15–20 µm), and absence of starch grains.',
-    clinicalKeyPoint: 'Eugenol forms needle-shaped potassium eugenote crystals when treated with 5% KOH solution.',
-    pciReference: 'MSBTE Pharmacognosy: Volatile Oils & Spices.'
-  },
-
-  // ==========================================
-  // PHARMACEUTICAL CHEMISTRY (MSBTE & PCI ER-2020)
-  // ==========================================
+  // =========================================================================
+  // 3. PHARMACEUTICAL CHEMISTRY (ER20-13T)
+  // =========================================================================
   {
     id: 'DP-CHEM-001',
     subject: 'Pharmaceutical Chemistry',
@@ -541,61 +285,225 @@ export const DPHARM_QUESTIONS: Question[] = [
   {
     id: 'DP-CHEM-003',
     subject: 'Pharmaceutical Chemistry',
-    topic: 'Limit Test for Arsenic',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'In the standard Gutzeit apparatus used for the IP Limit Test for Arsenic, which test paper is positioned at the top of the tube to produce a yellow-brown stain?',
-    options: [
-      { key: 'A', text: 'Mercuric chloride paper' },
-      { key: 'B', text: 'Lead acetate cotton plug' },
-      { key: 'C', text: 'Silver nitrate paper' },
-      { key: 'D', text: 'Phenolphthalein paper' }
-    ],
-    correctKey: 'A',
-    explanation: 'Arsenic is converted into arsine gas (AsH3) by nascent hydrogen, which reacts with mercuric chloride paper to form a yellow-brown complex. The lead acetate cotton plug traps interfering H2S gas.',
-    clinicalKeyPoint: 'Stain length and intensity are compared with a standard arsenic solution (10 ppm).',
-    pciReference: 'MSBTE D.Pharm Chemistry: Limit Tests.'
-  },
-  {
-    id: 'DP-CHEM-004',
-    subject: 'Pharmaceutical Chemistry',
-    topic: 'Antitubercular Agents & Isoniazid',
+    topic: 'Inorganic Pharmaceuticals & Antacids',
     bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Isoniazid (INH) is a first-line bactericidal drug for tuberculosis. Co-administration of which vitamin is mandatory to prevent drug-induced peripheral neuropathy?',
+    difficulty: 'Easy',
+    question: 'Why are Aluminium hydroxide and Magnesium hydroxide frequently combined in antacid suspensions?',
     options: [
-      { key: 'A', text: 'Pyridoxine (Vitamin B6)' },
-      { key: 'B', text: 'Cyanocobalamin (Vitamin B12)' },
-      { key: 'C', text: 'Thiamine (Vitamin B1)' },
-      { key: 'D', text: 'Riboflavin (Vitamin B2)' }
+      { key: 'A', text: 'Aluminium hydroxide causes systemic alkalosis while magnesium causes acidosis' },
+      { key: 'B', text: 'Aluminium salts have a constipating effect, which balances the laxative effect of magnesium salts' },
+      { key: 'C', text: 'Magnesium destroys enteric coatings while aluminium preserves them' },
+      { key: 'D', text: 'To double the gastric absorption of elemental iron' }
     ],
-    correctKey: 'A',
-    explanation: 'Isoniazid combines with pyridoxal phosphate to form inactive hydrazones, promoting renal excretion of vitamin B6 and precipitating peripheral neuropathy. Giving 10–25 mg daily of Vitamin B6 prevents this toxicity.',
-    clinicalKeyPoint: 'Mandatory in diabetic and malnourished patients undergoing DOTS therapy.',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Anti-tubercular Drugs.'
-  },
-  {
-    id: 'DP-CHEM-005',
-    subject: 'Pharmaceutical Chemistry',
-    topic: 'Diuretics & Carbonic Anhydrase Inhibitors',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Medium',
-    question: 'Acetazolamide is a heterocyclic sulfonamide derivative. Which enzyme does it non-competitively inhibit in the renal proximal convoluted tubule to induce alkaline diuresis?',
-    options: [
-      { key: 'A', text: 'Carbonic Anhydrase' },
-      { key: 'B', text: 'Xanthine Oxidase' },
-      { key: 'C', text: 'HMG-CoA Reductase' },
-      { key: 'D', text: 'Dopa Decarboxylase' }
-    ],
-    correctKey: 'A',
-    explanation: 'Acetazolamide inhibits carbonic anhydrase, blocking H+ and HCO3- formation in proximal tubule cells and increasing excretion of sodium, bicarbonate, and water.',
-    clinicalKeyPoint: 'Main clinical indication today is reducing intraocular pressure in open-angle glaucoma.',
-    pciReference: 'MSBTE Pharmaceutical Chemistry: Diuretics.'
+    correctKey: 'B',
+    explanation: 'Aluminium hydroxide causes intestinal smooth muscle relaxation leading to constipation, whereas magnesium hydroxide draws fluid into the bowel causing diarrhea. Combining them neutralizes these bowel side effects.',
+    clinicalKeyPoint: 'Both agents form insoluble chelates with tetracyclines and fluoroquinolones, preventing antibiotic absorption.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 5) / PCI ER-2020: Inorganic Pharmaceuticals.'
   },
 
+  // =========================================================================
+  // 4. PHARMACOGNOSY (ER20-14T)
   // ==========================================
-  // PHARMACY LAW & ETHICS (MSBTE & PCI ER-2020)
-  // ==========================================
+  {
+    id: 'DP-COG-001',
+    subject: 'Pharmacognosy',
+    topic: 'Cardioactive Glycosides',
+    bloomTaxonomy: 'Analyze',
+    difficulty: 'Medium',
+    question: 'Digitalis purpurea leaves contain cardiac glycosides that improve cardiac contractility. Which specific chemical test identifies the presence of deoxysugars (digitoxose) in Digitalis?',
+    options: [
+      { key: 'A', text: 'Borntrager\'s Test' },
+      { key: 'B', text: 'Keller-Kiliani Test' },
+      { key: 'C', text: 'Shinoda Test' },
+      { key: 'D', text: 'Van Urk\'s Test' }
+    ],
+    correctKey: 'B',
+    explanation: 'The Keller-Kiliani test is specific for 2-deoxysugars (digitoxose). Glacial acetic acid with trace FeCl3 and concentrated H2SO4 produces a reddish-brown junction ring and a bluish-green upper layer.',
+    clinicalKeyPoint: 'Borntrager test identifies anthraquinones; Shinoda test detects flavonoids; Van Urk test detects Ergot alkaloids.',
+    pciReference: 'PCI ER-2020 Pharmacognosy: Cardiac Glycosides.'
+  },
+  {
+    id: 'DP-COG-002',
+    subject: 'Pharmacognosy',
+    topic: 'Crude Drug Classification',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'In pharmacognosy, how are crude drugs classified based on cellular structure (e.g., Senna leaves vs. Acacia gum)?',
+    options: [
+      { key: 'A', text: 'Organized drugs retain cellular/tissue structure; unorganized drugs (gums, resins, latexes) lack cellular structure' },
+      { key: 'B', text: 'Organized drugs are liquid; unorganized drugs are dry powders' },
+      { key: 'C', text: 'Organized drugs are strictly mineral; unorganized drugs are plant derived' },
+      { key: 'D', text: 'Organized drugs are all synthetic polymers' }
+    ],
+    correctKey: 'A',
+    explanation: 'Organized drugs represent anatomical plant/animal parts retaining cellular structure (leaves, barks, roots). Unorganized drugs are acellular excretions/secretions such as gums, resins, dried latex, and volatile oils.',
+    clinicalKeyPoint: 'Microscopical evaluation (stomata, trichomes) applies to organized crude drugs, whereas physical and chemical evaluation applies to unorganized drugs.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 6): Natural Drugs & Classification.'
+  },
+
+  // =========================================================================
+  // 5. SOCIAL PHARMACY (ER20-15T)
+  // =========================================================================
+  {
+    id: 'DP-SOC-001',
+    subject: 'Social Pharmacy',
+    topic: 'Levels of Disease Prevention',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'According to Social Pharmacy public health concepts, immunization and routine childhood vaccination schedules fall under which level of prevention?',
+    options: [
+      { key: 'A', text: 'Primordial prevention' },
+      { key: 'B', text: 'Primary prevention' },
+      { key: 'C', text: 'Secondary prevention' },
+      { key: 'D', text: 'Tertiary prevention' }
+    ],
+    correctKey: 'B',
+    explanation: 'Primary prevention aims to prevent disease before it occurs (e.g., vaccination, sanitation, safe drinking water). Secondary prevention focuses on early detection (screening), and tertiary prevention focuses on rehabilitation and complication limitation.',
+    clinicalKeyPoint: 'Community pharmacists serve as primary prevention advocates by promoting vaccine adherence and cold chain integrity.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 7) / PCI ER-2020: Social Pharmacy.'
+  },
+
+  // =========================================================================
+  // 6. COMMUNITY PHARMACY & MANAGEMENT (ER20-22T)
+  // =========================================================================
+  {
+    id: 'DP-COMM-001',
+    subject: 'Community Pharmacy',
+    topic: 'Inventory Management (FEFO)',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'In community and hospital pharmacy store management, which inventory rotation principle ensures that medicines nearing their expiry date are dispensed first to prevent drug obsolescence?',
+    options: [
+      { key: 'A', text: 'LIFO (Last-In, First-Out)' },
+      { key: 'B', text: 'FIFO (First-In, First-Out)' },
+      { key: 'C', text: 'FEFO (First-Expiry, First-Out)' },
+      { key: 'D', text: 'VED (Vital, Essential, Desirable)' }
+    ],
+    correctKey: 'C',
+    explanation: 'FEFO (First-Expiry, First-Out) ensures stock with the earliest expiry dates is placed in front and dispensed before batches with longer shelf-lives, minimizing financial loss and stock expiration.',
+    clinicalKeyPoint: 'Routine monthly expiry audits are mandatory under Good Pharmacy Practice (GPP).',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 9, 14): Community Pharmacy & Management.'
+  },
+  {
+    id: 'DP-COMM-002',
+    subject: 'Community Pharmacy',
+    topic: 'Patient Counselling Technique',
+    bloomTaxonomy: 'Apply',
+    difficulty: 'Easy',
+    question: 'During discharge medication counselling, why does the pharmacist ask the patient to repeat the instructions in their own words (the "Teach-Back" method)?',
+    options: [
+      { key: 'A', text: 'To fulfill legal billing requirements for consultation' },
+      { key: 'B', text: 'To confirm the patient understood the usage instructions, dosage, and precautions correctly' },
+      { key: 'C', text: 'To test the patient’s memorization of chemical drug structures' },
+      { key: 'D', text: 'To transfer legal liability for adverse reactions onto the patient' }
+    ],
+    correctKey: 'B',
+    explanation: 'The Teach-Back method is a patient-centered communication technique where the healthcare provider confirms whether the patient has accurately comprehended instructions, reducing medication administration errors.',
+    clinicalKeyPoint: 'Crucial when demonstrating medical devices like pressurized metered-dose inhalers (pMDIs) and insulin injection pens.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 7, 9, 14): Patient Counselling.'
+  },
+
+  // =========================================================================
+  // 7. BIOCHEMISTRY & CLINICAL PATHOLOGY (ER20-23T)
+  // =========================================================================
+  {
+    id: 'DP-BIO-001',
+    subject: 'Biochemistry',
+    topic: 'Vitamins & Deficiency Disorders',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'Deficiency of Thiamine (Vitamin B1) manifests in which classic clinical condition characterized by peripheral polyneuropathy and high-output congestive heart failure?',
+    options: [
+      { key: 'A', text: 'Pellagra' },
+      { key: 'B', text: 'Beri-Beri' },
+      { key: 'C', text: 'Scurvy' },
+      { key: 'D', text: 'Rickets' }
+    ],
+    correctKey: 'B',
+    explanation: 'Thiamine deficiency causes Beri-Beri, classified into Dry Beri-Beri (neuropathy, muscle wasting) and Wet Beri-Beri (high-output heart failure, edema). Pellagra is caused by Niacin (B3) deficiency; Scurvy by Vitamin C; Rickets by Vitamin D.',
+    clinicalKeyPoint: 'Wernicke-Korsakoff syndrome is a severe neurological manifestation of thiamine deficiency common in chronic alcoholism.',
+    pciReference: 'PCI ER-2020 Biochemistry: Vitamins & Co-enzymes.'
+  },
+  {
+    id: 'DP-BIO-002',
+    subject: 'Biochemistry',
+    topic: 'Clinical Glycemic Monitoring (HbA1c)',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'In diabetic clinical pathology, what does Glycated Hemoglobin (HbA1c) measure, and over what approximate timeframe does it reflect mean plasma glucose?',
+    options: [
+      { key: 'A', text: 'Fasting glucose over the preceding 24 hours' },
+      { key: 'B', text: 'Post-prandial glucose over the preceding 7 days' },
+      { key: 'C', text: 'Average blood glucose exposure over the preceding 90 to 120 days (erythrocyte lifespan)' },
+      { key: 'D', text: 'Total hepatic glycogen reserves over 1 year' }
+    ],
+    correctKey: 'C',
+    explanation: 'HbA1c forms via non-enzymatic glycation of the N-terminal valine of the hemoglobin beta chain. Because red blood cells circulate for ~120 days, HbA1c provides an objective retrospective indicator of glycemic control.',
+    clinicalKeyPoint: 'Target HbA1c for most non-pregnant adults with diabetes is <7.0%.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 10): Biochemistry & Clinical Pathology.'
+  },
+
+  // =========================================================================
+  // 8. PHARMACOTHERAPEUTICS & CLINICAL PHARMACY (ER20-24T / ER20-25T)
+  // =========================================================================
+  {
+    id: 'DP-THER-001',
+    subject: 'Pharmacotherapeutics',
+    topic: 'Clinical Documentation (SOAP)',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Easy',
+    question: 'In clinical pharmacy case management, what does the standardized acronym "SOAP" represent?',
+    options: [
+      { key: 'A', text: 'Sterilization, Operation, Asepsis, Parenterals' },
+      { key: 'B', text: 'Subjective, Objective, Assessment, Plan' },
+      { key: 'C', text: 'Standard, Observation, Antidote, Prescription' },
+      { key: 'D', text: 'Symptoms, Optimization, Administration, Pharmacokinetics' }
+    ],
+    correctKey: 'B',
+    explanation: 'SOAP format: S = Subjective (patient complaints/history); O = Objective (vitals/lab findings); A = Assessment (problem diagnosis/severity); P = Plan (medicines, non-drug interventions, monitoring, counselling).',
+    clinicalKeyPoint: 'Writing concise SOAP notes is mandatory for documentation and interprofessional rounds.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 11, 14): Pharmacotherapeutics.'
+  },
+  {
+    id: 'DP-THER-002',
+    subject: 'Pharmacotherapeutics',
+    topic: 'Antitubercular Chemotherapy',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Why does initial intensive phase therapy for active pulmonary tuberculosis (TB) mandate a combination of 4 first-line drugs (HRZE: Isoniazid, Rifampicin, Pyrazinamide, Ethambutol) rather than monotherapy?',
+    options: [
+      { key: 'A', text: 'To reduce the total financial cost of medication' },
+      { key: 'B', text: 'To improve bactericidal efficacy and prevent the emergence of multidrug-resistant mycobacteria' },
+      { key: 'C', text: 'To allow lower doses so liver monitoring is unnecessary' },
+      { key: 'D', text: 'Because each single drug has zero individual antibacterial activity' }
+    ],
+    correctKey: 'B',
+    explanation: 'Mycobacterium tuberculosis undergoes spontaneous chromosomal mutations. Monotherapy rapidly selects for resistant bacilli. Combining 4 distinct mechanism-of-action drugs prevents resistance emergence and eradicates both active and dormant bacilli.',
+    clinicalKeyPoint: 'Directly Observed Treatment, Short-Course (DOTS) ensures adherence and prevents treatment failure.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 11, 14): Pharmacotherapeutics.'
+  },
+  {
+    id: 'DP-HOSP-001',
+    subject: 'Hospital & Clinical Pharmacy',
+    topic: 'Medication Safety & Look-Alike / Sound-Alike',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'In hospital pharmacy medication safety protocols, what enhanced safeguard is used on storage bins and labels to prevent dispensing mix-ups between Look-Alike Sound-Alike (LASA) drugs (e.g., vinBLASTine vs. vinCRIStine)?',
+    options: [
+      { key: 'A', text: 'Storing both medicines together in alphabetical order' },
+      { key: 'B', text: 'Tall Man Lettering and distinct physical separation' },
+      { key: 'C', text: 'Dispensing without outer cartons' },
+      { key: 'D', text: 'Using handwritten abbreviations only' }
+    ],
+    correctKey: 'B',
+    explanation: 'Tall Man lettering uses capitalized letters to highlight differentiating syllables in look-alike drug names, reducing selection errors.',
+    clinicalKeyPoint: 'High-alert medications require dual independent pharmacist verification before administration.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 12): Hospital & Clinical Pharmacy.'
+  },
+
+  // =========================================================================
+  // 9. PHARMACY LAW & ETHICS (ER20-26T)
+  // =========================================================================
   {
     id: 'DP-LAW-001',
     subject: 'Pharmacy Law & Ethics',
@@ -650,122 +558,10 @@ export const DPHARM_QUESTIONS: Question[] = [
     clinicalKeyPoint: 'Members are eligible for re-election or re-nomination upon term completion.',
     pciReference: 'MSBTE Pharmacy Law & Ethics: Pharmacy Act 1948.'
   },
-  {
-    id: 'DP-LAW-004',
-    subject: 'Pharmacy Law & Ethics',
-    topic: 'Drug Schedules',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'Under the Drugs and Cosmetics Rules 1945, which schedule details standards for ophthalmic preparations (eye drops and eye ointments)?',
-    options: [
-      { key: 'A', text: 'Schedule FF' },
-      { key: 'B', text: 'Schedule G' },
-      { key: 'C', text: 'Schedule J' },
-      { key: 'D', text: 'Schedule Y' }
-    ],
-    correctKey: 'A',
-    explanation: 'Schedule FF details regulatory standards for ophthalmic preparations (sterility, particulate limits, packaging). Schedule G covers drugs taken under medical supervision; Schedule J lists incurable diseases; Schedule Y details clinical trials.',
-    clinicalKeyPoint: 'Schedule FF mandates that eye drops remain sterile until opening and contain approved antimicrobial preservatives.',
-    pciReference: 'MSBTE Pharmacy Law: Drug Schedules.'
-  },
-  {
-    id: 'DP-LAW-005',
-    subject: 'Pharmacy Law & Ethics',
-    topic: 'Narcotic Drugs & Psychotropic Substances (NDPS) Act',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Medium',
-    question: 'In what year was the Narcotic Drugs and Psychotropic Substances (NDPS) Act enacted by the Parliament of India?',
-    options: [
-      { key: 'A', text: '1940' },
-      { key: 'B', text: '1971' },
-      { key: 'C', text: '1985' },
-      { key: 'D', text: '1995' }
-    ],
-    correctKey: 'C',
-    explanation: 'The NDPS Act was enacted in 1985 to consolidate and amend laws relating to narcotic drugs and psychotropic substances, imposing stringent provisions for control and forfeiture of illicit drug assets.',
-    clinicalKeyPoint: 'Administered at the central level by the Narcotics Control Bureau (NCB).',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: NDPS Act 1985.'
-  },
 
-  // ==========================================
-  // COMMUNITY & CLINICAL PHARMACY (MSBTE & PCI ER-2020)
-  // ==========================================
-  {
-    id: 'DP-COMM-001',
-    subject: 'Community Pharmacy',
-    topic: 'Drug-Drug Interactions & Anticoagulants',
-    bloomTaxonomy: 'Evaluate',
-    difficulty: 'Hard',
-    question: 'A 68-year-old patient on Warfarin 5 mg daily is prescribed Ciprofloxacin 500 mg twice daily for a urinary tract infection. What is the most critical interaction risk?',
-    options: [
-      { key: 'A', text: 'Ciprofloxacin induces CYP2C9, reducing warfarin levels and risking stroke' },
-      { key: 'B', text: 'Ciprofloxacin inhibits CYP enzymes and reduces gut vitamin K synthesis, markedly elevating INR and bleeding risk' },
-      { key: 'C', text: 'Ciprofloxacin chelates with warfarin in the stomach, blocking absorption' },
-      { key: 'D', text: 'No significant pharmacokinetic interaction occurs' }
-    ],
-    correctKey: 'B',
-    explanation: 'Ciprofloxacin inhibits cytochrome P450 enzymes that metabolize warfarin and depletes vitamin K-producing gut flora, synergistically elevating the INR and increasing major bleeding risk.',
-    clinicalKeyPoint: 'Monitor INR closely within 48–72 hours or substitute an antibiotic without CYP interaction (e.g., Nitrofurantoin).',
-    pciReference: 'PCI ER-2020 Community Pharmacy: Adverse Drug Reactions & Interactions.'
-  },
-  {
-    id: 'DP-COMM-002',
-    subject: 'Community Pharmacy',
-    topic: 'Patient Counseling & Administration',
-    bloomTaxonomy: 'Apply',
-    difficulty: 'Medium',
-    question: 'A patient is dispensed oral Alendronate sodium 70 mg weekly for osteoporosis. What counseling instruction must the pharmacist emphasize to prevent esophageal ulceration?',
-    options: [
-      { key: 'A', text: 'Take with milk immediately before going to sleep' },
-      { key: 'B', text: 'Swallow whole with a full glass of plain water upon waking and remain upright for at least 30 minutes' },
-      { key: 'C', text: 'Chew the tablet thoroughly after a meal' },
-      { key: 'D', text: 'Dissolve in fruit juice containing Vitamin C' }
-    ],
-    correctKey: 'B',
-    explanation: 'Bisphosphonates cause chemical esophagitis if retained in the esophagus. Taking with a full glass of water and remaining upright for 30 minutes ensures rapid transit into the stomach.',
-    clinicalKeyPoint: 'Calcium in milk or mineral water chelates bisphosphonates, abolishing bioavailability.',
-    pciReference: 'PCI ER-2020 Community Pharmacy: Patient Counseling.'
-  },
-  {
-    id: 'DP-COMM-003',
-    subject: 'Community Pharmacy',
-    topic: 'Vaccine Storage & Cold Chain',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'According to cold chain guidelines for community pharmacy refrigerators, what is the mandatory storage temperature range for vaccines and biologicals (e.g., Insulin, Tetanus Toxoid, Hepatitis B)?',
-    options: [
-      { key: 'A', text: '-20°C to -10°C' },
-      { key: 'B', text: '+2°C to +8°C' },
-      { key: 'C', text: '+15°C to +25°C' },
-      { key: 'D', text: '0°C exactly with ice packs touching the vials' }
-    ],
-    correctKey: 'B',
-    explanation: 'The cold chain temperature range is +2°C to +8°C. Freezing (below 0°C) denatures protein antigens in adsorbable vaccines like Tetanus Toxoid and DPT.',
-    clinicalKeyPoint: 'Store vaccines on central refrigerator shelves, never in door compartments where temperature fluctuates.',
-    pciReference: 'MSBTE Community Pharmacy: Storage & Cold Chain Management.'
-  },
-  {
-    id: 'DP-COMM-004',
-    subject: 'Community Pharmacy',
-    topic: 'Prescription Parts & Latin Abbreviations',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'On an Indian prescription slip, which section contains the designation "Rx" representing an invocation to Jupiter or God of healing?',
-    options: [
-      { key: 'A', text: 'Inscription' },
-      { key: 'B', text: 'Superscription' },
-      { key: 'C', text: 'Subscription' },
-      { key: 'D', text: 'Signatura' }
-    ],
-    correctKey: 'B',
-    explanation: 'Superscription consists of the symbol "Rx" (Take thou). Inscription lists names and quantities of prescribed drugs; Subscription contains directions to the pharmacist; Signatura contains instructions for the patient.',
-    clinicalKeyPoint: 'Latin abbreviation "p.r.n." means pro re nata (as needed/when required).',
-    pciReference: 'MSBTE Community Pharmacy: Parts of Prescription.'
-  },
-
-  // ==========================================
-  // HUMAN ANATOMY & PHYSIOLOGY (MSBTE & PCI ER-2020)
-  // ==========================================
+  // =========================================================================
+  // 10. HUMAN ANATOMY & PHYSIOLOGY (ER20-11T)
+  // =========================================================================
   {
     id: 'DP-HAP-001',
     subject: 'Human Anatomy',
@@ -787,132 +583,20 @@ export const DPHARM_QUESTIONS: Question[] = [
   {
     id: 'DP-HAP-002',
     subject: 'Human Anatomy',
-    topic: 'Renal Nephron Physiology',
-    bloomTaxonomy: 'Understand',
+    topic: 'Cardiac Output Physiology',
+    bloomTaxonomy: 'Apply',
     difficulty: 'Medium',
-    question: 'In which functional segment of the human nephron does the maximum proportion (~65% to 70%) of glomerular filtrate, sodium, water, and 100% of filtered glucose reabsorption occur?',
+    question: 'A healthy adult with a resting heart rate of 72 beats per minute and an average stroke volume of 70 mL per beat has an estimated resting Cardiac Output (CO = Heart Rate × Stroke Volume) of approximately:',
     options: [
-      { key: 'A', text: 'Distal Convoluted Tubule (DCT)' },
-      { key: 'B', text: 'Proximal Convoluted Tubule (PCT)' },
-      { key: 'C', text: 'Loop of Henle' },
-      { key: 'D', text: 'Collecting Duct' }
+      { key: 'A', text: '2.5 L/min' },
+      { key: 'B', text: '5.0 L/min' },
+      { key: 'C', text: '7.5 L/min' },
+      { key: 'D', text: '10.0 L/min' }
     ],
     correctKey: 'B',
-    explanation: 'The PCT has extensive brush border microvilli and reabsorbs ~67% of filtered electrolytes and water, and 100% of filtered glucose and amino acids.',
-    clinicalKeyPoint: 'SGLT2 inhibitors like Dapagliflozin act specifically at the early PCT to block glucose reabsorption.',
-    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Urinary System.'
-  },
-  {
-    id: 'DP-HAP-003',
-    subject: 'Human Anatomy',
-    topic: 'Endocrine System & Adrenal Gland',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Which anatomical zone of the adrenal cortex synthesizes and secretes mineralocorticoids, primarily Aldosterone?',
-    options: [
-      { key: 'A', text: 'Zona Glomerulosa' },
-      { key: 'B', text: 'Zona Fasciculata' },
-      { key: 'C', text: 'Zona Reticularis' },
-      { key: 'D', text: 'Adrenal Medulla' }
-    ],
-    correctKey: 'A',
-    explanation: 'Adrenal cortex zones: Zona Glomerulosa secretes mineralocorticoids (aldosterone); Zona Fasciculata secretes glucocorticoids (cortisol); Zona Reticularis secretes androgens. The medulla secretes catecholamines.',
-    clinicalKeyPoint: 'Mnemonic: "GFR" corresponds to "Salt, Sugar, Sex".',
-    pciReference: 'MSBTE HAP: Endocrine Glands.'
-  },
-  {
-    id: 'DP-HAP-004',
-    subject: 'Human Anatomy',
-    topic: 'Blood & Hematology',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'Which granular leukocyte represents the largest percentage (50% to 70%) of total circulating white blood cells and acts as the primary first responder in acute bacterial infections?',
-    options: [
-      { key: 'A', text: 'Neutrophils' },
-      { key: 'B', text: 'Eosinophils' },
-      { key: 'C', text: 'Basophils' },
-      { key: 'D', text: 'Monocytes' }
-    ],
-    correctKey: 'A',
-    explanation: 'Neutrophils are the most abundant circulating leukocytes (50%–70%) and phagocytose bacteria during acute inflammatory responses.',
-    clinicalKeyPoint: 'Elevated neutrophil count (neutrophilia) with "shift to the left" indicates acute bacterial infection.',
-    pciReference: 'PCI ER-2020 HAP: Blood Components & Functions.'
-  },
-
-  // ==========================================
-  // BIOCHEMISTRY & CLINICAL PATHOLOGY (MSBTE & PCI ER-2020)
-  // ==========================================
-  {
-    id: 'DP-BIO-001',
-    subject: 'Biochemistry',
-    topic: 'Vitamins & Deficiency Disorders',
-    bloomTaxonomy: 'Remember',
-    difficulty: 'Easy',
-    question: 'Deficiency of Thiamine (Vitamin B1) manifests in which classic clinical condition characterized by peripheral polyneuropathy and high-output congestive heart failure?',
-    options: [
-      { key: 'A', text: 'Pellagra' },
-      { key: 'B', text: 'Beri-Beri' },
-      { key: 'C', text: 'Scurvy' },
-      { key: 'D', text: 'Rickets' }
-    ],
-    correctKey: 'B',
-    explanation: 'Thiamine deficiency causes Beri-Beri, classified into Dry Beri-Beri (neuropathy, muscle wasting) and Wet Beri-Beri (high-output heart failure, edema). Pellagra is caused by Niacin (B3) deficiency; Scurvy by Vitamin C; Rickets by Vitamin D.',
-    clinicalKeyPoint: 'Wernicke-Korsakoff syndrome is a severe neurological manifestation of thiamine deficiency common in chronic alcoholism.',
-    pciReference: 'PCI ER-2020 Biochemistry: Vitamins & Co-enzymes.'
-  },
-  {
-    id: 'DP-BIO-002',
-    subject: 'Biochemistry',
-    topic: 'Diagnostic Enzymes & Biomarkers',
-    bloomTaxonomy: 'Analyze',
-    difficulty: 'Medium',
-    question: 'Following an acute myocardial infarction, which serum cardiac biomarker demonstrates the earliest elevation within 2 to 4 hours of myocardial ischemia?',
-    options: [
-      { key: 'A', text: 'Cardiac Troponin I / T and Myoglobin' },
-      { key: 'B', text: 'Lactate Dehydrogenase (LDH-1)' },
-      { key: 'C', text: 'Alkaline Phosphatase (ALP)' },
-      { key: 'D', text: 'Alanine Aminotransferase (ALT)' }
-    ],
-    correctKey: 'A',
-    explanation: 'Myoglobin and cardiac Troponins (cTnI and cTnT) rise within 2–4 hours post-infarct. Troponins offer high cardiac specificity and remain elevated for 7–10 days.',
-    clinicalKeyPoint: 'LDH rises late (24–48 hours) with an "LDH-1 > LDH-2 flip" peaking around day 3.',
-    pciReference: 'PCI ER-2020 Biochemistry: Diagnostic Enzymes.'
-  },
-  {
-    id: 'DP-BIO-003',
-    subject: 'Biochemistry',
-    topic: 'Carbohydrate Metabolism & Diabetes',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Which rate-limiting committed enzyme catalyzes the conversion of Fructose-6-phosphate to Fructose-1,6-bisphosphate in the glycolytic pathway (Embden-Meyerhof pathway)?',
-    options: [
-      { key: 'A', text: 'Phosphofructokinase-1 (PFK-1)' },
-      { key: 'B', text: 'Hexokinase' },
-      { key: 'C', text: 'Pyruvate Kinase' },
-      { key: 'D', text: 'Aldolase' }
-    ],
-    correctKey: 'A',
-    explanation: 'Phosphofructokinase-1 (PFK-1) catalyzes the rate-limiting committed step of glycolysis, allosterically activated by AMP and Fructose-2,6-bisphosphate, and inhibited by ATP and citrate.',
-    clinicalKeyPoint: 'HbA1c reflects average blood glucose levels over the preceding 90–120 days.',
-    pciReference: 'MSBTE Biochemistry: Carbohydrate Metabolism.'
-  },
-  {
-    id: 'DP-BIO-004',
-    subject: 'Biochemistry',
-    topic: 'Lipid Metabolism & Ketone Bodies',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'In uncontrolled diabetic ketoacidosis (DKA), which compound is synthesized in hepatic mitochondria as a ketone body but cannot be utilized by peripheral tissues because it is spontaneously decarboxylated and exhaled?',
-    options: [
-      { key: 'A', text: 'Acetone' },
-      { key: 'B', text: 'Acetoacetate' },
-      { key: 'C', text: 'Beta-hydroxybutyrate' },
-      { key: 'D', text: 'Oxaloacetate' }
-    ],
-    correctKey: 'A',
-    explanation: 'The three ketone bodies are acetoacetate, beta-hydroxybutyrate, and acetone. Acetone is a volatile metabolic dead-end produced by non-enzymatic decarboxylation of acetoacetate, excreted via breath (fruity odor).',
-    clinicalKeyPoint: 'Rothera\'s test (sodium nitroprusside in ammonia) detects acetoacetate and acetone in urine.',
-    pciReference: 'MSBTE Biochemistry: Lipid Metabolism & Urine Analysis.'
+    explanation: 'Cardiac Output = Heart Rate × Stroke Volume = 72 beats/min × 70 mL/beat = 5,040 mL/min ≈ 5.0 Liters/min.',
+    clinicalKeyPoint: 'During strenuous exercise, cardiac output can increase to 20–25 L/min to meet metabolic demand.',
+    pciReference: 'Navjeevan Exit Exam Notes (p. 3, 14): Cardiovascular System.'
   }
 ];
 
@@ -934,14 +618,6 @@ export const PCI_SUBJECT_SUMMARY = [
     passRate: '86% Pass Rate'
   },
   {
-    name: 'Pharmacognosy',
-    code: 'ER20-13T',
-    icon: 'Leaf',
-    description: 'Crude drugs, botanical sources, chemical identification tests (Keller-Kiliani, Borntrager), and adulterants.',
-    questionCount: 40,
-    passRate: '89% Pass Rate'
-  },
-  {
     name: 'Pharmaceutical Chemistry',
     code: 'ER20-12T',
     icon: 'FlaskConical',
@@ -950,36 +626,68 @@ export const PCI_SUBJECT_SUMMARY = [
     passRate: '79% Pass Rate'
   },
   {
-    name: 'Pharmacy Law & Ethics',
-    code: 'ER20-23T',
-    icon: 'Scale',
-    description: 'Drugs & Cosmetics Act 1940, Schedules (M, H, X), Pharmacy Act 1948, DPCO & Code of Ethics.',
-    questionCount: 38,
-    passRate: '91% Pass Rate'
+    name: 'Pharmacognosy',
+    code: 'ER20-13T',
+    icon: 'Leaf',
+    description: 'Crude drugs, botanical sources, chemical identification tests (Keller-Kiliani, Borntrager), and adulterants.',
+    questionCount: 40,
+    passRate: '89% Pass Rate'
+  },
+  {
+    name: 'Social Pharmacy',
+    code: 'ER20-15T',
+    icon: 'Users',
+    description: 'Public health, preventive medicine, immunisation schedules, nutrition & national health priorities.',
+    questionCount: 30,
+    passRate: '92% Pass Rate'
   },
   {
     name: 'Community Pharmacy',
-    code: 'ER20-25T',
+    code: 'ER20-22T',
     icon: 'HeartPulse',
-    description: 'Drug-drug interactions, patient counseling, lab data interpretation, cold chain logistics.',
+    description: 'Prescription handling, patient counselling, OTC advice, FEFO inventory & cold chain management.',
     questionCount: 35,
-    passRate: '84% Pass Rate'
-  },
-  {
-    name: 'Human Anatomy',
-    code: 'ER20-14T',
-    icon: 'Heart',
-    description: 'Cardiovascular system, renal filtration, nervous system, and endocrine organ physiology.',
-    questionCount: 32,
     passRate: '88% Pass Rate'
   },
   {
     name: 'Biochemistry',
-    code: 'ER20-15T',
+    code: 'ER20-23T',
     icon: 'Atom',
-    description: 'Metabolic pathways, vitamins, enzyme kinetics, deficiency disorders & pathology markers.',
-    questionCount: 30,
+    description: 'Metabolic pathways, vitamins, enzymes, liver/renal tests, diabetes markers & clinical pathology.',
+    questionCount: 32,
     passRate: '85% Pass Rate'
+  },
+  {
+    name: 'Pharmacotherapeutics',
+    code: 'ER20-24T',
+    icon: 'Stethoscope',
+    description: 'Clinical reasoning, SOAP cases, rational drug therapy, antibiotic stewardship & disease management.',
+    questionCount: 35,
+    passRate: '83% Pass Rate'
+  },
+  {
+    name: 'Hospital Pharmacy',
+    code: 'ER20-25T',
+    icon: 'Building2',
+    description: 'Hospital distribution systems, medication safety, LASA drugs, TDM & clinical pharmacy practice.',
+    questionCount: 30,
+    passRate: '87% Pass Rate'
+  },
+  {
+    name: 'Pharmacy Law & Ethics',
+    code: 'ER20-26T',
+    icon: 'Scale',
+    description: 'Drugs & Cosmetics Act 1940, Schedules (M, H, X), Pharmacy Act 1948, NDPS Act & Code of Ethics.',
+    questionCount: 38,
+    passRate: '91% Pass Rate'
+  },
+  {
+    name: 'Human Anatomy',
+    code: 'ER20-11T',
+    icon: 'Heart',
+    description: 'Cell physiology, cardiovascular output, nephron filtration, endocrine regulation & nervous reflexes.',
+    questionCount: 32,
+    passRate: '88% Pass Rate'
   }
 ];
 
@@ -987,7 +695,7 @@ export const INITIAL_TEAMS: Team[] = [
   {
     id: 'team-alpha',
     name: 'Team Galen (Pharma Titans)',
-    college: 'Government College of Pharmacy',
+    college: 'D. P. Kharde Navjeevan College of Pharmacy',
     points: 7,
     correctAnswers: 7,
     wrongAnswers: 1,
