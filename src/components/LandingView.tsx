@@ -13,15 +13,32 @@ import {
 } from 'lucide-react';
 import { PCI_SUBJECT_SUMMARY, INITIAL_TEAMS } from '../data/questions';
 
-interface LandingPageProps {
-  onStartQuiz: (subjectFilter?: string) => void;
-  totalQuestionCount: number;
+export interface LandingViewProps {
+  onStartQuiz?: (subjectFilter?: string) => void;
+  onStartPractice?: (subjectFilter?: string) => void;
+  onNavigate?: (view: string) => void;
+  totalQuestionCount?: number;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQuestionCount }) => {
+export const LandingView: React.FC<LandingViewProps> = ({ 
+  onStartQuiz, 
+  onStartPractice, 
+  onNavigate,
+  totalQuestionCount = 100 
+}) => {
+  const handleLaunch = (filter?: string) => {
+    if (onStartQuiz) {
+      onStartQuiz(filter);
+    } else if (onStartPractice) {
+      onStartPractice(filter);
+    } else if (onNavigate) {
+      onNavigate('quiz');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 antialiased">
-      {/* Top Utility Bar */}
+      {/* Top Status Bar */}
       <div className="bg-slate-900 border-b border-slate-800 text-slate-300 text-xs py-2 px-4 sm:px-8 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -35,18 +52,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
       </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200 py-16 sm:py-24">
+      <section className="relative overflow-hidden bg-white border-b border-slate-200 py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left Column: Headlines & CTA */}
+            {/* Left Column: Headlines & Actions */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
                 Inter-College Exit Exam Arena
               </div>
 
-              <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Master the D.Pharm Exit Exam with Clinical Precision
               </h1>
 
@@ -57,22 +74,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button
-                  onClick={() => onStartQuiz()}
-                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 rounded-xl shadow-sm hover:shadow transition-all duration-150 gap-2"
+                  type="button"
+                  onClick={() => handleLaunch()}
+                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 rounded-xl shadow-sm hover:shadow transition-all duration-150 gap-2 cursor-pointer"
                 >
                   Start Full Mock Exam
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
-                  onClick={() => onStartQuiz('RapidRevision')}
-                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 rounded-xl transition-all duration-150 gap-2 border border-slate-200"
+                  type="button"
+                  onClick={() => handleLaunch('RapidRevision')}
+                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 active:bg-slate-300 rounded-xl transition-all duration-150 gap-2 border border-slate-200 cursor-pointer"
                 >
                   <Clock className="w-4 h-4 text-slate-500" />
                   30-Min Rapid Drill
                 </button>
               </div>
 
-              {/* Trust & Metric Badges */}
+              {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-100 max-w-xl">
                 <div>
                   <div className="text-2xl font-bold text-slate-900">{totalQuestionCount}+</div>
@@ -89,7 +108,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
               </div>
             </div>
 
-            {/* Right Column: Mini Live Leaderboard Card */}
+            {/* Right Column: Live Team Leaderboard Card */}
             <div className="lg:col-span-5">
               <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-xl border border-slate-800">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -129,7 +148,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
 
                 <div className="mt-4 pt-3 border-t border-slate-800/80 text-center">
                   <p className="text-xs text-slate-400">
-                    Your institutional score updates automatically after each drill.
+                    Institutional score auto-updates after each evaluated test run.
                   </p>
                 </div>
               </div>
@@ -139,15 +158,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
         </div>
       </section>
 
-      {/* Structured Subject Explorer */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+      {/* PCI ER-2020 Subject Drill Section */}
+      <section className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               PCI ER-2020 Subject Drill Hub
             </h2>
             <p className="text-sm sm:text-base text-slate-500 mt-1">
-              Select any specific theoretical or clinical course code to launch an isolated practice session.
+              Select any specific course code to launch an isolated practice session.
             </p>
           </div>
           <div className="mt-4 md:mt-0 flex gap-2">
@@ -162,13 +181,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
           </div>
         </div>
 
-        {/* Subject Cards Grid */}
+        {/* Subject Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PCI_SUBJECT_SUMMARY.map((sub) => (
             <div 
               key={sub.code}
-              onClick={() => onStartQuiz(sub.name)}
-              className="bg-white rounded-xl border border-slate-200/90 hover:border-indigo-300 shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col justify-between cursor-pointer group"
+              onClick={() => handleLaunch(sub.name)}
+              className="bg-white rounded-xl border border-slate-200 hover:border-indigo-300 shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col justify-between cursor-pointer group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -200,8 +219,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
         </div>
       </section>
 
-      {/* Feature Highlights / Value Proposition */}
-      <section className="bg-white border-t border-slate-200 py-16">
+      {/* Feature Value Highlights */}
+      <section className="bg-white border-t border-slate-200 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex gap-4 items-start">
@@ -235,7 +254,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
               <div>
                 <h4 className="font-semibold text-slate-900 text-sm">Immediate Clinical Rationale</h4>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  No unexplained answer keys. Review mechanism-level explanations and rapid viva mnemonics immediately after answering.
+                  Review mechanism-level explanations and rapid viva mnemonics immediately after answering each scenario.
                 </p>
               </div>
             </div>
@@ -243,8 +262,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
         </div>
       </section>
 
-      {/* Minimal Footer */}
-      <footer className="border-t border-slate-200 bg-slate-50 py-8 text-center text-xs text-slate-500">
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-slate-50 py-6 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4">
           <p>© 2026-2027 D.Pharm Exit Examination Academic Quiz Resource. Educational Revision Aid.</p>
         </div>
@@ -252,3 +271,5 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStartQuiz, totalQues
     </div>
   );
 };
+
+export default LandingView;
