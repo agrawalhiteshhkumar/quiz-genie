@@ -2,7 +2,7 @@ import { Question, Team } from '../types/quiz';
 
 export const DPHARM_QUESTIONS: Question[] = [
   // =========================================================================
-  // 1. PHARMACEUTICS (ER20-11T)
+  // 1. PHARMACEUTICS (Course Code: ER20-11T)
   // =========================================================================
   {
     id: 'DP-PHARM-001',
@@ -18,9 +18,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: '1901 at Bengal Chemicals, Calcutta' }
     ],
     correctKey: 'B',
-    explanation: 'The Department of Pharmaceutics at BHU was established in 1932 by Prof. M. L. Schroff (Father of Indian Pharmacy Education), and the official 3-year B.Pharm degree began in 1937.',
-    clinicalKeyPoint: 'March 6th is celebrated every year as National Pharmacy Education Day to honor Prof. M. L. Schroff\'s birth anniversary.',
-    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): History of Pharmacy Profession.'
+    explanation: 'The Department of Pharmaceutics at BHU was established in 1932 by Prof. M. L. Schroff, and the official 3-year B.Pharm degree began in 1937[cite: 154].',
+    clinicalKeyPoint: 'March 6th is celebrated every year as National Pharmacy Education Day in honour of Prof. M. L. Schroff[cite: 154, 172].',
+    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): History of Profession of Pharmacy[cite: 151, 154].'
   },
   {
     id: 'DP-PHARM-002',
@@ -36,9 +36,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Type IV / NP (General-purpose non-parenteral glass)' }
     ],
     correctKey: 'B',
-    explanation: 'Type II glass is produced by treating commercial soda-lime glass surfaces with SO2 under moist heat, neutralizing surface alkali. It is suitable for aqueous parenterals that are buffered below pH 7.0.',
-    clinicalKeyPoint: 'Type I borosilicate glass remains mandatory for unbuffered parenterals, strong acids, and alkalis due to minimal thermal expansion and ion leaching.',
-    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Packaging Materials.'
+    explanation: 'Type II glass is produced by treating commercial soda-lime glass surfaces with SO2 under moist heat, neutralizing surface alkali[cite: 11]. It is suitable for aqueous parenterals buffered below pH 7.0[cite: 11].',
+    clinicalKeyPoint: 'Type I borosilicate glass remains mandatory for unbuffered parenterals, strong acids, and alkalis[cite: 11].',
+    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Packaging Materials[cite: 8, 11, 151].'
   },
   {
     id: 'DP-PHARM-003',
@@ -54,9 +54,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Fluidized suspension (inter-particle jet collision)' }
     ],
     correctKey: 'B',
-    explanation: 'At optimal critical speed, the ball mill exhibits cataracting: balls are carried up nearly to the top and fall parabolically, maximizing impact force combined with attrition.',
-    clinicalKeyPoint: 'Centrifuging occurs when speed is excessive, causing grinding balls to rotate with the shell without falling, halting size reduction.',
-    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Unit Operations (Size Reduction).'
+    explanation: 'At optimal critical speed, the ball mill exhibits cataracting: balls are carried up nearly to the top and fall parabolically, maximizing impact force combined with attrition[cite: 157].',
+    clinicalKeyPoint: 'Centrifuging occurs when speed is excessive, causing grinding balls to rotate with the shell without falling, halting size reduction[cite: 157].',
+    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Unit Operations (Size Reduction)[cite: 8, 13, 151].'
   },
   {
     id: 'DP-PHARM-004',
@@ -72,9 +72,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'All particles pass through Sieve No. 85 and not more than 40% pass through Sieve No. 120' }
     ],
     correctKey: 'B',
-    explanation: 'IP specifications: Coarse (10/44), Moderately Coarse (22/60), Moderately Fine (44/85), Fine (85/120), and Very Fine (all pass Sieve 120).',
-    clinicalKeyPoint: 'Sieve 22 has a nominal aperture size of 710 µm, while Sieve 60 corresponds to 250 µm.',
-    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Size Separation.'
+    explanation: 'IP specifications: Coarse (10/44), Moderately Coarse (22/60), Moderately Fine (44/85), Fine (85/120), and Very Fine (all pass Sieve 120)[cite: 157].',
+    clinicalKeyPoint: 'Sieve 22 has a nominal aperture size of 710 µm, while Sieve 60 corresponds to 250 µm[cite: 157].',
+    pciReference: 'PCI ER-2020 Pharmaceutics: Size Separation[cite: 151, 157].'
   },
   {
     id: 'DP-PHARM-005',
@@ -90,67 +90,103 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Blooming; corrected by increasing the molecular weight of the plasticizer' }
     ],
     correctKey: 'B',
-    explanation: 'Bridging occurs when coating film pulls away from the debossed contours due to excessive internal shrinkage stress or high solution viscosity. Adding more plasticizer increases film elasticity.',
-    clinicalKeyPoint: 'Orange peel is caused by rapid drying or incomplete atomization, while blistering arises from solvent entrapment under rapid surface drying.',
-    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Solid Dosage Forms (Coating).'
+    explanation: 'Bridging occurs when coating film pulls away from debossed contours due to excessive internal shrinkage stress or high solution viscosity[cite: 160]. Adding more plasticizer increases film elasticity[cite: 160].',
+    clinicalKeyPoint: 'Orange peel is caused by rapid drying or incomplete atomization, while blistering arises from solvent entrapment under rapid surface drying[cite: 160].',
+    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Solid Dosage Forms (Coating)[cite: 14, 151, 160].'
   },
   {
     id: 'DP-PHARM-006',
     subject: 'Pharmaceutics',
-    topic: 'Pharmaceutical Calculations (Stock Dosing)',
-    bloomTaxonomy: 'Apply',
+    topic: 'Packaging Materials Science',
+    bloomTaxonomy: 'Understand',
     difficulty: 'Medium',
-    question: 'A pediatrician prescribes 250 mg of Amoxicillin oral suspension three times daily for a child. The pharmacy stocks a dry powder reconstituted suspension labeled 125 mg / 5 mL. According to the formula [Volume = (Desired Dose / Stock Dose) × Stock Volume], how many milliliters (mL) must the caregiver administer per single dose?',
+    question: 'Which of the following represents a primary disadvantage of plastic pharmaceutical containers compared to type I glass containers?',
     options: [
-      { key: 'A', text: '5.0 mL' },
-      { key: 'B', text: '10.0 mL' },
-      { key: 'C', text: '15.0 mL' },
-      { key: 'D', text: '2.5 mL' }
+      { key: 'A', text: 'Higher mechanical fragility during transport' },
+      { key: 'B', text: 'Permeability to atmospheric gases, moisture vapor, and sorption of active ingredients' },
+      { key: 'C', text: 'Significantly heavier tare weight' },
+      { key: 'D', text: 'Inability to be molded into flexible unit-dose blow-fill-seal ampoules' }
     ],
     correctKey: 'B',
-    explanation: 'Volume = (250 mg / 125 mg) × 5 mL = 2 × 5 mL = 10 mL.',
-    clinicalKeyPoint: 'Always provide patients with an oral measuring syringe or calibrated medication cup rather than domestic tablespoons.',
-    pciReference: 'PCI ER-2020 Pharmaceutics: Pharmaceutical Calculations & Posology.'
+    explanation: 'Plastic containers are susceptible to gas/moisture permeation, ingredient leaching, and drug sorption onto polymer walls[cite: 11].',
+    clinicalKeyPoint: 'Nitroglycerin and paraldehyde show significant sorption onto polyvinyl chloride (PVC) administration bags and tubing.',
+    pciReference: 'PCI ER-2020 Pharmaceutics: Packaging Materials[cite: 8, 11, 151].'
   },
   {
     id: 'DP-PHARM-007',
     subject: 'Pharmaceutics',
-    topic: 'Percentage Concentrations',
-    bloomTaxonomy: 'Apply',
+    topic: 'Collapsible Tubes Packaging',
+    bloomTaxonomy: 'Remember',
     difficulty: 'Easy',
-    question: 'In pharmaceutical dispensing and compounding calculations, a 1% w/v active drug concentration in an aqueous ophthalmic solution is exactly equivalent to how many milligrams per milliliter (mg/mL)?',
+    question: 'Which metal is historically and industrially preferred for fabricating collapsible ointment tubes due to its chemical ductility and non-reactive properties?',
     options: [
-      { key: 'A', text: '0.1 mg/mL' },
-      { key: 'B', text: '1.0 mg/mL' },
-      { key: 'C', text: '10.0 mg/mL' },
-      { key: 'D', text: '100.0 mg/mL' }
+      { key: 'A', text: 'Pure Lead' },
+      { key: 'B', text: 'Tin' },
+      { key: 'C', text: 'Copper' },
+      { key: 'D', text: 'Zinc' }
     ],
-    correctKey: 'C',
-    explanation: '1% w/v represents 1 gram in 100 mL. Since 1 gram equals 1,000 milligrams: 1,000 mg / 100 mL = 10 mg/mL.',
-    clinicalKeyPoint: 'Rapid clinical conversion rule: Multiply the percentage concentration by 10 to obtain mg/mL instantly.',
-    pciReference: 'PCI ER-2020 Pharmaceutics: Liquid Dosage Forms & Posology.'
+    correctKey: 'B',
+    explanation: 'Tin tubes are chemically inert and ductile, making them preferred for ophthalmic ointments and pharmaceutical topicals[cite: 11].',
+    clinicalKeyPoint: 'Aluminum tubes are also widely used, but require internal lacquer coatings when formulating acidic or alkaline semisolids.',
+    pciReference: 'PCI ER-2020 Pharmaceutics: Packaging Materials[cite: 8, 11, 151].'
   },
   {
     id: 'DP-PHARM-008',
     subject: 'Pharmaceutics',
-    topic: 'Sterilization & Quality Control',
+    topic: 'Pharmaceutical Excipients (Antioxidants)',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'Which of the following excipients functions specifically as an oil-soluble antioxidant in non-aqueous suspensions, ointments, and emulsion formulations?',
+    options: [
+      { key: 'A', text: 'Methyl paraben' },
+      { key: 'B', text: 'Sodium benzoate' },
+      { key: 'C', text: 'Butylated Hydroxytoluene (BHT)' },
+      { key: 'D', text: 'Benzalkonium chloride' }
+    ],
+    correctKey: 'C',
+    explanation: 'Butylated Hydroxytoluene (BHT) and Butylated Hydroxyanisole (BHA) are lipid-soluble free-radical scavenger antioxidants[cite: 12].',
+    clinicalKeyPoint: 'Methylparaben and sodium benzoate serve as antimicrobial preservatives, not chemical antioxidants[cite: 12].',
+    pciReference: 'PCI ER-2020 Pharmaceutics: Pharmaceutical Aids[cite: 8, 12, 151].'
+  },
+  {
+    id: 'DP-PHARM-009',
+    subject: 'Pharmaceutics',
+    topic: 'Liquid Homogenization',
     bloomTaxonomy: 'Understand',
     difficulty: 'Medium',
-    question: 'What is the official biological indicator organism specified in the Indian Pharmacopoeia for validating the efficacy of moist heat sterilization in an autoclave operated at 121°C?',
+    question: 'What is the working mechanism of a Silverson mixer-homogenizer when producing fine emulsions and suspensions?',
     options: [
-      { key: 'A', text: 'Bacillus atrophaeus (Bacillus subtilis)' },
-      { key: 'B', text: 'Geobacillus stearothermophilus' },
-      { key: 'C', text: 'Clostridium tetani' },
-      { key: 'D', text: 'Pseudomonas aeruginosa' }
+      { key: 'A', text: 'Gravitational settling' },
+      { key: 'B', text: 'High hydraulic shear forces and intense turbulence' },
+      { key: 'C', text: 'Ultrasonic cavitation exclusively' },
+      { key: 'D', text: 'Compression between flat rollers' }
     ],
     correctKey: 'B',
-    explanation: 'Geobacillus stearothermophilus spores demonstrate high thermal resistance against saturated steam at 121°C. Bacillus atrophaeus is utilized for dry heat and ethylene oxide validation.',
-    clinicalKeyPoint: 'Autoclaving standard conditions: 121°C at 15 psi (103 kPa) gauge pressure for 15 to 20 minutes.',
-    pciReference: 'PCI ER-2020 Pharmaceutics (ER20-11T): Sterilization Methods.'
+    explanation: 'The Silverson homogenizer draws liquids into the central rotor-stator head, expelling them under hydraulic shear and turbulence at high velocity[cite: 14, 158].',
+    clinicalKeyPoint: 'Silverson mixers reduce emulsion droplets down to 2–5 microns rapidly[cite: 158].',
+    pciReference: 'PCI ER-2020 Pharmaceutics: Biphasic Dosage Forms[cite: 8, 14, 151, 158].'
+  },
+  {
+    id: 'DP-PHARM-010',
+    subject: 'Pharmaceutics',
+    topic: 'Drying Technology (Lyophilization)',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Freeze drying (Lyophilization) operates on the physical principle of:',
+    options: [
+      { key: 'A', text: 'Atmospheric convective boiling' },
+      { key: 'B', text: 'Sublimation of ice directly into water vapor under high vacuum' },
+      { key: 'C', text: 'Dielectric microwave heating' },
+      { key: 'D', text: 'Infrared radiant moisture evaporation' }
+    ],
+    correctKey: 'B',
+    explanation: 'Freeze drying freezes the sample below its eutectic point, then sublimates frozen ice directly into vapor below the triple point (4.58 mmHg)[cite: 14].',
+    clinicalKeyPoint: 'Lyophilization is standard for thermolabile biologicals, peptide hormones, and intravenous antibiotic powders.',
+    pciReference: 'PCI ER-2020 Pharmaceutics: Drying Technologies[cite: 8, 14, 151].'
   },
 
   // =========================================================================
-  // 2. PHARMACEUTICAL CHEMISTRY (ER20-12T)
+  // 2. PHARMACEUTICAL CHEMISTRY (Course Code: ER20-12T)
   // =========================================================================
   {
     id: 'DP-CHEM-001',
@@ -166,9 +202,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'To maintain an acidic pH below 3.0 during colorimetric comparison' }
     ],
     correctKey: 'B',
-    explanation: 'Ammonia is added to render the solution alkaline so that ferrous thioglycollate develops its characteristic purple-red color. Citric acid forms an iron complex that prevents ammonia from precipitating iron as insoluble ferric hydroxide.',
+    explanation: 'Ammonia is added to render the solution alkaline so that ferrous thioglycollate develops its characteristic purple-red color[cite: 23]. Citric acid forms an iron complex that prevents ammonia from precipitating iron as insoluble ferric hydroxide[cite: 23].',
     clinicalKeyPoint: 'Visual color intensity is evaluated in Nessler cylinders against a standard iron solution (20 ppm limit).',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry (ER20-12T): Limit Tests.'
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry (ER20-12T): Limit Tests[cite: 21, 23, 152].'
   },
   {
     id: 'DP-CHEM-002',
@@ -184,9 +220,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Phenolphthalein paper at top; Barium chloride cotton plug in tube' }
     ],
     correctKey: 'A',
-    explanation: 'Nascent hydrogen reduces arsenic into arsine gas (AsH3), which reacts with mercuric chloride paper to form a yellow-to-brown stain. The lead acetate cotton plug traps interfering hydrogen sulfide gas (forming lead sulfide).',
+    explanation: 'Nascent hydrogen reduces arsenic into arsine gas (AsH3), which reacts with mercuric chloride paper to form a yellow-to-brown stain[cite: 23]. The lead acetate cotton plug traps interfering hydrogen sulfide gas (forming lead sulfide).',
     clinicalKeyPoint: 'Arsenic trioxide standard is prepared at a 10 ppm permissible limit.',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Limit Tests.'
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Limit Tests[cite: 21, 23, 152].'
   },
   {
     id: 'DP-CHEM-003',
@@ -202,9 +238,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Piperidine' }
     ],
     correctKey: 'C',
-    explanation: 'In Hantzsch-Widman rules, nitrogen uses the prefix "aza", 5-membered rings use stem "ol", and fully saturated nitrogenous 5-rings take the suffix "-olidine". Aza + ol + idine = Pyrrolidine.',
-    clinicalKeyPoint: 'Pyrrole is fully unsaturated (aromatic), while piperidine is a 6-membered saturated nitrogen ring.',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Heterocyclic Systems.'
+    explanation: 'In Hantzsch-Widman rules, nitrogen uses the prefix "aza", 5-membered rings use stem "ol", and fully saturated nitrogenous 5-rings take the suffix "-olidine"[cite: 180, 181]. Aza + ol + idine = Pyrrolidine[cite: 180, 181].',
+    clinicalKeyPoint: 'Pyrrole is fully unsaturated (aromatic), while piperidine is a 6-membered saturated nitrogen ring[cite: 28, 180].',
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Heterocyclic Systems[cite: 21, 28, 152, 180, 181].'
   },
   {
     id: 'DP-CHEM-004',
@@ -220,9 +256,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'To accelerate the diazotization equilibrium reaction kinetics' }
     ],
     correctKey: 'B',
-    explanation: 'Aromatic diazonium salts (Ar-N2+ Cl-) are unstable and decompose into phenols, releasing N2 gas at temperatures exceeding 5°C. Low temperature stabilizes the diazonium intermediate.',
-    clinicalKeyPoint: 'The end-point is detected externally using starch-iodide paper, which turns blue with excess nitrous acid.',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Volumetric Analysis.'
+    explanation: 'Aromatic diazonium salts (Ar-N2+ Cl-) are unstable and decompose into phenols, releasing N2 gas at temperatures exceeding 5°C[cite: 179]. Low temperature stabilizes the diazonium intermediate[cite: 179].',
+    clinicalKeyPoint: 'The end-point is detected externally using starch-iodide paper, which turns blue with excess nitrous acid[cite: 179].',
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Volumetric Analysis[cite: 21, 24, 152, 179].'
   },
   {
     id: 'DP-CHEM-005',
@@ -238,9 +274,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'To double the absorption of dietary calcium' }
     ],
     correctKey: 'B',
-    explanation: 'Al3+ ions relax gastrointestinal smooth muscle, delaying transit and causing constipation. Mg2+ ions retain water osmotically, inducing laxation. Combining them produces a bowel-neutral therapeutic balance.',
-    clinicalKeyPoint: 'Patients must avoid taking antacids within 2 hours of fluoroquinolones or tetracyclines due to polyvalent cation chelation.',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Gastrointestinal Agents.'
+    explanation: 'Al3+ ions relax gastrointestinal smooth muscle, delaying transit and causing constipation[cite: 26, 40]. Mg2+ ions retain water osmotically, inducing laxation[cite: 26]. Combining them produces a bowel-neutral therapeutic balance[cite: 40].',
+    clinicalKeyPoint: 'Patients must avoid taking antacids within 2 hours of fluoroquinolones or tetracyclines due to polyvalent cation chelation[cite: 35].',
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Gastrointestinal Agents[cite: 21, 26, 40, 152].'
   },
   {
     id: 'DP-CHEM-006',
@@ -256,13 +292,49 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Ramipril' }
     ],
     correctKey: 'B',
-    explanation: 'Captopril is an active drug containing a free sulfhydryl (-SH) group that binds directly to the active zinc ion of ACE. The free thiol group is linked to dysgeusia, rash, and neutropenia.',
-    clinicalKeyPoint: 'Enalapril and Ramipril are dicarboxylate prodrugs developed to eliminate the thiol-associated adverse reactions.',
-    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Cardiovascular Drugs.'
+    explanation: 'Captopril contains a free sulfhydryl (-SH) group that binds directly to the active zinc ion of ACE[cite: 32]. The free thiol group is linked to dysgeusia, rash, and neutropenia.',
+    clinicalKeyPoint: 'Enalapril and Ramipril are dicarboxylate prodrugs developed to eliminate thiol-associated adverse reactions[cite: 32].',
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Cardiovascular Drugs[cite: 21, 32, 152].'
+  },
+  {
+    id: 'DP-CHEM-007',
+    subject: 'Pharmaceutical Chemistry',
+    topic: 'Sedative-Hypnotics (Barbiturates)',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Thiopental Sodium is characterized as an ultra-short-acting intravenous anesthetic. Structurally, it differs from Pentobarbital by the replacement of oxygen at C-2 with which atom?',
+    options: [
+      { key: 'A', text: 'Nitrogen' },
+      { key: 'B', text: 'Sulfur' },
+      { key: 'C', text: 'Chlorine' },
+      { key: 'D', text: 'Fluorine' }
+    ],
+    correctKey: 'B',
+    explanation: 'Thiopental is a thiobarbiturate in which sulfur replaces the oxygen atom at position C-2[cite: 29]. This increases lipid solubility, enabling rapid entry into the brain[cite: 29].',
+    clinicalKeyPoint: 'Rapid termination of central anesthesia occurs through redistribution from the brain to skeletal muscle and adipose tissue.',
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: CNS Depressants[cite: 21, 29, 152].'
+  },
+  {
+    id: 'DP-CHEM-008',
+    subject: 'Pharmaceutical Chemistry',
+    topic: 'Antidiabetic Drugs (Biguanides)',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Metformin Hydrochloride is classified as an oral biguanide antihyperglycemic agent. What is its primary biochemical mechanism of action?',
+    options: [
+      { key: 'A', text: 'Stimulates pancreatic beta-cell insulin secretion by closing Katp channels' },
+      { key: 'B', text: 'Inhibits hepatic gluconeogenesis via AMPK activation and enhances peripheral insulin sensitivity' },
+      { key: 'C', text: 'Inhibits intestinal brush-border alpha-glucosidase enzymes' },
+      { key: 'D', text: 'Inhibits renal SGLT-2 cotransporters in proximal tubules' }
+    ],
+    correctKey: 'B',
+    explanation: 'Metformin activates AMP-activated protein kinase (AMPK), reducing hepatic gluconeogenesis and glycogenolysis while improving peripheral glucose uptake[cite: 33].',
+    clinicalKeyPoint: 'Metformin does not stimulate insulin secretion and carries minimal risk of hypoglycemia when used as monotherapy[cite: 33].',
+    pciReference: 'PCI ER-2020 Pharmaceutical Chemistry: Oral Hypoglycemics[cite: 21, 33, 152].'
   },
 
   // =========================================================================
-  // 3. PHARMACOGNOSY (ER20-13T)
+  // 3. PHARMACOGNOSY (Course Code: ER20-13T)
   // =========================================================================
   {
     id: 'DP-COG-001',
@@ -278,9 +350,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Hager\'s reagent' }
     ],
     correctKey: 'A',
-    explanation: 'Mayer\'s reagent is potassium mercuric iodide, yielding a creamy precipitate. Wagner\'s is iodine in KI (red-brown), Dragendorff\'s is potassium bismuth iodide (red-brown/orange), and Hager\'s is saturated picric acid (yellow).',
+    explanation: 'Mayer\'s reagent is potassium mercuric iodide, yielding a creamy precipitate[cite: 173]. Wagner\'s is iodine in KI (red-brown), Dragendorff\'s is potassium bismuth iodide (red-brown/orange), and Hager\'s is saturated picric acid (yellow)[cite: 46, 173].',
     clinicalKeyPoint: 'Alkaloid salt solutions must be slightly acidified with dilute HCl for these precipitating reactions to occur.',
-    pciReference: 'PCI ER-2020 Pharmacognosy (ER20-13T): Alkaloid Evaluation.'
+    pciReference: 'PCI ER-2020 Pharmacognosy (ER20-13T): Alkaloid Evaluation[cite: 41, 46, 151, 173].'
   },
   {
     id: 'DP-COG-002',
@@ -296,9 +368,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Reserpine in Rauwolfia serpentina' }
     ],
     correctKey: 'B',
-    explanation: 'The Thalleioquin reaction is diagnostic for quinoline alkaloids containing a 6-methoxy group (such as Quinine and Quinidine from Cinchona bark). Bromine water and ammonia oxidize the drug to form emerald green thalleioquin.',
-    clinicalKeyPoint: 'Vitali-Morin test identifies tropane alkaloids (violet), while Marquis test identifies morphine (purple-violet).',
-    pciReference: 'PCI ER-2020 Pharmacognosy: Chemical Identification Tests.'
+    explanation: 'The Thalleioquin reaction is diagnostic for quinoline alkaloids containing a 6-methoxy group (such as Quinine and Quinidine from Cinchona bark)[cite: 173]. Bromine water and ammonia oxidize the drug to form emerald green thalleioquin[cite: 173].',
+    clinicalKeyPoint: 'Vitali-Morin test identifies tropane alkaloids (violet), while Marquis test identifies morphine (purple-violet)[cite: 173].',
+    pciReference: 'PCI ER-2020 Pharmacognosy: Chemical Identification Tests[cite: 41, 151, 173].'
   },
   {
     id: 'DP-COG-003',
@@ -314,9 +386,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Van-Urk\'s test' }
     ],
     correctKey: 'B',
-    explanation: 'Keller-Kiliani test: Glacial acetic acid with trace FeCl3 layered over concentrated H2SO4 extracts digitoxose deoxysugars, yielding a brown ring at the interface and a blue-green acetic acid layer.',
-    clinicalKeyPoint: 'Borntrager test identifies anthraquinone laxatives (Senna, Aloe), whereas Shinoda test detects flavonoids.',
-    pciReference: 'PCI ER-2020 Pharmacognosy: Cardiac Glycosides.'
+    explanation: 'Keller-Kiliani test: Glacial acetic acid with trace FeCl3 layered over concentrated H2SO4 extracts digitoxose deoxysugars, yielding a brown ring at the interface and a blue-green acetic acid layer[cite: 46].',
+    clinicalKeyPoint: 'Borntrager test identifies anthraquinone laxatives (Senna, Aloe), whereas Shinoda test detects flavonoids[cite: 46].',
+    pciReference: 'PCI ER-2020 Pharmacognosy: Cardiac Glycosides[cite: 41, 46, 151].'
   },
   {
     id: 'DP-COG-004',
@@ -332,9 +404,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Asthi = Reproductive fluids' }
     ],
     correctKey: 'B',
-    explanation: 'Saptadhatu: 1. Rasa (lymph/plasma), 2. Rakta (blood), 3. Mamsa (muscle), 4. Meda (adipose tissue), 5. Asthi (bone), 6. Majja (bone marrow/nerve), 7. Shukra (reproductive fluids).',
-    clinicalKeyPoint: 'Panchamahabhutas form the Tridosha: Vata (Space/Air), Pitta (Fire/Water), Kapha (Water/Earth).',
-    pciReference: 'PCI ER-2020 Pharmacognosy: Traditional Systems of Medicine.'
+    explanation: 'Saptadhatu: 1. Rasa (lymph/plasma), 2. Rakta (blood), 3. Mamsa (muscle), 4. Meda (adipose tissue), 5. Asthi (bone), 6. Majja (bone marrow/nerve), 7. Shukra (reproductive fluids)[cite: 174].',
+    clinicalKeyPoint: 'Panchamahabhutas form the Tridosha: Vata (Space/Air), Pitta (Fire/Water), Kapha (Water/Earth)[cite: 50, 174].',
+    pciReference: 'PCI ER-2020 Pharmacognosy: Traditional Systems of Medicine[cite: 41, 50, 151, 174].'
   },
   {
     id: 'DP-COG-005',
@@ -350,13 +422,31 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Synthetic polyamide monofilament; absorbed by tissue hydrolysis' }
     ],
     correctKey: 'B',
-    explanation: 'Catgut is made from the submucosal layer of healthy sheep or bovine intestine. It consists of mammalian collagen and is degraded in tissues by proteolytic enzymes.',
+    explanation: 'Catgut is made from the submucosal layer of healthy sheep or bovine intestine[cite: 50, 174]. It consists of mammalian collagen and is degraded in tissues by proteolytic enzymes[cite: 50, 174].',
     clinicalKeyPoint: 'Treatment with chromium salts (Chromic Catgut) extends its absorption profile from 10 days to over 20–40 days.',
-    pciReference: 'PCI ER-2020 Pharmacognosy: Plant & Animal Fibres in Surgery.'
+    pciReference: 'PCI ER-2020 Pharmacognosy: Plant & Animal Fibres in Surgery[cite: 41, 50, 151, 174].'
+  },
+  {
+    id: 'DP-COG-006',
+    subject: 'Pharmacognosy',
+    topic: 'Volatile Oils (Clove)',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'What is the principal phenolic volatile oil constituent present in clove flower buds (Syzygium aromaticum), and what dental clinical use does it serve?',
+    options: [
+      { key: 'A', text: 'Anethole; carminative in infant colics' },
+      { key: 'B', text: 'Eugenol; local anesthetic and antiseptic for dental toothache' },
+      { key: 'C', text: 'Cineole; pulmonary mucolytic expectorant' },
+      { key: 'D', text: 'Linalool; relaxing sedative' }
+    ],
+    correctKey: 'B',
+    explanation: 'Clove contains 70% to 90% Eugenol, which acts as a local anesthetic, anti-inflammatory, and mild antiseptic in dental obtundent pastes[cite: 48].',
+    clinicalKeyPoint: 'Zinc oxide-eugenol (ZOE) cement is standard in restorative dentistry as a temporary filling base.',
+    pciReference: 'PCI ER-2020 Pharmacognosy: Volatile Oils[cite: 41, 48, 151].'
   },
 
   // =========================================================================
-  // 4. HUMAN ANATOMY & PHYSIOLOGY (ER20-14T)
+  // 4. HUMAN ANATOMY AND PHYSIOLOGY (Course Code: ER20-14T)
   // =========================================================================
   {
     id: 'DP-HAP-001',
@@ -372,9 +462,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: '2.85 Liters/min' }
     ],
     correctKey: 'B',
-    explanation: 'CO = HR × SV = 72 beats/min × 70 mL/beat = 5,040 mL/min ≈ 5.04 Liters per minute.',
-    clinicalKeyPoint: 'The normal adult cardiac cycle duration is 0.8 seconds (Atrial systole: 0.1s; Ventricular systole: 0.3s; Complete diastole: 0.4s).',
-    pciReference: 'PCI ER-2020 Human Anatomy & Physiology (ER20-14T): Cardiovascular System.'
+    explanation: 'CO = HR × SV = 72 beats/min × 70 mL/beat = 5,040 mL/min ≈ 5.04 Liters per minute[cite: 61].',
+    clinicalKeyPoint: 'The normal adult cardiac cycle duration is 0.8 seconds (Atrial systole: 0.1s; Ventricular systole: 0.3s; Complete diastole: 0.4s)[cite: 61].',
+    pciReference: 'PCI ER-2020 Human Anatomy & Physiology (ER20-14T): Cardiovascular System[cite: 55, 61].'
   },
   {
     id: 'DP-HAP-002',
@@ -390,9 +480,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Factor X (Stuart-Prower Factor); Thrombocytopenia' }
     ],
     correctKey: 'B',
-    explanation: 'Clotting factor mnemonic ("Fresher\'s Party Tonight Come Lets Sing And Call Seniors"): Factor VIII is Antihemophilic factor A. Its congenital X-linked deficiency causes Hemophilia A.',
-    clinicalKeyPoint: 'Factor IX deficiency causes Hemophilia B (Christmas disease); Factor IV is Calcium (Ca2+).',
-    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Blood and Coagulation.'
+    explanation: 'Clotting factor mnemonic ("Fresher\'s Party Tonight Come Lets Sing And Call Seniors"): Factor VIII is Antihemophilic factor A[cite: 60, 168]. Its congenital X-linked deficiency causes Hemophilia A[cite: 60].',
+    clinicalKeyPoint: 'Factor IX deficiency causes Hemophilia B (Christmas disease); Factor IV is Calcium (Ca2+)[cite: 168].',
+    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Blood and Coagulation[cite: 55, 60, 168].'
   },
   {
     id: 'DP-HAP-003',
@@ -408,9 +498,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Medullary Collecting Duct' }
     ],
     correctKey: 'B',
-    explanation: 'The Proximal Convoluted Tubule (PCT) has extensive brush border microvilli and reabsorbs ~67% of filtered electrolytes and water, and 100% of filtered glucose and amino acids.',
+    explanation: 'The Proximal Convoluted Tubule (PCT) has extensive brush border microvilli and reabsorbs ~67% of filtered electrolytes and water, and 100% of filtered glucose and amino acids[cite: 33, 66].',
     clinicalKeyPoint: 'SGLT-2 inhibitors like Dapagliflozin act specifically at the early S1 segment of the PCT to block glucose reabsorption.',
-    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Urinary System.'
+    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Urinary System[cite: 55, 66].'
   },
   {
     id: 'DP-HAP-004',
@@ -426,13 +516,13 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Adrenal Cortex' }
     ],
     correctKey: 'B',
-    explanation: 'ADH and Oxytocin are synthesized in the paraventricular and supraoptic nuclei of the hypothalamus and transported along the hypothalamo-hypophyseal tract to the posterior pituitary (neurohypophysis) for storage and release.',
+    explanation: 'ADH and Oxytocin are synthesized in the paraventricular and supraoptic nuclei of the hypothalamus and transported along the hypothalamo-hypophyseal tract to the posterior pituitary (neurohypophysis) for storage and release[cite: 66, 169].',
     clinicalKeyPoint: 'Deficiency of hypothalamic ADH secretion results in central Diabetes Insipidus.',
-    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Endocrine System.'
+    pciReference: 'PCI ER-2020 Human Anatomy & Physiology: Endocrine System[cite: 55, 66, 169].'
   },
 
   // =========================================================================
-  // 5. SOCIAL PHARMACY (ER20-15T)
+  // 5. SOCIAL PHARMACY (Course Code: ER20-15T)
   // =========================================================================
   {
     id: 'DP-SOC-001',
@@ -448,9 +538,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Tertiary prevention (disability limitation and physical rehabilitation)' }
     ],
     correctKey: 'B',
-    explanation: 'Primary prevention eliminates disease risk before pathogenesis begins (e.g., vaccination, safe water, health education). Secondary involves early screening (mammograms, Pap smears), and tertiary manages chronic sequelae.',
+    explanation: 'Primary prevention eliminates disease risk before pathogenesis begins (e.g., vaccination, safe water, health education)[cite: 71]. Secondary involves early screening (mammograms, Pap smears), and tertiary manages chronic sequelae.',
     clinicalKeyPoint: 'Community pharmacists promote primary prevention through cold-chain vaccine maintenance and counseling.',
-    pciReference: 'PCI ER-2020 Social Pharmacy (ER20-15T): Preventive Care.'
+    pciReference: 'PCI ER-2020 Social Pharmacy (ER20-15T): Preventive Care[cite: 68, 71].'
   },
   {
     id: 'DP-SOC-002',
@@ -466,9 +556,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Oral Sabin Polio Vaccine (OPV)' }
     ],
     correctKey: 'C',
-    explanation: 'Injectable Polio Vaccine (Salk) is an inactivated (killed) virus vaccine. BCG, MMR, and Oral Polio Vaccine (Sabin) are live attenuated formulations.',
+    explanation: 'Injectable Polio Vaccine (Salk) is an inactivated (killed) virus vaccine[cite: 71]. BCG, MMR, and Oral Polio Vaccine (Sabin) are live attenuated formulations[cite: 71, 75].',
     clinicalKeyPoint: 'Live vaccines are contraindicated in severe immunosuppression and pregnancy.',
-    pciReference: 'PCI ER-2020 Social Pharmacy: Immunization Programs.'
+    pciReference: 'PCI ER-2020 Social Pharmacy: Immunization Programs[cite: 68, 71, 75].'
   },
   {
     id: 'DP-SOC-003',
@@ -484,9 +574,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Cost-Benefit Analysis (CBA)' }
     ],
     correctKey: 'C',
-    explanation: 'Cost-Utility Analysis (CUA) measures outcomes using multi-attribute health utility metrics, specifically Quality-Adjusted Life Years (QALYs) or Disability-Adjusted Life Years (DALYs).',
-    clinicalKeyPoint: 'CBA measures both costs and outcomes in currency units; CEA measures natural clinical units (e.g., mmHg reduction, life-years saved).',
-    pciReference: 'PCI ER-2020 Social Pharmacy: Pharmacoeconomics.'
+    explanation: 'Cost-Utility Analysis (CUA) measures outcomes using multi-attribute health utility metrics, specifically Quality-Adjusted Life Years (QALYs) or Disability-Adjusted Life Years (DALYs)[cite: 78].',
+    clinicalKeyPoint: 'CBA measures both costs and outcomes in currency units; CEA measures natural clinical units (e.g., mmHg reduction, life-years saved)[cite: 78, 79].',
+    pciReference: 'PCI ER-2020 Social Pharmacy: Pharmacoeconomics[cite: 68, 78].'
   },
   {
     id: 'DP-SOC-004',
@@ -502,13 +592,13 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Rickets' }
     ],
     correctKey: 'C',
-    explanation: 'Pellagra is caused by niacin (B3) or tryptophan deficiency, presenting with symmetric photosensitive dermatitis, diarrhea, dementia, and death if untreated.',
-    clinicalKeyPoint: 'Beri-Beri is caused by thiamine (B1) deficiency; Scurvy by vitamin C deficiency.',
-    pciReference: 'PCI ER-2020 Social Pharmacy: Nutrition and Public Health.'
+    explanation: 'Pellagra is caused by niacin (B3) or tryptophan deficiency, presenting with symmetric photosensitive dermatitis, diarrhea, dementia, and death if untreated[cite: 74].',
+    clinicalKeyPoint: 'Beri-Beri is caused by thiamine (B1) deficiency; Scurvy by vitamin C deficiency[cite: 74].',
+    pciReference: 'PCI ER-2020 Social Pharmacy: Nutrition and Public Health[cite: 68, 74].'
   },
 
   // =========================================================================
-  // 6. PHARMACOLOGY (ER20-21T)
+  // 6. PHARMACOLOGY (Course Code: ER20-21T)
   // =========================================================================
   {
     id: 'DP-PCOL-001',
@@ -524,9 +614,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Protamine sulfate; polycationic ionic neutralization' }
     ],
     correctKey: 'B',
-    explanation: 'Paracetamol overdose saturates glucuronidation/sulfation pathways, shunting metabolism to CYP2E1 which yields excess N-acetyl-p-benzoquinone imine (NAPQI). N-Acetylcysteine restores hepatic glutathione to conjugate NAPQI into non-toxic mercapturic acid.',
+    explanation: 'Paracetamol overdose saturates glucuronidation/sulfation pathways, shunting metabolism to CYP2E1 which yields excess N-acetyl-p-benzoquinone imine (NAPQI)[cite: 34]. N-Acetylcysteine restores hepatic glutathione to conjugate NAPQI into non-toxic mercapturic acid.',
     clinicalKeyPoint: 'NAC is most effective when administered within 8 to 10 hours post-ingestion (Rumack-Matthew nomogram).',
-    pciReference: 'PCI ER-2020 Pharmacology (ER20-21T): General Toxicology & Antidotes.'
+    pciReference: 'PCI ER-2020 Pharmacology (ER20-21T): General Toxicology & Antidotes[cite: 34, 80, 151].'
   },
   {
     id: 'DP-PCOL-002',
@@ -542,9 +632,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Loss of corneal reflex' }
     ],
     correctKey: 'B',
-    explanation: 'Morphine stimulates the parasympathetic preganglionic Edinger-Westphal nucleus of the oculomotor nerve (CN III), causing pupillary constriction (miosis). Tolerance does not develop to miosis or constipation.',
-    clinicalKeyPoint: 'The clinical triad of acute opioid toxicity comprises: Coma, Pinpoint pupils, and Respiratory depression (<6 breaths/min).',
-    pciReference: 'PCI ER-2020 Pharmacology: Central Nervous System (Opioids).'
+    explanation: 'Morphine stimulates the parasympathetic preganglionic Edinger-Westphal nucleus of the oculomotor nerve (CN III), causing pupillary constriction (miosis)[cite: 166]. Tolerance does not develop to miosis or constipation.',
+    clinicalKeyPoint: 'The clinical triad of acute opioid toxicity comprises: Coma, Pinpoint pupils, and Respiratory depression (<6 breaths/min)[cite: 87, 166].',
+    pciReference: 'PCI ER-2020 Pharmacology: Central Nervous System (Opioids)[cite: 80, 87, 151, 166].'
   },
   {
     id: 'DP-PCOL-003',
@@ -560,9 +650,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'GAT-1 neuronal reuptake transporter' }
     ],
     correctKey: 'B',
-    explanation: 'Ethosuximide selectively blocks low-threshold T-type Ca2+ currents in thalamic relay neurons, suppressing the rhythmic pacemaker currents that generate absence seizures.',
-    clinicalKeyPoint: 'Valproate also blocks T-type Ca2+ channels and treats absence seizures, while Phenytoin and Carbamazepine can worsen them.',
-    pciReference: 'PCI ER-2020 Pharmacology: Anticonvulsant Drugs.'
+    explanation: 'Ethosuximide selectively blocks low-threshold T-type Ca2+ currents in thalamic relay neurons, suppressing the rhythmic pacemaker currents that generate absence seizures[cite: 165].',
+    clinicalKeyPoint: 'Valproate also blocks T-type Ca2+ channels and treats absence seizures, while Phenytoin and Carbamazepine can worsen them[cite: 165].',
+    pciReference: 'PCI ER-2020 Pharmacology: Anticonvulsant Drugs[cite: 80, 86, 151, 165].'
   },
   {
     id: 'DP-PCOL-004',
@@ -578,49 +668,67 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Salbutamol inhalation nebules 5 mg as sole rescue agent' }
     ],
     correctKey: 'B',
-    explanation: 'Adrenaline 1:1,000 (0.5 mg IM) is the first-line treatment for anaphylaxis. Alpha-1 vasoconstriction reverses shock and laryngeal edema, while beta-2 activation relieves bronchospasm.',
+    explanation: 'Adrenaline 1:1,000 (0.5 mg IM) is the first-line treatment for anaphylaxis. Alpha-1 vasoconstriction reverses shock and laryngeal edema, while beta-2 activation relieves bronchospasm[cite: 83].',
     clinicalKeyPoint: 'Antihistamines and corticosteroids are secondary adjuncts and do not reverse immediate airway collapse.',
-    pciReference: 'PCI ER-2020 Pharmacology: Autonomic & Emergency Drugs.'
+    pciReference: 'PCI ER-2020 Pharmacology: Autonomic & Emergency Drugs[cite: 80, 83, 151].'
   },
   {
     id: 'DP-PCOL-005',
     subject: 'Pharmacology',
-    topic: 'Cardioactive Glycosides & Digoxin Toxicity',
-    bloomTaxonomy: 'Analyze',
-    difficulty: 'Hard',
-    question: 'Digoxin exerts positive inotropy by binding to and inhibiting myocardial sarcolemmal Na+/K+-ATPase. Which concurrent electrolyte disturbance significantly potentiates digoxin toxicity and can trigger ventricular arrhythmias?',
+    topic: 'Autonomic Drugs (Anticholinergics)',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Why is Atropine sulfate strictly contraindicated in patients suffering from narrow-angle glaucoma?',
     options: [
-      { key: 'A', text: 'Hyperkalemia' },
-      { key: 'B', text: 'Hypokalemia' },
-      { key: 'C', text: 'Hyponatremia' },
-      { key: 'D', text: 'Hypocalcemia' }
+      { key: 'A', text: 'It produces excessive miosis and blocks corneal diffusion' },
+      { key: 'B', text: 'It causes passive mydriasis and cycloplegia, crowding the iris against the trabecular meshwork and increasing intraocular pressure' },
+      { key: 'C', text: 'It permanently inhibits lacrimal tear secretion' },
+      { key: 'D', text: 'It induces systemic hypotension leading to optic nerve ischemia' }
     ],
     correctKey: 'B',
-    explanation: 'K+ and digoxin compete for the same extracellular phosphorylation site on Na+/K+-ATPase. Hypokalemia increases digoxin binding, marked digitalis toxicity, and arrhythmogenesis.',
-    clinicalKeyPoint: 'Concomitant administration of loop diuretics (Furosemide) without potassium supplementation frequently precipitates digitalis toxicity.',
-    pciReference: 'PCI ER-2020 Pharmacology: Congestive Heart Failure Drugs.'
+    explanation: 'Atropine blocks M3 receptors in the circular pupillary sphincter muscle, producing mydriasis and relaxation of the ciliary muscle (cycloplegia)[cite: 164]. In narrow-angle glaucoma, this obstructs the canal of Schlemm, elevating intraocular tension[cite: 164].',
+    clinicalKeyPoint: 'Pilocarpine (a direct-acting miotic) is used instead in glaucoma to open trabecular spaces and promote aqueous outflow[cite: 83, 85].',
+    pciReference: 'PCI ER-2020 Pharmacology (ER20-21T): Drugs Acting on Autonomic Nervous System & Eye[cite: 80, 83, 85, 151, 164].'
   },
   {
     id: 'DP-PCOL-006',
     subject: 'Pharmacology',
-    topic: 'Clinical Pharmacology & Trial Phases',
-    bloomTaxonomy: 'Remember',
+    topic: 'Cardiovascular Pharmacology (Antiplatelets)',
+    bloomTaxonomy: 'Understand',
     difficulty: 'Medium',
-    question: 'In modern clinical pharmacology, what is Phase 0 clinical trial terminology officially designated as, and what is its dosing threshold in human subjects?',
+    question: 'Low-dose Aspirin (75–150 mg daily) prevents arterial thrombosis primarily through which biochemical mechanism?',
     options: [
-      { key: 'A', text: 'Micro-dosing study; administered at less than 1/100th of the therapeutic dose' },
-      { key: 'B', text: 'First-in-human safety trial; administered at 100% estimated human equivalent dose' },
-      { key: 'C', text: 'Therapeutic exploration; administered to 100–500 diseased volunteers' },
-      { key: 'D', text: 'Post-marketing surveillance in 3,000+ patients' }
+      { key: 'A', text: 'Reversible competitive inhibition of cyclooxygenase-2 (COX-2)' },
+      { key: 'B', text: 'Irreversible acetylation of platelet COX-1, permanently inhibiting Thromboxane A2 (TXA2) synthesis' },
+      { key: 'C', text: 'Direct antagonism of platelet P2Y12 ADP receptors' },
+      { key: 'D', text: 'Blockade of Glycoprotein IIb/IIIa fibrinogen receptors' }
     ],
-    correctKey: 'A',
-    explanation: 'Phase 0 (microdosing) studies evaluate preliminary pharmacokinetic parameters in humans using sub-therapeutic doses (<1/100th of calculated active dose) in 10–15 subjects.',
-    clinicalKeyPoint: 'Phase I tests safety/tolerability in 20–80 healthy volunteers; Phase II evaluates efficacy in 100–500 patients.',
-    pciReference: 'PCI ER-2020 Pharmacology: Clinical Trials & Drug Development.'
+    correctKey: 'B',
+    explanation: 'Platelets lack nuclei and cannot synthesize new proteins. Low-dose aspirin irreversibly acetylates serine-529 on platelet COX-1, abolishing Thromboxane A2 generation for the entire 7–10 day lifespan of the platelet[cite: 168].',
+    clinicalKeyPoint: 'Clopidogrel and Prasugrel inhibit the P2Y12 receptor; Abciximab inhibits GP IIb/IIIa receptors[cite: 168].',
+    pciReference: 'PCI ER-2020 Pharmacology: Drugs Acting on Blood & Blood Forming Agents[cite: 80, 89, 151, 168].'
+  },
+  {
+    id: 'DP-PCOL-007',
+    subject: 'Pharmacology',
+    topic: 'Chemotherapy Adverse Effects',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'Which life-threatening neonatal toxicity is caused by Chloramphenicol due to deficient hepatic glucuronyl transferase and inadequate renal excretion in premature infants?',
+    options: [
+      { key: 'A', text: 'Red Man Syndrome' },
+      { key: 'B', text: 'Gray Baby Syndrome' },
+      { key: 'C', text: 'Fanconi Syndrome' },
+      { key: 'D', text: 'Kernicterus' }
+    ],
+    correctKey: 'B',
+    explanation: 'Neonates have immature UDP-glucuronyl transferase enzymes and poor renal clearance, causing chloramphenicol to accumulate, leading to cardiovascular collapse, cyanosis, and hypothermia (Gray Baby Syndrome)[cite: 37, 171].',
+    clinicalKeyPoint: 'Red Man Syndrome is an adverse reaction caused by rapid intravenous infusion of Vancomycin[cite: 171].',
+    pciReference: 'PCI ER-2020 Pharmacology: Chemotherapeutic Agents[cite: 80, 151, 170, 171].'
   },
 
   // =========================================================================
-  // 7. COMMUNITY PHARMACY & MANAGEMENT (ER20-22T)
+  // 7. COMMUNITY PHARMACY & MANAGEMENT (Course Code: ER20-22T)
   // =========================================================================
   {
     id: 'DP-COMM-001',
@@ -636,9 +744,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'VED (Vital, Essential, Desirable)' }
     ],
     correctKey: 'C',
-    explanation: 'FEFO (First-Expiry, First-Out) ensures stock with earlier expiry dates is dispensed ahead of newer batches, minimizing drug obsolescence and expiration losses.',
-    clinicalKeyPoint: 'FIFO tracks receiving order, but FEFO takes priority for dated medicines and biologicals.',
-    pciReference: 'PCI ER-2020 Community Pharmacy (ER20-22T): Inventory Management.'
+    explanation: 'FEFO (First-Expiry, First-Out) ensures stock with earlier expiry dates is dispensed ahead of newer batches, minimizing drug obsolescence and expiration losses[cite: 127].',
+    clinicalKeyPoint: 'FIFO tracks receiving order, but FEFO takes priority for dated medicines and biologicals[cite: 127].',
+    pciReference: 'PCI ER-2020 Community Pharmacy (ER20-22T): Inventory Management[cite: 90, 127].'
   },
   {
     id: 'DP-COMM-002',
@@ -654,9 +762,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: '120 bottles' }
     ],
     correctKey: 'B',
-    explanation: 'Reorder Level = Maximum Daily Consumption × Maximum Reorder Lead Time = 40 bottles/day × 7 days = 280 bottles.',
-    clinicalKeyPoint: 'When current inventory drops to 280 bottles, a purchase order must be generated to prevent stockouts.',
-    pciReference: 'PCI ER-2020 Community Pharmacy: Inventory Control & Math.'
+    explanation: 'Reorder Level = Maximum Daily Consumption × Maximum Reorder Lead Time = 40 bottles/day × 7 days = 280 bottles[cite: 200].',
+    clinicalKeyPoint: 'When current inventory drops to 280 bottles, a purchase order must be generated to prevent stockouts[cite: 200].',
+    pciReference: 'PCI ER-2020 Community Pharmacy: Inventory Control & Math[cite: 90, 153, 200].'
   },
   {
     id: 'DP-COMM-003',
@@ -672,9 +780,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: '0°C to +1°C with ice packs touching the vials' }
     ],
     correctKey: 'B',
-    explanation: 'The official cold chain maintenance range is +2°C to +8°C. Sub-zero temperatures denature protein antigens in aluminum-adsorbed vaccines (DPT, TT).',
-    clinicalKeyPoint: 'Store biologicals on middle shelves; never store vaccines in the door compartments where temperature fluctuates.',
-    pciReference: 'PCI ER-2020 Community Pharmacy: Cold Chain Management.'
+    explanation: 'The official cold chain maintenance range is +2°C to +8°C[cite: 127]. Sub-zero temperatures denature protein antigens in aluminum-adsorbed vaccines (DPT, TT).',
+    clinicalKeyPoint: 'Store biologicals on middle shelves; never store vaccines in door compartments where temperature fluctuates.',
+    pciReference: 'PCI ER-2020 Community Pharmacy: Cold Chain Management[cite: 90, 127].'
   },
   {
     id: 'DP-COMM-004',
@@ -690,13 +798,13 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Regulatory adherence interrogation' }
     ],
     correctKey: 'B',
-    explanation: 'The Teach-Back method asks patients to state or demonstrate their regimen instructions in their own words, confirming understanding and uncovering technique errors.',
-    clinicalKeyPoint: 'Teach-Back significantly reduces medication misuse and device-related administration failures.',
-    pciReference: 'PCI ER-2020 Community Pharmacy: Patient Counseling.'
+    explanation: 'The Teach-Back method asks patients to state or demonstrate their regimen instructions in their own words, confirming understanding and uncovering technique errors[cite: 96].',
+    clinicalKeyPoint: 'Teach-Back significantly reduces medication misuse and device-related administration failures[cite: 96].',
+    pciReference: 'PCI ER-2020 Community Pharmacy: Patient Counseling[cite: 90, 95, 96].'
   },
 
   // =========================================================================
-  // 8. BIOCHEMISTRY & CLINICAL PATHOLOGY (ER20-23T)
+  // 8. BIOCHEMISTRY & CLINICAL PATHOLOGY (Course Code: ER20-23T)
   // =========================================================================
   {
     id: 'DP-BIO-001',
@@ -712,30 +820,12 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Aspartate' }
     ],
     correctKey: 'B',
-    explanation: 'Essential amino acids (VIP HALL for MTT): Valine, Isoleucine, Phenylalanine, Histidine, Arginine, Leucine, Lysine, Methionine, Threonine, Tryptophan. Alanine, Serine, and Aspartate are non-essential.',
-    clinicalKeyPoint: 'Leucine and Lysine are purely ketogenic amino acids; their degradation yields acetyl-CoA or acetoacetate.',
-    pciReference: 'PCI ER-2020 Biochemistry (ER20-23T): Amino Acid Metabolism.'
+    explanation: 'Essential amino acids (VIP HALL for MTT): Valine, Isoleucine, Phenylalanine, Histidine, Arginine, Leucine, Lysine, Methionine, Threonine, Tryptophan[cite: 103, 186]. Alanine, Serine, and Aspartate are non-essential[cite: 186].',
+    clinicalKeyPoint: 'Leucine and Lysine are purely ketogenic amino acids; their degradation yields acetyl-CoA or acetoacetate[cite: 186].',
+    pciReference: 'PCI ER-2020 Biochemistry (ER20-23T): Amino Acid Metabolism[cite: 100, 103, 152, 186].'
   },
   {
     id: 'DP-BIO-002',
-    subject: 'Biochemistry',
-    topic: 'Qualitative Protein Reactions',
-    bloomTaxonomy: 'Understand',
-    difficulty: 'Medium',
-    question: 'Which biochemical color reaction utilizes a diazotized sulfanilic acid reagent to produce a brilliant red color specifically in the presence of the imidazole ring of Histidine?',
-    options: [
-      { key: 'A', text: 'Millon\'s Test (Phenolic group / Tyrosine)' },
-      { key: 'B', text: 'Pauly\'s Test' },
-      { key: 'C', text: 'Sakaguchi Test (Guanidino group / Arginine)' },
-      { key: 'D', text: 'Biuret Test (Peptide linkage)' }
-    ],
-    correctKey: 'B',
-    explanation: 'Pauly\'s test is specific for the imidazole ring (Histidine) and phenolic groups (Tyrosine) using diazotized sulfanilic acid in alkaline conditions to produce a red azo dye.',
-    clinicalKeyPoint: 'Sakaguchi test uses alpha-naphthol and sodium hypochlorite for arginine; Millon\'s test detects tyrosine.',
-    pciReference: 'PCI ER-2020 Biochemistry: Qualitative Protein Tests.'
-  },
-  {
-    id: 'DP-BIO-003',
     subject: 'Biochemistry',
     topic: 'Nucleic Acid Structure (DNA Geometry)',
     bloomTaxonomy: 'Remember',
@@ -748,31 +838,67 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Pitch = 3.4 Å (0.34 nm); 1 base pair per turn' }
     ],
     correctKey: 'B',
-    explanation: 'B-DNA features a double helix with a diameter of 20 Å (2 nm), a pitch of 34 Å (3.4 nm) containing 10 base pairs per turn, and 3.4 Å between adjacent pairs.',
-    clinicalKeyPoint: 'Base pairing adheres to Chargaff\'s rule: A pairs with T via 2 hydrogen bonds; G pairs with C via 3 hydrogen bonds.',
-    pciReference: 'PCI ER-2020 Biochemistry: Nucleic Acids.'
+    explanation: 'B-DNA features a double helix with a diameter of 20 Å (2 nm), a pitch of 34 Å (3.4 nm) containing 10 base pairs per turn, and 3.4 Å between adjacent pairs[cite: 105, 188].',
+    clinicalKeyPoint: 'Base pairing adheres to Chargaff\'s rule: A pairs with T via 2 hydrogen bonds; G pairs with C via 3 hydrogen bonds[cite: 105, 188].',
+    pciReference: 'PCI ER-2020 Biochemistry: Nucleic Acids[cite: 100, 105, 152, 188].'
+  },
+  {
+    id: 'DP-BIO-003',
+    subject: 'Biochemistry',
+    topic: 'Lipid Classification & Transport',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'Which class of plasma lipoproteins transports cholesterol from peripheral tissues back to the liver for excretion, earning it the clinical designation of "Good Cholesterol"?',
+    options: [
+      { key: 'A', text: 'Chylomicrons' },
+      { key: 'B', text: 'Very Low-Density Lipoproteins (VLDL)' },
+      { key: 'C', text: 'Low-Density Lipoproteins (LDL)' },
+      { key: 'D', text: 'High-Density Lipoproteins (HDL)' }
+    ],
+    correctKey: 'D',
+    explanation: 'High-Density Lipoprotein (HDL) mediates reverse cholesterol transport, removing excess cholesterol from peripheral arterial tissues and returning it to the liver[cite: 104].',
+    clinicalKeyPoint: 'Elevated LDL levels ("bad cholesterol") are atherogenic and directly associated with increased coronary artery disease risk[cite: 104].',
+    pciReference: 'PCI ER-2020 Biochemistry (ER20-23T): Lipid Metabolism[cite: 100, 104, 152].'
   },
   {
     id: 'DP-BIO-004',
     subject: 'Biochemistry',
-    topic: 'Vitamin Ring Chemistry',
+    topic: 'Carbohydrate Metabolism (Glycolysis)',
     bloomTaxonomy: 'Remember',
-    difficulty: 'Hard',
-    question: 'Which heterocyclic ring systems compose the molecular chemical structure of Thiamine (Vitamin B1), whose deficiency precipitates wet or dry Beri-Beri?',
+    difficulty: 'Easy',
+    question: 'In eukaryotic cells, in which cellular compartment does the Embden-Meyerhof glycolytic pathway take place, and what is the net end product under aerobic conditions?',
     options: [
-      { key: 'A', text: 'Isoalloxazine ring' },
-      { key: 'B', text: 'Pyrimidine ring linked to a Thiazole ring' },
-      { key: 'C', text: 'Chromane ring linked to an isoprenoid chain' },
-      { key: 'D', text: 'Pteridine ring linked to PABA' }
+      { key: 'A', text: 'Mitochondrial matrix; Acetyl-CoA' },
+      { key: 'B', text: 'Cytoplasm / Cytosol; Pyruvate' },
+      { key: 'C', text: 'Endoplasmic reticulum; Lactate' },
+      { key: 'D', text: 'Ribosomes; Glucose-6-phosphate' }
     ],
     correctKey: 'B',
-    explanation: 'Thiamine consists of a substituted pyrimidine ring linked via a methylene bridge to a substituted thiazole ring. Its active coenzyme form is Thiamine Pyrophosphate (TPP).',
-    clinicalKeyPoint: 'Riboflavin (B2) contains the isoalloxazine ring; Vitamin E (Tocopherol) contains the chromane ring.',
-    pciReference: 'PCI ER-2020 Biochemistry: Vitamins & Coenzymes.'
+    explanation: 'Glycolysis occurs in the cytosol (cytoplasm) of the cell[cite: 108]. Under aerobic conditions, one mole of glucose is broken down into two moles of pyruvate along with net 2 ATP and 2 NADH[cite: 108].',
+    clinicalKeyPoint: 'The Krebs / TCA cycle and beta-oxidation occur inside the mitochondrial matrix[cite: 108, 109].',
+    pciReference: 'PCI ER-2020 Biochemistry: Carbohydrate Metabolism[cite: 100, 108, 152].'
+  },
+  {
+    id: 'DP-BIO-005',
+    subject: 'Biochemistry',
+    topic: 'Inborn Errors of Amino Acid Metabolism',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Phenylketonuria (PKU) is an autosomal recessive inborn error of amino acid metabolism caused by congenital deficiency of which hepatic enzyme?',
+    options: [
+      { key: 'A', text: 'Homogentisate oxidase' },
+      { key: 'B', text: 'Phenylalanine hydroxylase' },
+      { key: 'C', text: 'Tyrosinase' },
+      { key: 'D', text: 'Branched-chain ketoacid dehydrogenase' }
+    ],
+    correctKey: 'B',
+    explanation: 'Phenylketonuria results from deficiency of phenylalanine hydroxylase, preventing conversion of phenylalanine to tyrosine[cite: 110]. Phenylalanine accumulates into neurotoxic phenylpyruvate and phenyllactate[cite: 110].',
+    clinicalKeyPoint: 'Homogentisate oxidase deficiency causes Alkaptonuria (characterized by urine turning black upon standing)[cite: 110].',
+    pciReference: 'PCI ER-2020 Biochemistry: Amino Acid Metabolism Disorders[cite: 100, 110, 152].'
   },
 
   // =========================================================================
-  // 9. PHARMACOTHERAPEUTICS (ER20-24T)
+  // 9. PHARMACOTHERAPEUTICS (Course Code: ER20-24T)
   // =========================================================================
   {
     id: 'DP-THER-001',
@@ -790,7 +916,7 @@ export const DPHARM_QUESTIONS: Question[] = [
     correctKey: 'B',
     explanation: 'SOAP format: S = Subjective (patient symptoms and history); O = Objective (vital signs, lab values); A = Assessment (clinical problem/diagnosis); P = Plan (interventions, monitoring).',
     clinicalKeyPoint: 'Writing concise SOAP notes is the standard for patient profile reviews and multidisciplinary clinical rounds.',
-    pciReference: 'PCI ER-2020 Pharmacotherapeutics (ER20-24T): Clinical Documentation.'
+    pciReference: 'PCI ER-2020 Pharmacotherapeutics (ER20-24T): Clinical Documentation[cite: 112].'
   },
   {
     id: 'DP-THER-002',
@@ -806,14 +932,14 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Because single agents lack intrinsic antimycobacterial activity' }
     ],
     correctKey: 'B',
-    explanation: 'Mycobacterium tuberculosis undergoes spontaneous chromosomal mutation. Monotherapy rapidly selects for resistant bacilli. Combining 4 agents with distinct mechanisms prevents resistance emergence and eradicates both active and dormant bacilli.',
-    clinicalKeyPoint: 'Ethambutol causes optic neuritis (decreased red-green discrimination); Isoniazid causes peripheral neuropathy (prevented with Pyridoxine/B6).',
-    pciReference: 'PCI ER-2020 Pharmacotherapeutics: Infectious Diseases (Tuberculosis).'
+    explanation: 'Mycobacterium tuberculosis undergoes spontaneous chromosomal mutation. Monotherapy rapidly selects for resistant bacilli[cite: 118, 120]. Combining 4 agents with distinct mechanisms prevents resistance emergence and eradicates active and dormant bacilli[cite: 118, 120].',
+    clinicalKeyPoint: 'Ethambutol causes optic neuritis (decreased red-green discrimination); Isoniazid causes peripheral neuropathy (prevented with Pyridoxine/B6)[cite: 35].',
+    pciReference: 'PCI ER-2020 Pharmacotherapeutics: Infectious Diseases (Tuberculosis)[cite: 112, 118].'
   },
   {
     id: 'DP-THER-003',
     subject: 'Pharmacotherapeutics',
-    topic: 'Respiratory Pharmacotherapy (Asthma vs COPD)',
+    topic: 'Respiratory Pharmacotherapy (Asthma Rescue)',
     bloomTaxonomy: 'Apply',
     difficulty: 'Medium',
     question: 'A 24-year-old patient experiences an acute exacerbation of bronchial asthma with severe wheezing and dyspnea. What is the immediate first-line inhaled rescue agent of choice?',
@@ -824,13 +950,13 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Oral Theophylline sustained-release tablet' }
     ],
     correctKey: 'B',
-    explanation: 'Short-acting beta-2 agonists (SABA) like Salbutamol relax bronchial smooth muscle within 3–5 minutes during an acute asthma attack.',
-    clinicalKeyPoint: 'Inhaled corticosteroids (Fluticasone, Budesonide) are maintenance anti-inflammatory controllers and are ineffective as immediate bronchodilators.',
-    pciReference: 'PCI ER-2020 Pharmacotherapeutics: Respiratory Disorders.'
+    explanation: 'Short-acting beta-2 agonists (SABA) like Salbutamol relax bronchial smooth muscle within 3–5 minutes during an acute asthma attack[cite: 31, 114].',
+    clinicalKeyPoint: 'Inhaled corticosteroids (Fluticasone, Budesonide) are maintenance anti-inflammatory controllers and are ineffective as immediate bronchodilators[cite: 114].',
+    pciReference: 'PCI ER-2020 Pharmacotherapeutics: Respiratory Disorders[cite: 112, 114].'
   },
 
   // =========================================================================
-  // 10. HOSPITAL AND CLINICAL PHARMACY (ER20-25T)
+  // 10. HOSPITAL AND CLINICAL PHARMACY (Course Code: ER20-25T)
   // =========================================================================
   {
     id: 'DP-HOSP-001',
@@ -847,8 +973,8 @@ export const DPHARM_QUESTIONS: Question[] = [
     ],
     correctKey: 'B',
     explanation: 'Tall Man lettering uses capitalized letters for differentiating syllables (e.g., DOPamine vs DOBUTamine), visually distinguishing look-alike medication names.',
-    clinicalKeyPoint: 'High-alert medications require independent double-checks prior to hospital dispensing and administration.',
-    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy (ER20-25T): Medication Safety.'
+    clinicalKeyPoint: 'High-alert medications require independent double-checks prior to hospital dispensing and administration[cite: 126, 127].',
+    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy (ER20-25T): Medication Safety[cite: 123, 152].'
   },
   {
     id: 'DP-HOSP-002',
@@ -864,9 +990,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Hospital Grievance Redressal Board; Quality Manager' }
     ],
     correctKey: 'B',
-    explanation: 'The Pharmacy and Therapeutics Committee (PTC) manages formulary drugs, ADR monitoring, and medication use policies. The hospital pharmacist serves as Member Secretary.',
-    clinicalKeyPoint: 'The PTC evaluates drugs using evidence-based parameters: efficacy, safety, quality, and pharmacoeconomic cost-effectiveness.',
-    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Hospital Committees.'
+    explanation: 'The Pharmacy and Therapeutics Committee (PTC) manages formulary drugs, ADR monitoring, and medication use policies[cite: 125, 192]. The hospital pharmacist serves as Member Secretary[cite: 125].',
+    clinicalKeyPoint: 'The PTC evaluates drugs using evidence-based parameters: efficacy, safety, quality, and pharmacoeconomic cost-effectiveness[cite: 125, 192].',
+    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Hospital Committees[cite: 123, 125, 152, 192].'
   },
   {
     id: 'DP-HOSP-003',
@@ -882,9 +1008,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Pure aluminum foil layers' }
     ],
     correctKey: 'C',
-    explanation: 'Alpha particles are stopped by paper; beta particles are attenuated by plastic/aluminum. High-frequency gamma and X-rays require high-density lead bricks or concrete shielding.',
-    clinicalKeyPoint: 'Disposal of radioactive hospital waste is regulated under the Atomic Energy Regulatory Board (AERB) and BARC guidelines.',
-    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Radiopharmaceuticals.'
+    explanation: 'Alpha particles are stopped by paper; beta particles are attenuated by plastic/aluminum[cite: 193]. High-frequency gamma and X-rays require high-density lead bricks or concrete shielding[cite: 129, 193].',
+    clinicalKeyPoint: 'Disposal of radioactive hospital waste is regulated under Atomic Energy Regulatory Board (AERB) and BARC guidelines[cite: 129].',
+    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Radiopharmaceuticals[cite: 123, 129, 152, 193].'
   },
   {
     id: 'DP-HOSP-004',
@@ -900,13 +1026,49 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'White translucent puncture-proof container (sharps/needles)' }
     ],
     correctKey: 'B',
-    explanation: 'Yellow containers are dedicated to anatomical waste, pathological specimens, soiled dressings, expired cytotoxic drugs, and blood bags for incineration or plasma pyrolysis.',
-    clinicalKeyPoint: 'Needles and scalpel blades go into white puncture-proof containers; recyclable tubing/catheters go into red bags.',
-    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Biomedical Waste Management.'
+    explanation: 'Yellow containers are dedicated to anatomical waste, pathological specimens, soiled dressings, expired cytotoxic drugs, and blood bags for incineration or plasma pyrolysis[cite: 127, 144].',
+    clinicalKeyPoint: 'Needles and scalpel blades go into white puncture-proof containers; recyclable tubing/catheters go into red bags[cite: 145].',
+    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Biomedical Waste Management[cite: 123, 127, 144, 153].'
+  },
+  {
+    id: 'DP-HOSP-005',
+    subject: 'Hospital Pharmacy',
+    topic: 'Hospital Accreditation Standards (NABH)',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Medium',
+    question: 'The National Accreditation Board for Hospitals and Healthcare Providers (NABH) is a constituent board operating under which apex quality organization in India?',
+    options: [
+      { key: 'A', text: 'Medical Council of India (NMC)' },
+      { key: 'B', text: 'Quality Council of India (QCI)' },
+      { key: 'C', text: 'Central Drugs Standard Control Organization (CDSCO)' },
+      { key: 'D', text: 'Indian Council of Medical Research (ICMR)' }
+    ],
+    correctKey: 'B',
+    explanation: 'NABH is a constituent board of the Quality Council of India (QCI), established to develop and implement healthcare accreditation programs for hospitals across India[cite: 191].',
+    clinicalKeyPoint: 'NABH Hospital Standards (5th Edition) contain 10 chapters incorporating 100 standards and 651 objective elements[cite: 191].',
+    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy (ER20-25T): Hospital Standards & NABH[cite: 123, 124, 152, 191].'
+  },
+  {
+    id: 'DP-HOSP-006',
+    subject: 'Hospital Pharmacy',
+    topic: 'Inpatient Drug Distribution Systems',
+    bloomTaxonomy: 'Understand',
+    difficulty: 'Medium',
+    question: 'Which inpatient medication distribution method provides individually packaged, barcoded, single-dose medications labeled for each specific patient for a 24-hour cycle, minimizing hospital medication errors?',
+    options: [
+      { key: 'A', text: 'Floor Stock System' },
+      { key: 'B', text: 'Unit Dose Dispensing System (UDDS)' },
+      { key: 'C', text: 'Individual Prescription Order (outpatient style)' },
+      { key: 'D', text: 'Emergency Drug Basket Method' }
+    ],
+    correctKey: 'B',
+    explanation: 'The Unit Dose Dispensing System (UDDS) provides each dose in a ready-to-administer package labeled with drug name, strength, batch, and expiry[cite: 128]. It has the lowest incidence of medication errors[cite: 128].',
+    clinicalKeyPoint: 'The complete floor stock system carries the highest risk of medication wastage, pilferage, and administration error[cite: 128].',
+    pciReference: 'PCI ER-2020 Hospital & Clinical Pharmacy: Drug Distribution Systems[cite: 123, 128, 152].'
   },
 
   // =========================================================================
-  // 11. PHARMACY LAW AND ETHICS (ER20-26T)
+  // 11. PHARMACY LAW AND ETHICS (Course Code: ER20-26T)
   // =========================================================================
   {
     id: 'DP-LAW-001',
@@ -922,9 +1084,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Schedule P' }
     ],
     correctKey: 'B',
-    explanation: 'Schedule M prescribes GMP standards for pharmaceutical factory premises, quality systems, and manufacturing equipment.',
-    clinicalKeyPoint: 'Schedule M1 details GMP for homeopathic medicines; Schedule M2 covers cosmetics; Schedule M3 applies to medical devices.',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics (ER20-26T): Drugs & Cosmetics Act 1940.'
+    explanation: 'Schedule M prescribes GMP standards for pharmaceutical factory premises, quality systems, and manufacturing equipment[cite: 137, 196].',
+    clinicalKeyPoint: 'Schedule M1 details GMP for homeopathic medicines; Schedule M2 covers cosmetics; Schedule M3 applies to medical devices[cite: 196].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics (ER20-26T): Drugs & Cosmetics Act 1940[cite: 134, 137, 153, 196].'
   },
   {
     id: 'DP-LAW-002',
@@ -940,9 +1102,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Prescriptions may be refilled indefinitely without a fresh medical order' }
     ],
     correctKey: 'B',
-    explanation: 'Schedule X psychotropics must be dispensed on duplicate prescriptions, with the pharmacist retaining one copy for 2 years. Outer packaging must display an "XRx" symbol in red.',
-    clinicalKeyPoint: 'Schedule X inventory must be stored in a separate, double-locked steel cupboard within the pharmacy.',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Schedule X Regulations.'
+    explanation: 'Schedule X psychotropics must be dispensed on duplicate prescriptions, with the pharmacist retaining one copy for 2 years[cite: 92, 137]. Outer packaging must display an "XRx" symbol in red[cite: 92].',
+    clinicalKeyPoint: 'Schedule X inventory must be stored in a separate, double-locked steel cupboard within the pharmacy[cite: 128].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Schedule X Regulations[cite: 92, 134, 137].'
   },
   {
     id: 'DP-LAW-003',
@@ -958,9 +1120,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: '100 hours; 15th August every year' }
     ],
     correctKey: 'B',
-    explanation: 'The Pharmacy Act requires D.Pharm students to complete 500 hours of practical training over at least 3 months. Annual registration renewal fees must be paid before December 31st.',
-    clinicalKeyPoint: 'The Central Register of Pharmacists is maintained by the Pharmacy Council of India (PCI).',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Pharmacy Act 1948.'
+    explanation: 'The Pharmacy Act requires D.Pharm students to complete 500 hours of practical training over at least 3 months[cite: 135, 204]. Annual registration renewal fees must be paid before December 31st[cite: 136].',
+    clinicalKeyPoint: 'The Central Register of Pharmacists is maintained by the Pharmacy Council of India (PCI)[cite: 135].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Pharmacy Act 1948[cite: 134, 135, 153].'
   },
   {
     id: 'DP-LAW-004',
@@ -976,9 +1138,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Manufacturer notifications regarding product batch recalls' }
     ],
     correctKey: 'A',
-    explanation: 'The Act prohibits misleading advertisements claiming false cures or talismanic magic remedies for conditions specified in the schedule, including cancer, diabetes, and epilepsy.',
-    clinicalKeyPoint: 'First conviction carries up to 6 months imprisonment; subsequent convictions carry up to 1 year.',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Magic Remedies Act 1954.'
+    explanation: 'The Act prohibits misleading advertisements claiming false cures or talismanic magic remedies for conditions specified in the schedule, including cancer, diabetes, and epilepsy[cite: 141].',
+    clinicalKeyPoint: 'First conviction carries up to 6 months imprisonment; subsequent convictions carry up to 1 year[cite: 141].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Magic Remedies Act 1954[cite: 134, 141, 153, 194].'
   },
   {
     id: 'DP-LAW-005',
@@ -994,9 +1156,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'The mature dried seeds only' }
     ],
     correctKey: 'B',
-    explanation: 'Ganja is legally defined as the flowering or fruiting tops of Cannabis sativa, excluding seeds and leaves when not accompanied by tops. Separated resin is classified as Charas.',
-    clinicalKeyPoint: 'Administered at the central level by the Narcotics Control Bureau (NCB).',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: NDPS Act 1985.'
+    explanation: 'Ganja is legally defined as the flowering or fruiting tops of Cannabis sativa, excluding seeds and leaves when not accompanied by tops[cite: 140]. Separated resin is classified as Charas[cite: 140].',
+    clinicalKeyPoint: 'Administered at the central level by the Narcotics Control Bureau (NCB)[cite: 140].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: NDPS Act 1985[cite: 134, 140, 153].'
   },
   {
     id: 'DP-LAW-006',
@@ -1012,9 +1174,9 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'The Consumer Protection Act, 2019' }
     ],
     correctKey: 'B',
-    explanation: 'The DPCO is issued by the Central Government under Section 3 of the Essential Commodities Act, 1955, authorizing the NPPA to establish price ceilings on essential drugs.',
+    explanation: 'The DPCO is issued by the Central Government under Section 3 of the Essential Commodities Act, 1955, authorizing the NPPA to establish price ceilings on essential drugs[cite: 142].',
     clinicalKeyPoint: 'MAPE (Maximum Allowable Post-manufacturing Expenses) in retail price calculations is capped at 100%.',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: DPCO & NPPA.'
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: DPCO & NPPA[cite: 134, 142, 153].'
   },
   {
     id: 'DP-LAW-007',
@@ -1030,9 +1192,63 @@ export const DPHARM_QUESTIONS: Question[] = [
       { key: 'D', text: 'Corporate Legal Counsel' }
     ],
     correctKey: 'B',
-    explanation: 'Drug Inspectors appointed under Section 21 of the D&C Act 1940 are deemed Public Servants within the meaning of Section 21 of the IPC, protecting them during lawful inspections.',
-    clinicalKeyPoint: 'Obstructing a Drug Inspector in discharge of official duty is a punishable penal offense.',
-    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Government Regulatory Bodies.'
+    explanation: 'Drug Inspectors appointed under Section 21 of the D&C Act 1940 are deemed Public Servants within the meaning of Section 21 of the IPC, protecting them during lawful inspections[cite: 139, 146].',
+    clinicalKeyPoint: 'Obstructing a Drug Inspector in discharge of official duty is a punishable penal offense[cite: 139, 146].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: Government Regulatory Bodies[cite: 134, 139, 146, 153].'
+  },
+  {
+    id: 'DP-LAW-008',
+    subject: 'Pharmacy Law & Ethics',
+    topic: 'Medical Termination of Pregnancy (MTP) Act',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Medium',
+    question: 'Under the amended Medical Termination of Pregnancy (MTP) Act, up to what gestational age is therapeutic termination of pregnancy legally permitted for special categories of women (including rape survivors and fetal abnormalities)?',
+    options: [
+      { key: 'A', text: '12 weeks' },
+      { key: 'B', text: '20 weeks' },
+      { key: 'C', text: '24 weeks' },
+      { key: 'D', text: '28 weeks' }
+    ],
+    correctKey: 'C',
+    explanation: 'Under the MTP Amendment Act, the upper gestational limit for termination of pregnancy was extended from 20 weeks to 24 weeks for defined categories of vulnerable women[cite: 144].',
+    clinicalKeyPoint: 'Terminations up to 20 weeks require the opinion of one registered medical practitioner; 20–24 weeks requires the opinion of two registered medical practitioners.',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics (ER20-26T): MTP Act & Rules[cite: 134, 144, 153].'
+  },
+  {
+    id: 'DP-LAW-009',
+    subject: 'Pharmacy Law & Ethics',
+    topic: 'Food Safety and Standards Act (FSSAI)',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Medium',
+    question: 'Under the Food Safety and Standards Act 2006, what is the mandatory composition requirement regarding female representation among the nominated members of the Food Authority (FSSAI)?',
+    options: [
+      { key: 'A', text: 'At least 50% must be women' },
+      { key: 'B', text: 'At least one-third (1/3rd) of the 22 members shall be women' },
+      { key: 'C', text: 'No statutory gender reservation is defined' },
+      { key: 'D', text: 'At least 2 female scientists from ICMR' }
+    ],
+    correctKey: 'B',
+    explanation: 'The Food Safety and Standards Act specifies that the Food Authority shall consist of a Chairperson and 22 members, out of which at least one-third (1/3rd) shall be women[cite: 196].',
+    clinicalKeyPoint: 'FSSAI headquarters is in New Delhi, with 6 regional offices located in Delhi, Mumbai, Kolkata, Chennai, Guwahati, and Cochin[cite: 196].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: FSSAI Act and Rules[cite: 134, 142, 153, 196].'
+  },
+  {
+    id: 'DP-LAW-010',
+    subject: 'Pharmacy Law & Ethics',
+    topic: 'Historical Pharmaceutical Enquiry Committees',
+    bloomTaxonomy: 'Remember',
+    difficulty: 'Easy',
+    question: 'Which landmark committee was appointed by the Government of India in 1930 to investigate drug adulteration and recommend pharmaceutical legislation, leading to the enactment of the Drugs and Cosmetics Act 1940?',
+    options: [
+      { key: 'A', text: 'Bhore Committee' },
+      { key: 'B', text: 'Chopra Committee (Drugs Enquiry Committee)' },
+      { key: 'C', text: 'Bhatia Committee' },
+      { key: 'D', text: 'Hathi Committee' }
+    ],
+    correctKey: 'B',
+    explanation: 'The Drugs Enquiry Committee was appointed in 1930 under the chairmanship of Col. R. N. Chopra (Father of Indian Pharmacology)[cite: 161, 194]. Its recommendations formed the basis for the Drugs and Cosmetics Act of 1940[cite: 194].',
+    clinicalKeyPoint: 'The Health Survey and Development Committee was headed by Sir Joseph Bhore in 1943; the Hathi Committee was appointed in 1974[cite: 194].',
+    pciReference: 'PCI ER-2020 Pharmacy Law & Ethics: History of Pharmaceutical Legislation in India[cite: 134, 153, 194].'
   }
 ];
 
@@ -1042,7 +1258,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-11T',
     icon: 'Pill',
     description: 'Unit operations, ball mill dynamics, size separation, IP sieve numbers, tablet coating defects & packaging science.',
-    questionCount: 50,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Pharmaceutics').length,
     passRate: '86% Pass Rate'
   },
   {
@@ -1050,7 +1266,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-12T',
     icon: 'FlaskConical',
     description: 'Limit tests (Fe, As, Cl), volumetric/diazotization titrations, Hantzsch-Widman nomenclature & medicinal SAR.',
-    questionCount: 45,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Pharmaceutical Chemistry').length,
     passRate: '79% Pass Rate'
   },
   {
@@ -1058,7 +1274,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-13T',
     icon: 'Leaf',
     description: 'Mayer/Wagner/Dragendorff reagents, Thalleioquin test, Keller-Kiliani reaction, Saptadhatu & surgical sutures.',
-    questionCount: 42,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Pharmacognosy').length,
     passRate: '89% Pass Rate'
   },
   {
@@ -1066,7 +1282,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-14T',
     icon: 'Heart',
     description: 'Cardiac cycle, stroke volume math, blood coagulation cascade (Factors I-XIII), nephron reabsorption & endocrinology.',
-    questionCount: 38,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Human Anatomy').length,
     passRate: '88% Pass Rate'
   },
   {
@@ -1074,7 +1290,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-15T',
     icon: 'Users',
     description: 'Tiers of prevention, vaccine types (Salk vs Sabin), pharmacoeconomics (QALYs, CUA) & deficiency syndromes.',
-    questionCount: 35,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Social Pharmacy').length,
     passRate: '92% Pass Rate'
   },
   {
@@ -1082,7 +1298,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-21T',
     icon: 'Activity',
     description: 'Paracetamol antidote, MARPHINE CVS mnemonic, absence seizure T-currents, adrenaline in anaphylaxis & Phase 0 trials.',
-    questionCount: 55,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Pharmacology').length,
     passRate: '82% Pass Rate'
   },
   {
@@ -1090,7 +1306,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-22T',
     icon: 'HeartPulse',
     description: 'FEFO stock rotation, Reorder Level calculation math, cold chain (+2°C to +8°C) & Teach-Back counseling.',
-    questionCount: 40,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Community Pharmacy').length,
     passRate: '88% Pass Rate'
   },
   {
@@ -1098,7 +1314,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-23T',
     icon: 'Atom',
     description: 'VIP HALL for MTT amino acid mnemonic, Pauly\'s test, Watson-Crick B-DNA geometry & vitamin ring structures.',
-    questionCount: 38,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Biochemistry').length,
     passRate: '85% Pass Rate'
   },
   {
@@ -1106,7 +1322,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-24T',
     icon: 'Stethoscope',
     description: 'SOAP case documentation, HRZE rationale in tuberculosis & acute asthma rescue protocols.',
-    questionCount: 40,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Pharmacotherapeutics').length,
     passRate: '83% Pass Rate'
   },
   {
@@ -1114,7 +1330,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-25T',
     icon: 'Building2',
     description: 'Tall Man lettering for LASA drugs, PTC formulary governance, gamma radiation lead shielding & BMW color bins.',
-    questionCount: 36,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Hospital Pharmacy').length,
     passRate: '87% Pass Rate'
   },
   {
@@ -1122,7 +1338,7 @@ export const PCI_SUBJECT_SUMMARY = [
     code: 'ER20-26T',
     icon: 'Scale',
     description: 'Schedule M GMP parts, Schedule X duplicate rules, Pharmacy Act 500 hrs, NDPS Ganja definition & DPCO / NPPA.',
-    questionCount: 48,
+    questionCount: DPHARM_QUESTIONS.filter(q => q.subject === 'Pharmacy Law & Ethics').length,
     passRate: '91% Pass Rate'
   }
 ];
